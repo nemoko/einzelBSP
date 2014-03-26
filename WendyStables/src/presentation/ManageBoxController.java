@@ -69,6 +69,13 @@ public class ManageBoxController implements Initializable {
     private Label e_daily_positive;
     @FXML
     private Label e_size_positive;
+    @FXML
+    private Label e_filter_failed;
+    @FXML
+    private Label filter_applied;
+    @FXML
+    private Label e_filter_criteria;
+
 
     @FXML
     public void removeSuccessMessage() {
@@ -90,18 +97,18 @@ public class ManageBoxController implements Initializable {
         String exception = "";
 
         try {
-            b.setDailyRate(Integer.parseInt(tf_daily_rate.getText()));
-            e_daily.setVisible(false);
             e_daily_positive.setVisible(false);
+            e_daily.setVisible(false);
+            b.setDailyRate(Integer.parseInt(tf_daily_rate.getText()));
             if(Integer.signum(Integer.parseInt(tf_daily_rate.getText())) == -1) e_daily_positive.setVisible(true);
         } catch (Exception e) {
             exception += "0";
         }
 
         try {
-            b.setSize(Integer.parseInt(tf_size.getText()));
-            e_size.setVisible(false);
             e_size_positive.setVisible(false);
+            e_size.setVisible(false);
+            b.setSize(Integer.parseInt(tf_size.getText()));
             if(Integer.signum(Integer.parseInt(tf_size.getText())) == -1) e_size_positive.setVisible(true);
         } catch (Exception e) {
             exception += "1";
@@ -109,19 +116,19 @@ public class ManageBoxController implements Initializable {
 
         e_floor.setVisible(false);
 
-        if(floor_type == null) exception += "2";
+        if(floor_type == null || floor_type.isEmpty()) exception += "2";
         else b.setFloor(floor_type);
 
         try {
-            b.setWindow(ch_window.isSelected());
             e_window.setVisible(false);
+            b.setWindow(ch_window.isSelected());
         } catch (Exception e) {
             exception += "3";
         }
 
         try {
-            b.setOutside(ch_outside.isSelected());
             e_outside.setVisible(false);
+            b.setOutside(ch_outside.isSelected());
         } catch (Exception e) {
             exception += "4";
         }
@@ -154,6 +161,15 @@ public class ManageBoxController implements Initializable {
         ch_window.setDisable(false);
         ch_outside.setSelected(false);
         ch_outside.setDisable(false);
+        e_daily.setVisible(false);
+        e_size.setVisible(false);
+        e_floor.setVisible(false);
+        e_window.setVisible(false);
+        e_outside.setVisible(false);
+        e_daily_positive.setVisible(false);
+        e_size_positive.setVisible(false);
+        b_update.setDisable(true);
+        b_delete.setDisable(true);
     }
 
     @FXML
@@ -175,21 +191,62 @@ public class ManageBoxController implements Initializable {
 
         ObservableList<Box> olist = null;
 
-        try {
-//            if(filter_id_value != null && !filter_id_value.trim().equals("")) {
-//                try {
-//                    b.setId(Integer.parseInt(filter_id_value));
-//                    error_filter_id.setVisible(false);
-//                } catch (Exception e) {
-//                    error_filter_id.setVisible(true);
-//                }
-//            }
+        String exception = "";
 
+        try {
+            e_daily_positive.setVisible(false);
+            e_daily.setVisible(false);
+
+            if(!tf_daily_rate.getText().isEmpty()) {
+                if(Integer.signum(Integer.parseInt(tf_daily_rate.getText())) == -1) e_daily_positive.setVisible(true);
+                b.setDailyRate(Integer.parseInt(tf_daily_rate.getText()));
+            }
+        } catch (Exception e) {
+            exception += "0";
+        }
+
+        try {
+            e_size_positive.setVisible(false);
+            e_size.setVisible(false);
+
+            if(!tf_size.getText().isEmpty()) {
+                if(Integer.signum(Integer.parseInt(tf_size.getText())) == -1) e_size_positive.setVisible(true);
+                b.setSize(Integer.parseInt(tf_size.getText()));
+            }
+        } catch (Exception e) {
+            exception += "1";
+        }
+
+        e_floor.setVisible(false);
+
+        if(floor_type == null || floor_type.isEmpty()) exception += "2";
+        else b.setFloor(floor_type);
+
+        e_window.setVisible(false);
+        b.setWindow(ch_window.isSelected());
+        if(ch_window.isSelected()) exception += "3";
+
+        e_outside.setVisible(false);
+        b.setOutside(ch_outside.isSelected());
+        if(ch_outside.isSelected()) exception += "4";
+
+        b.setPicURL("");
+
+        if(exception.contains("0")) e_daily.setVisible(true);
+        if(exception.contains("1")) e_size.setVisible(true);
+
+        if(exception.contains("01234")) e_filter_criteria.setVisible(true);
+
+        if(!exception.isEmpty() || e_daily_positive.isVisible() || e_size_positive.isVisible()) return;
+
+        try {
             olist = BoxServiceImpl.initialize().find(b);
             tabulka.setItems(olist);
+            filter_applied.setVisible(true);
         } catch (Exception e) {
             logger.info("Exception refreshing table");
             e.printStackTrace();
+            e_filter_failed.setVisible(true);
         }
     }
 
@@ -205,7 +262,7 @@ public class ManageBoxController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        b_filter.setDisable(true);
+        b_filter.setDisable(false);
         b_create.setDisable(false);
         b_update.setDisable(true);
         b_delete.setDisable(true);
@@ -223,16 +280,15 @@ public class ManageBoxController implements Initializable {
         BoxService bx = BoxServiceImpl.initialize();
 
         ObservableList<Box> ob = bx.find(b);
-
-        tabulka.setItems(bx.find(b));
+        tabulka.setItems(ob);
 
         initializeTable();
     }
 
     public void initializeTable() {
-        TableColumn<Box, Integer> id = new TableColumn<Box,Integer>("ID");
-        id.setMinWidth(60);
-        id.setCellValueFactory(new PropertyValueFactory<Box, Integer>("id"));
+//        TableColumn<Box, Integer> id = new TableColumn<Box,Integer>("ID");
+//        id.setMinWidth(60);
+//        id.setCellValueFactory(new PropertyValueFactory<Box, Integer>("id"));
 
         TableColumn<Box, Integer> dailyrate = new TableColumn<Box,Integer>("Daily Rate");
         dailyrate.setMinWidth(90);
@@ -258,7 +314,7 @@ public class ManageBoxController implements Initializable {
         outside.setMinWidth(60);
         outside.setCellValueFactory(new PropertyValueFactory<Box, Integer>("outside"));
 
-        tabulka.getColumns().addAll(id,picURL,dailyrate,size,floor,window,outside);
+        tabulka.getColumns().addAll(picURL,dailyrate,size,floor,window,outside);
     }
 
     @FXML

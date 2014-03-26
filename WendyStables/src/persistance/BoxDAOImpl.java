@@ -73,31 +73,36 @@ public class BoxDAOImpl implements BoxDAO {
     public ObservableList<Box> find(Box b) {
         ObservableList<Box> olist = FXCollections.observableArrayList();
         String query = "select * from box ";
-        String where = "";
+        String where = "WHERE ";
 
-        if(b.getId() != null) {
-            where = "WHERE ID = " + b.getId() + ";";
-        }
+        if(b.getDailyRate() != null) where += "dailyrate = '" + b.getDailyRate() + "' AND ";
+        if(b.getSize() != null) where += "size = '" + b.getSize() + "' AND ";
+        if(b.getFloor() != null && !b.getFloor().isEmpty()) where += "floor = '" + b.getFloor() + "' AND ";
+        if(b.isWindow() != null) where += "window = '" + b.isWindow() + "' AND ";
+        if(b.isOutside() != null) where += "outside = '" + b.isOutside() + "' AND ";
+
+        where += "DELETED = FALSE;";
+
+        String temp = query + where;
 
         try {
-            PreparedStatement ps = c.prepareStatement(query + where);
+            PreparedStatement ps = c.prepareStatement(temp);
             ResultSet rset = ps.executeQuery();
 
             while(rset.next()) {
                 Box box = new Box();
 
-                if(!rset.getBoolean("deleted")) {
-                    box.setId(rset.getInt("id"));
-                    box.setDailyRate(rset.getInt("dailyrate"));
-                    box.setPicURL(rset.getString("picurl"));
-                    box.setSize(rset.getInt("size"));
-                    box.setFloor(rset.getString("floor"));
-                    box.setWindow(rset.getBoolean("window"));
-                    box.setOutside(rset.getBoolean("outside"));
-                    box.setDeleted(rset.getBoolean("deleted"));
+                box.setId(rset.getInt("id"));
+                box.setDailyRate(rset.getInt("dailyrate"));
+                box.setPicURL(rset.getString("picurl"));
+                box.setSize(rset.getInt("size"));
+                box.setFloor(rset.getString("floor"));
+                box.setWindow(rset.getBoolean("window"));
+                box.setOutside(rset.getBoolean("outside"));
+                box.setDeleted(rset.getBoolean("deleted"));
 
-                    olist.add(box);
-                }
+                olist.add(box);
+
             }
         } catch (SQLException e) {
             logger.info("exception during box find statement");

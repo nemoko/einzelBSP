@@ -200,6 +200,9 @@
                     <Label id="box_created" fx:id="box_updated" font="$x2" layoutX="239.0" layoutY="7.0" onMouseMoved="#removeSuccessMessage" text="A Box was updated" textFill="$x3" visible="false" />
                     <Label id="box_created" fx:id="box_deleted" font="$x2" layoutX="239.0" layoutY="7.0" onMouseMoved="#removeSuccessMessage" text="A Box was deleted" textFill="$x3" visible="false" />
                     <Label id="box_created" fx:id="e_failed" disable="false" font="$x2" layoutX="231.0" layoutY="11.0" onMouseMoved="#removeSuccessMessage" text="Box creation failed!" textFill="RED" visible="false" />
+                    <Label id="box_created" fx:id="e_filter_failed" disable="false" font="$x2" layoutX="251.0" layoutY="6.0" onMouseMoved="#removeSuccessMessage" text="Nothing to filter!" textFill="RED" visible="false" />
+                    <Label id="box_created" fx:id="filter_applied" disable="false" font="$x2" layoutX="263.0" layoutY="3.0" onMouseMoved="#removeSuccessMessage" text="Filter applied" textFill="#0c9900" visible="false" />
+                    <Label id="box_created" fx:id="e_filter_criteria" disable="false" font="$x2" layoutX="199.0" layoutY="6.0" onMouseMoved="#removeSuccessMessage" text="No filter criteria entered" textFill="RED" visible="false" />
                   </children>
                 </Pane>
               </children>
