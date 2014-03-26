@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?scenebuilder-stylesheet application.css?>
 
-<AnchorPane prefHeight="589.0" prefWidth="498.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.MainFrameController">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.MainFrameController">
   <!-- TODO Add Nodes -->
   <children>
     <Label layoutX="36.0" layoutY="48.0" text="Size:" />
@@ -18,11 +18,17 @@
     <TextField fx:id="tf_box_dailyRate" layoutX="101.0" layoutY="150.0" prefWidth="200.0" />
     <Label id="" layoutX="14.0" layoutY="185.0" text="Straw Floor:" />
     <TextField fx:id="tf_box_strawFloor" layoutX="101.0" layoutY="182.0" prefWidth="200.0" />
-    <Label id="" layoutX="20.0" layoutY="282.0" text="Delete:" />
+    <Label id="" layoutX="475.0" layoutY="51.0" text="Delete:" />
     <CheckBox fx:id="cb_box_window" layoutX="32.0" layoutY="88.0" mnemonicParsing="false" text="Window" />
     <CheckBox fx:id="cb_box_outside" layoutX="120.0" layoutY="88.0" mnemonicParsing="false" text="Outside" />
-    <Button layoutX="317.0" layoutY="223.0" mnemonicParsing="false" onAction="#onSaveBoxClicked" text="Save" />
-    <TextField fx:id="tf_box_delete" layoutX="101.0" layoutY="279.0" prefWidth="200.0" />
-    <Button layoutX="312.0" layoutY="308.0" mnemonicParsing="false" onAction="#onDeleteBoxClicked" text="Delete" />
+    <Button layoutX="240.0" layoutY="222.0" mnemonicParsing="false" onAction="#onSaveBoxClicked" text="Save" />
+    <TextField fx:id="tf_box_delete" layoutX="553.0" layoutY="48.0" prefWidth="200.0" />
+    <Button layoutX="688.0" layoutY="83.0" mnemonicParsing="false" onAction="#onDeleteBoxClicked" text="Delete" />
+    <Label id="" layoutX="58.0" layoutY="579.0" text="boxID:" />
+    <Label id="" layoutX="20.0" layoutY="617.0" text="ReservationID:" />
+    <TextField fx:id="tf_box_ID" layoutX="120.0" layoutY="576.0" prefWidth="200.0" />
+    <TextField fx:id="tf_box_reservationID" layoutX="120.0" layoutY="614.0" prefWidth="200.0" />
+    <Button layoutX="716.0" layoutY="566.0" mnemonicParsing="false" onAction="#onReserveBoxClicked" text="Reserve" />
+    <ListView fx:id="list" layoutX="45.0" layoutY="254.0" onMouseClicked="#mouseClick" prefHeight="293.0" prefWidth="760.0" />
   </children>
 </AnchorPane>

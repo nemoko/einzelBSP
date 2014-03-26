@@ -1,10 +1,10 @@
 package service.impl;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
 import entity.Box;
 
@@ -23,8 +23,8 @@ public class BoxServiceImpl implements BoxService {
             Connection c = DriverManager.getConnection(url, usr, pw);
 
             createStmt = c.prepareStatement("INSERT INTO box(dailyrate, picurl, size, floor, window, outside) VALUES (?, ?, ?, ?, ?, ?)");
-            findStmt   = c.prepareStatement("SELECT * FROM box WHERE reservationid = ?");
-//      updateStmt = ;
+            findStmt   = c.prepareStatement("SELECT * FROM box");
+            updateStmt = c.prepareStatement("UPDATE box set reservationID = ? WHERE id = ?");
             deleteStmt = c.prepareStatement("UPDATE box set deleted = true WHERE id = ?");
 
         } catch (Exception e) {
@@ -55,14 +55,44 @@ public class BoxServiceImpl implements BoxService {
     }
 
     @Override
-    public List<Box> find(Box b) {
-        // TODO Auto-generated method stub
-        return null;
+    public ObservableList<Box> find() {
+        ObservableList<Box> olist = FXCollections.observableArrayList();
+
+        try {
+            ResultSet rset = findStmt.executeQuery();
+            while(rset.next()) {
+                Box b = new Box();
+                b.setId(rset.getInt("id"));
+                b.setReservationID(rset.getInt("reservationid"));
+                b.setDailyRate(rset.getInt("dailyrate"));
+                b.setPicURL(rset.getString("picurl"));
+                b.setSize(rset.getInt("size"));
+                b.setFloor(rset.getString("floor"));
+                b.setWindow(rset.getBoolean("window"));
+                b.setOutside(rset.getBoolean("outside"));
+                b.setDeleted(rset.getBoolean("deleted"));
+
+                olist.add(b);
+            }
+        } catch (SQLException e) {
+            logger.info("exception during box find statement");
+            e.printStackTrace();
+        }
+        return olist;
     }
 
     @Override
     public void update(Box b) {
-        // TODO Auto-generated method stub
+        logger.info("reservation created");
+
+        try {
+            updateStmt.setInt(1, b.getReservationID());
+            updateStmt.setInt(2, b.getId());
+            updateStmt.executeUpdate();
+        } catch (SQLException e) {
+            logger.info("reservation failed");
+            e.printStackTrace();
+        }
     }
 
     @Override

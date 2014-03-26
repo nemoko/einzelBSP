@@ -1,17 +1,24 @@
 package application;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import org.apache.log4j.Logger;
 
+import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 import entity.*;
 import service.impl.*;
 
-public class MainFrameController {
+public class MainFrameController implements Initializable {
 
     private static final String db_URL = "jdbc:hsqldb:hsql://localhost:9001/xdb";
     private static final String db_USR = "SA";
@@ -23,6 +30,10 @@ public class MainFrameController {
     private static final ReservationService reservationService = new ReservationServiceImpl(db_URL,db_USR,db_PWD);
     private static final ReceiptService receiptService = new ReceiptServiceImpl(db_URL,db_USR,db_PWD);
 
+    @FXML
+    private Box clicked;
+    @FXML
+    private ListView<Box> list;
     @FXML
     private TextField tf_box_size;
     @FXML
@@ -38,6 +49,10 @@ public class MainFrameController {
     @FXML
     private TextField tf_box_floor;
     @FXML
+    private TextField tf_box_ID;
+    @FXML
+    private TextField tf_box_reservationID;
+    @FXML
     private TextField tf_rec_dailyRate;
     @FXML
     private TextField tf_rec_totalCharge;
@@ -49,6 +64,11 @@ public class MainFrameController {
     private TextField tf_res_start;
     @FXML
     private TextField tf_res_end;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        list.setItems(boxService.find());
+    }
 
     @FXML
 	private void onSaveBoxClicked() throws SQLException {
@@ -67,15 +87,26 @@ public class MainFrameController {
 	}
 
     @FXML
-    private void onSaveReceiptClicked() throws SQLException {
-        logger.info("saveReceiptButtonClicked");
+    private void onReserveBoxClicked() throws SQLException {
+        logger.info("onReserveBoxClicked");
 
-        Receipt r = new Receipt();
+        Box b = new Box();
 
-        r.setDailyRate(Integer.parseInt(tf_rec_dailyRate.getText()));
-        r.setTotalCharge(Integer.parseInt(tf_rec_totalCharge.getText()));
+        b.setId(Integer.parseInt(tf_box_ID.getText()));
+        b.setReservationID(Integer.parseInt(tf_box_reservationID.getText()));
 
-        receiptService.create(r);
+        boxService.update(b);
+    }
+
+    @FXML
+    private void onDeleteBoxClicked() throws SQLException {
+        logger.info("deleteBoxClicked");
+
+        Box b = new Box();
+
+        b.setId(Integer.parseInt(tf_box_delete.getText()));
+
+        boxService.delete(b);
     }
 
     @FXML
@@ -92,14 +123,21 @@ public class MainFrameController {
         reservationService.create(r);
     }
 
+
     @FXML
-    private void onDeleteBoxClicked() throws SQLException {
-        logger.info("deleteBoxClicked");
+    private void onSaveReceiptClicked() throws SQLException {
+        logger.info("saveReceiptButtonClicked");
 
-        Box b = new Box();
+        Receipt r = new Receipt();
 
-        b.setId(Integer.parseInt(tf_box_delete.getText()));
+        r.setDailyRate(Integer.parseInt(tf_rec_dailyRate.getText()));
+        r.setTotalCharge(Integer.parseInt(tf_rec_totalCharge.getText()));
 
-        boxService.delete(b);
+        receiptService.create(r);
+    }
+
+    @FXML
+    public void mouseClick(MouseEvent arg0) {
+        clicked = list.getSelectionModel().getSelectedItem();
     }
 }

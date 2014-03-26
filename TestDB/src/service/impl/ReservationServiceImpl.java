@@ -33,7 +33,6 @@ public class ReservationServiceImpl implements ReservationService {
         }
     }
 
-
     @Override
     public void create(Reservation r) {
         logger.info("Preparing create statement for a new reservation");
