@@ -39,25 +39,9 @@
           <children>
             <GridPane prefHeight="226.0" prefWidth="676.0">
               <children>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                  <children>
-                    <TextField id="tf_size" fx:id="tf_horseName" prefWidth="200.0" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
-                  <children>
-                    <Label text="From" />
-                  </children>
-                </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                   <children>
                     <TextField id="tf_daily_rate" fx:id="tf_customer" prefWidth="200.0" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
-                  <children>
-                    <Label text="Horse" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
@@ -65,24 +49,11 @@
                     <Label text="Customer" />
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4">
-                  <children>
-                    <Label text="To" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                  <children>
-                    <TextField id="tf_daily_rate" fx:id="tf_start" prefWidth="200.0" promptText="YYYY-MM-DD" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                  <children>
-                    <TextField id="tf_daily_rate" fx:id="tf_end" prefWidth="200.0" promptText="YYYY-MM-DD" />
-                  </children>
-                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="45.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                   <children>
-                    <Button id="b_create" fx:id="reserveButton" mnemonicParsing="false" onAction="#onActionCreateReservation" text="Reserve" />
+                    <Button id="b_create" fx:id="reserveButton" mnemonicParsing="false" onAction="#onActionCreateReservation" text="Search" />
                     <Button fx:id="b_filter" mnemonicParsing="false" text="Filter" />
                   </children>
                   <padding>
@@ -92,16 +63,6 @@
                 <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
                   <children>
                     <Button id="b_delete" fx:id="b_clearall" mnemonicParsing="false" text="Clear all" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                  <children>
-                    <Label fx:id="e_to_date" text="incorrect date format" textFill="RED" visible="false" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                  <children>
-                    <Label fx:id="e_from_date" text="incorrect date format" textFill="RED" visible="false" />
                   </children>
                 </HBox>
               </children>
@@ -139,7 +100,12 @@
             </VBox>
             <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="338.0" prefWidth="676.0" spacing="5.0">
               <children>
-                <TableView id="tabulka" fx:id="resbulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="690.0" />
+                <VBox id="VBox" alignment="CENTER" spacing="5.0">
+                  <children>
+                    <TableView id="tabulka" fx:id="resbulka" onMouseClicked="#mouseClick" prefHeight="243.0" prefWidth="690.0" />
+                    <HBox prefHeight="100.0" prefWidth="200.0" />
+                  </children>
+                </VBox>
               </children>
             </HBox>
           </children>

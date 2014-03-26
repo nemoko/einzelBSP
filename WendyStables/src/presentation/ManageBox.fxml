@@ -52,8 +52,8 @@
                     <Label id="e_label" fx:id="e_floor_choose" text="Choose one" textFill="RED" visible="false" />
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
                   <children>
                     <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0">
                       <children>
@@ -146,24 +146,29 @@
                     <Label id="e_window" fx:id="e_outside_choose" text="Select one" textFill="$x1" visible="false" />
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="0" GridPane.rowIndex="6">
                   <children>
                     <Button fx:id="b_create" mnemonicParsing="false" onAction="#onActionCreateBox" text="Create" />
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                   <children>
                     <Button fx:id="b_filter" mnemonicParsing="false" onAction="#onActionFilterTable" text="Filter" />
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
                   <children>
                     <Button fx:id="b_delete" mnemonicParsing="false" onAction="#onActionDeleteBox" text="Delete" />
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="4" GridPane.rowIndex="7">
                   <children>
                     <Button id="b_delete" fx:id="b_clearall" mnemonicParsing="false" onAction="#onActionClearAll" text="Clear all" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                  <children>
+                    <Button mnemonicParsing="false" onAction="#choosePicture" text="Choose.." />
                   </children>
                 </HBox>
               </children>
@@ -176,6 +181,7 @@
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -210,11 +216,7 @@
             <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="338.0" prefWidth="676.0" spacing="5.0">
               <children>
                 <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="373.0" />
-                <ImageView id="image_field" fitHeight="210.53602600097656" fitWidth="280.99597830247785" pickOnBounds="true" preserveRatio="true" visible="true">
-                  <image>
-                    <Image url="@../../img/1163412-1302181714577011-p.jpg" />
-                  </image>
-                </ImageView>
+                <ImageView fx:id="image_field" fitHeight="210.53602600097656" fitWidth="280.99597830247785" pickOnBounds="true" preserveRatio="true" visible="true" />
               </children>
             </HBox>
           </children>

@@ -20,12 +20,16 @@ import service.ReservationServiceImpl;
 
 import java.net.URL;
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class ReservationController implements Initializable {
 
     private static final Logger logger = Logger.getLogger(ReservationController.class);
 
+//    @FXML
+//    private Set<Box> clickedBox;
     @FXML
     private Box clickedBox;
     @FXML
@@ -129,14 +133,14 @@ public class ReservationController implements Initializable {
             return;
         }
 
-        r.setCustomerName(tf_customer.getText());
-        r.setHorseName(tf_horseName.getText());
-        r.setStart(Date.valueOf(tf_start.getText()));
-        r.setEnd(Date.valueOf(tf_end.getText()));
-        r.setBoxID(clickedBox.getId());
-        r.setDailyCharge(clickedBox.getDailyRate());
-
         try {
+            r.setCustomerName(tf_customer.getText());
+            r.setHorseName(tf_horseName.getText());
+            r.setStart(Date.valueOf(tf_start.getText()));
+            r.setEnd(Date.valueOf(tf_end.getText()));
+            r.setBoxID(clickedBox.getId());
+            r.setDailyCharge(clickedBox.getDailyRate());
+
             ReservationServiceImpl.initialize().create(r);
         } catch (ReservationException re) {
             re.getMessage();
@@ -336,7 +340,11 @@ public class ReservationController implements Initializable {
 
     @FXML
     public void mouseClick(MouseEvent arg0) {
-        clickedBox = tabulka.getSelectionModel().getSelectedItem();
+        tabulka.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
+        //TODO implement double selector
+        clickedBox = new HashSet<Box>(tabulka.getSelectionModel().getSelectedItems());
+        //clickedBox = tabulka.getSelectionModel().getSelectedItem();
 
         reserveButton.setDisable(false);
     }

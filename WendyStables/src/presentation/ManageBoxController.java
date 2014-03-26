@@ -12,10 +12,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
@@ -25,11 +27,12 @@ import service.BoxServiceImpl;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
 public class ManageBoxController implements Initializable {
 
     private static final Logger logger = Logger.getLogger(ManageBoxController.class);
 
+    @FXML
+    private javafx.scene.image.ImageView image_field;
     @FXML
     private Box clicked;
     @FXML
@@ -370,6 +373,13 @@ public class ManageBoxController implements Initializable {
     }
 
     @FXML
+    public void choosePicture() {
+//        FileChooser fileChooser = new FileChooser();
+//        fileChooser.setTitle("Open Resource File");
+//        fileChooser.showOpenDialog(stage);
+    }
+
+    @FXML
     public void onActionDeleteBox() {
         logger.info("onActionDeleteBox clicked");
         removeSuccessMessage();
@@ -407,8 +417,8 @@ public class ManageBoxController implements Initializable {
 
                 dialogStage.initModality(Modality.WINDOW_MODAL);
                 dialogStage.setScene(new Scene(VBoxBuilder.create().
-                        children(new Text("Box was deleted"), ok).
-                        alignment(Pos.CENTER).padding(new Insets(35)).build()));
+                        children(new Text("Box was deleted\n\n"), ok).
+                        alignment(Pos.CENTER).padding(new Insets(25)).build()));
                 dialogStage.showAndWait();
 
                 // delete box
@@ -475,6 +485,9 @@ public class ManageBoxController implements Initializable {
         tabulka.setItems(ob);
 
         initializeTable();
+
+        Image img = new Image(getClass().getResourceAsStream("burning.jpg"));
+        image_field.setImage(img);
     }
 
     public void initializeTable() {
