@@ -8,11 +8,13 @@ import entity.Box;
 import service.impl.BoxService;
 import service.impl.BoxServiceImpl;
 
+import java.sql.SQLException;
+
 public class MainFrameController {
 	
 	private static final Logger logger = Logger.getLogger(MainFrameController.class);
 	
-    private BoxService boxService = new BoxServiceImpl();
+    private BoxService boxService;
 
     @FXML
     private TextField tf_size;
@@ -24,13 +26,17 @@ public class MainFrameController {
     private TextField tf_outside;
     @FXML
     private TextField tf_picURL;
-	
+
+/*
+  WHAT DOES THIS METHOD DO?
+
 	public void initialize(){
-        //boxService = new BoxServiceImpl();
+        boxService = new BoxServiceImpl();
 	}
-	
+*/
+
 	@FXML
-	private void onSaveClicked(){
+	private void onSaveClicked() throws SQLException {
 		logger.info("saveButtonClicked");
 
         Box b = new Box();

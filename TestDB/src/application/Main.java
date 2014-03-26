@@ -13,7 +13,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-
 public class Main extends Application {
 	
 	private static final Logger logger = Logger.getLogger(Main.class);
@@ -35,7 +34,7 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void main(String[] args)  throws SQLException, ClassNotFoundException {
+	public static void main(String[] args) {
 
         //starting DB
         try {
@@ -46,10 +45,7 @@ public class Main extends Application {
             return;
         }
 
-        BoxServiceImpl boximpl = new BoxServiceImpl();
-
-
-        Connection c = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost:9001/xdb", "SA", "");
+        BoxServiceImpl boxImpl = new BoxServiceImpl(db_URL,db_USR,db_PWD);
 
         //javaFX
 		logger.info("Application starting...");
