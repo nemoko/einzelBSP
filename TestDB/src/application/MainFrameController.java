@@ -2,9 +2,8 @@ package application;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import org.apache.log4j.Logger;
 
@@ -31,7 +30,9 @@ public class MainFrameController implements Initializable {
     @FXML
     private Box clicked;
     @FXML
-    private ListView<Box> list;
+    private Button loeschen;
+    @FXML
+    private TableView<Box> tabulka;
     @FXML
     private TextField tf_box_size;
     @FXML
@@ -65,8 +66,10 @@ public class MainFrameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        list.setItems(boxService.find());
-        //list.getItems(boxService.find());
+        tabulka.setItems(boxService.find());
+
+        initializeTable();
+
     }
 
     @FXML
@@ -137,6 +140,22 @@ public class MainFrameController implements Initializable {
 
     @FXML
     public void mouseClick(MouseEvent arg0) {
-        clicked = list.getSelectionModel().getSelectedItem();
+        clicked = tabulka.getSelectionModel().getSelectedItem();
+        loeschen.setDisable(false);
+
+    }
+
+    public void initializeTable() {
+        TableColumn<Box, Integer> id = new TableColumn<Box,Integer>("ID");
+        id.setMinWidth(60);
+        id.setCellValueFactory(new PropertyValueFactory<Box, Integer>("id"));
+
+        TableColumn<Box, Integer> dailyCharge = new TableColumn<Box,Integer>("price");
+        dailyCharge.setMinWidth(40);
+        dailyCharge.setCellValueFactory(new PropertyValueFactory<Box, Integer>("dailycharge"));
+
+
+        tabulka.getColumns().addAll(id,dailyCharge);
+
     }
 }

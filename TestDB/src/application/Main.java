@@ -1,5 +1,6 @@
 package application;
 
+import javafx.scene.layout.BorderPane;
 import org.apache.log4j.Logger;
 
 import javafx.application.Application;
@@ -24,8 +25,10 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("MainFrame.fxml"));
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Main.fxml"));
 			Scene scene = new Scene(root,400,400);
+
+            MainController.setWindow("Hybrid.fxml");
 			// scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();

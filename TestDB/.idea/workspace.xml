@@ -86,22 +86,67 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainFrame.fxml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/MainFrame.fxml">
+      <file leaf-file-name="Main.fxml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/Main.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="12" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+            <state line="9" column="265" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainFrameController.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/application/MainFrameController.java">
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="14" selection-start="1103" selection-end="1111" vertical-scroll-proportion="0.21474774" vertical-offset="428" max-vertical-offset="2646">
+            <state line="30" column="49" selection-start="898" selection-end="910" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HybridController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/HybridController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="38" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="324">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/MainController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="18" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0" vertical-offset="163" max-vertical-offset="738">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Test.fxml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/Test.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="51" selection-start="614" selection-end="615" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestController.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/application/TestController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="1" selection-start="184" selection-end="184" vertical-scroll-proportion="0.27943078" vertical-offset="0" max-vertical-offset="773">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hybrid.fxml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/application/Hybrid.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="68" selection-start="606" selection-end="634" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,20 +163,27 @@
       <list>
         <option value="$PROJECT_DIR$/src/entity/Receipt.java" />
         <option value="$PROJECT_DIR$/src/service/impl/BuchServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/application/Main.java" />
         <option value="$PROJECT_DIR$/src/service/impl/DAO.java" />
         <option value="$PROJECT_DIR$/src/application/application.css" />
         <option value="$PROJECT_DIR$/src/entity/Reservation.java" />
         <option value="$PROJECT_DIR$/src/service/impl/BoxService.java" />
-        <option value="$PROJECT_DIR$/src/application/MainFrame.fxml" />
         <option value="$PROJECT_DIR$/src/service/impl/BoxServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/service/impl/ReservationService.java" />
         <option value="$PROJECT_DIR$/src/service/impl/ReceiptService.java" />
         <option value="$PROJECT_DIR$/src/service/impl/ReceiptServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/service/impl/ReservationServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/application/MainFrameController.java" />
-        <option value="$PROJECT_DIR$/src/entity/Box.java" />
         <option value="db-console:/4dc6ff5f/3067730e-9151-46a8-9e89-c4b03acecdea/" />
+        <option value="$PROJECT_DIR$/src/application/MainFrame.fxml" />
+        <option value="$PROJECT_DIR$/src/entity/Box.java" />
+        <option value="$PROJECT_DIR$/src/application/MainFrameController.java" />
+        <option value="$PROJECT_DIR$/src/application/MainController.java" />
+        <option value="$PROJECT_DIR$/src/application/Main.java" />
+        <option value="$PROJECT_DIR$/src/application/Hybrid.fxml" />
+        <option value="$PROJECT_DIR$/src/application/Main.fxml" />
+        <option value="$PROJECT_DIR$/src/application/Text.fxml" />
+        <option value="$PROJECT_DIR$/src/application/HybridController.java" />
+        <option value="$PROJECT_DIR$/src/application/Test.fxml" />
+        <option value="$PROJECT_DIR$/src/application/TestController.java" />
       </list>
     </option>
   </component>
@@ -139,7 +191,7 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
+    <option name="y" value="1048" />
     <option name="width" value="1600" />
     <option name="height" value="876" />
   </component>
@@ -614,15 +666,15 @@
       <workItem from="1395263944324" duration="6153000" />
       <workItem from="1395272921465" duration="2103000" />
       <workItem from="1395320793201" duration="798000" />
-      <workItem from="1395329437113" duration="117000" />
+      <workItem from="1395329437113" duration="5514000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63935000" />
+    <option name="totallyTimeSpent" value="69332000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1600" height="876" extended-state="6" />
+    <frame x="0" y="1048" width="1600" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -630,6 +682,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.240625" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2739726" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -638,6 +691,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -649,8 +703,6 @@
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28478965" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -703,60 +755,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/service/impl/BoxServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="40" selection-start="642" selection-end="642" vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="1404">
-          <folding>
-            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..box..." />
-            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
-            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="21" selection-start="1280" selection-end="1313" vertical-scroll-proportion="0.0" vertical-offset="774" max-vertical-offset="1062">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/impl/BoxServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="9" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.0" vertical-offset="1386" max-vertical-offset="1440">
-          <folding>
-            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..box..." />
-            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
-            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/MainFrameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="0" selection-start="3622" selection-end="3622" vertical-scroll-proportion="0.0" vertical-offset="1658" max-vertical-offset="2286">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/impl/ReceiptServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="1350">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/impl/ReservationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="50" selection-start="734" selection-end="734" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="1350">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/application/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="21" selection-start="1280" selection-end="1313" vertical-scroll-proportion="0.0" vertical-offset="774" max-vertical-offset="1062">
@@ -1010,11 +1008,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/application.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="36" selection-start="46" selection-end="46" vertical-scroll-proportion="0.031358887" vertical-offset="0" max-vertical-offset="574" />
-      </provider>
-    </entry>
     <entry file="uml://DATABASE/3067730e-9151-46a8-9e89-c4b03acecdea.schema:PUBLIC.PUBLIC">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -1034,13 +1027,6 @@
             <Category>Key columns</Category>
           </Categories>
           <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="17" selection-start="834" selection-end="834" vertical-scroll-proportion="0.027874565" vertical-offset="290" max-vertical-offset="864">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1091,25 +1077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/impl/BoxService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="25" selection-start="247" selection-end="247" vertical-scroll-proportion="0.21556886" vertical-offset="0" max-vertical-offset="668">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/impl/BoxServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="29" selection-start="2677" selection-end="2677" vertical-scroll-proportion="0.0" vertical-offset="1315" max-vertical-offset="2088">
-          <folding>
-            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..box..." />
-            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
-            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar!/javafx/scene/Node.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="45" selection-start="1510" selection-end="1510" vertical-scroll-proportion="-0.023684211" vertical-offset="486" max-vertical-offset="24138">
@@ -1124,26 +1091,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/MainFrame.fxml">
+    <entry file="file://$PROJECT_DIR$/src/service/impl/BoxService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="12" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="720">
+        <state line="10" column="25" selection-start="194" selection-end="208" vertical-scroll-proportion="0.1630013" vertical-offset="0" max-vertical-offset="773">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/Box.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="18" selection-start="1755" selection-end="1759" vertical-scroll-proportion="0.5109961" vertical-offset="649" max-vertical-offset="1422">
+        <state line="37" column="62" selection-start="950" selection-end="950" vertical-scroll-proportion="0.5821475" vertical-offset="0" max-vertical-offset="1422">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/impl/BoxServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="34" selection-start="1935" selection-end="1935" vertical-scroll-proportion="0.0" vertical-offset="865" max-vertical-offset="1980">
+          <folding>
+            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..box..." />
+            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
+            <marker date="1395272869469" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/MainFrame.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="126" selection-start="2376" selection-end="2376" vertical-scroll-proportion="0.75789475" vertical-offset="0" max-vertical-offset="760">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/application.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="36" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0232859" vertical-offset="0" max-vertical-offset="773">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/MainFrameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="14" selection-start="1103" selection-end="1111" vertical-scroll-proportion="0.21474774" vertical-offset="428" max-vertical-offset="2646">
+        <state line="158" column="0" selection-start="4523" selection-end="4523" vertical-scroll-proportion="4.946087" vertical-offset="0" max-vertical-offset="2988">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="18" selection-start="756" selection-end="756" vertical-scroll-proportion="0.0" vertical-offset="163" max-vertical-offset="738">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/Main.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="265" selection-start="482" selection-end="482" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="558">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="49" selection-start="898" selection-end="910" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/HybridController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="38" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="324">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/Hybrid.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="68" selection-start="606" selection-end="634" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/Test.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="51" selection-start="614" selection-end="615" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/TestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="1" selection-start="184" selection-end="184" vertical-scroll-proportion="0.27943078" vertical-offset="0" max-vertical-offset="773">
+          <folding />
         </state>
       </provider>
     </entry>

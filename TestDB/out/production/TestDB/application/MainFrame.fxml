@@ -28,7 +28,8 @@
     <Label id="" layoutX="20.0" layoutY="617.0" text="ReservationID:" />
     <TextField fx:id="tf_box_ID" layoutX="120.0" layoutY="576.0" prefWidth="200.0" />
     <TextField fx:id="tf_box_reservationID" layoutX="120.0" layoutY="614.0" prefWidth="200.0" />
-    <Button layoutX="716.0" layoutY="566.0" mnemonicParsing="false" onAction="#onReserveBoxClicked" text="Reserve" />
-    <ListView fx:id="list" layoutX="45.0" layoutY="254.0" onMouseClicked="#mouseClick" prefHeight="293.0" prefWidth="760.0" />
+    <Button layoutX="716.0" layoutY="615.0" mnemonicParsing="false" onAction="#onReserveBoxClicked" text="Reserve" />
+    <TableView fx:id="tabulka" layoutX="54.0" layoutY="253.0" onMouseClicked="#mouseClick" prefHeight="303.0" prefWidth="755.0" />
+    <Button fx:id="loeschen" disable="true" layoutX="457.0" layoutY="571.0" mnemonicParsing="false" text="loeschen" visible="true" />
   </children>
 </AnchorPane>

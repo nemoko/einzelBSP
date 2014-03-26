@@ -4,11 +4,11 @@ public class Box {
 
     private int id;
     private int reservationID;
-    private String horseName;
+    private String horseName; //SimpleStringProperty horseName = new SimpleStringProperty("");
     private int dailyRate;
-    private String picURL;
+    private String picURL; //SimpleStringProperty
     private int size;
-    private String floor;
+    private String floor; //SimpleStringProperty
     private boolean window;
     private boolean outside;
     private boolean deleted;
@@ -31,11 +31,11 @@ public class Box {
 
     public String getHorseName() {
         return horseName;
-    }
+    } // return horseName.get();
 
     public void setHorseName(String horseName) {
         this.horseName = horseName;
-    }
+    } // this.horseName = new SimpleStringProperty(horseName);
 
     public int getDailyRate() {
         return dailyRate;
