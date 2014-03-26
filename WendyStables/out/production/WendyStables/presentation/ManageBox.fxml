@@ -49,7 +49,7 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                   <children>
-                    <Label id="e_label" fx:id="e_floor" text="Choose one" textFill="RED" visible="false" />
+                    <Label id="e_label" fx:id="e_floor_choose" text="Choose one" textFill="RED" visible="false" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
@@ -114,7 +114,7 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                   <children>
-                    <Label fx:id="e_window" text="Select one" visible="false">
+                    <Label fx:id="e_window_choose" text="Select one" visible="false">
                       <textFill>
                         <Color blue="0.200" green="0.200" red="1.000" fx:id="x1" />
                       </textFill>
@@ -125,7 +125,7 @@
                   <children>
                     <Pane prefHeight="200.0" prefWidth="200.0">
                       <children>
-                        <Label fx:id="e_size" layoutX="6.0" layoutY="6.0" text="enter an int" textFill="$x1" visible="false" />
+                        <Label fx:id="e_size_int" layoutX="6.0" layoutY="6.0" text="enter an int" textFill="$x1" visible="false" />
                         <Label id="e_size" fx:id="e_size_positive" layoutX="6.0" layoutY="6.0" text="enter a positive int" textFill="$x1" visible="false" />
                       </children>
                     </Pane>
@@ -136,14 +136,14 @@
                     <Pane prefHeight="200.0" prefWidth="200.0">
                       <children>
                         <Label id="e_daily" fx:id="e_daily_positive" layoutX="6.0" layoutY="10.0" text="enter a positive int" textFill="$x1" visible="false" />
-                        <Label fx:id="e_daily" layoutX="6.0" layoutY="10.0" text="enter an int" textFill="$x1" visible="false" />
+                        <Label fx:id="e_daily_int" layoutX="6.0" layoutY="10.0" text="enter an int" textFill="$x1" visible="false" />
                       </children>
                     </Pane>
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
                   <children>
-                    <Label id="e_window" fx:id="e_outside" text="Select one" textFill="$x1" visible="false" />
+                    <Label id="e_window" fx:id="e_outside_choose" text="Select one" textFill="$x1" visible="false" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="0" GridPane.rowIndex="5">
@@ -194,7 +194,7 @@
               <children>
                 <Pane prefHeight="200.0" prefWidth="200.0">
                   <children>
-                    <Label fx:id="box_created" disable="false" layoutX="239.0" layoutY="8.0" onMouseMoved="#removeSuccessMessage" text="A Box was created" visible="false">
+                    <Label fx:id="f_box_created" disable="false" layoutX="239.0" layoutY="8.0" onMouseMoved="#removeSuccessMessage" text="A Box was created" visible="false">
                       <font>
                         <Font size="23.0" fx:id="x2" />
                       </font>
@@ -202,12 +202,12 @@
                         <Color blue="0.000" green="0.600" red="0.047" fx:id="x3" />
                       </textFill>
                     </Label>
-                    <Label id="box_created" fx:id="box_updated" font="$x2" layoutX="239.0" layoutY="7.0" onMouseMoved="#removeSuccessMessage" text="A Box was updated" textFill="$x3" visible="false" />
-                    <Label id="box_created" fx:id="box_deleted" font="$x2" layoutX="239.0" layoutY="7.0" onMouseMoved="#removeSuccessMessage" text="A Box was deleted" textFill="$x3" visible="false" />
-                    <Label id="box_created" fx:id="e_failed" disable="false" font="$x2" layoutX="231.0" layoutY="11.0" onMouseMoved="#removeSuccessMessage" text="Box creation failed!" textFill="RED" visible="false" />
-                    <Label id="box_created" fx:id="e_filter_failed" disable="false" font="$x2" layoutX="251.0" layoutY="6.0" onMouseMoved="#removeSuccessMessage" text="Nothing to filter!" textFill="RED" visible="false" />
-                    <Label id="box_created" fx:id="filter_applied" disable="false" font="$x2" layoutX="263.0" layoutY="3.0" onMouseMoved="#removeSuccessMessage" text="Filter applied" textFill="#0c9900" visible="false" />
-                    <Label id="box_created" fx:id="e_filter_criteria" disable="false" font="$x2" layoutX="199.0" layoutY="6.0" onMouseMoved="#removeSuccessMessage" text="No filter criteria entered" textFill="RED" visible="false" />
+                    <Label id="box_created" fx:id="f_box_updated" font="$x2" layoutX="239.0" layoutY="7.0" onMouseMoved="#removeSuccessMessage" text="A Box was updated" textFill="$x3" visible="false" />
+                    <Label id="box_created" fx:id="f_box_deleted" font="$x2" layoutX="239.0" layoutY="7.0" onMouseMoved="#removeSuccessMessage" text="A Box was deleted" textFill="$x3" visible="false" />
+                    <Label id="box_created" fx:id="f_box_failed" disable="false" font="$x2" layoutX="231.0" layoutY="11.0" onMouseMoved="#removeSuccessMessage" text="Box creation failed!" textFill="RED" visible="false" />
+                    <Label id="box_created" fx:id="f_filter_failed" disable="false" font="$x2" layoutX="251.0" layoutY="6.0" onMouseMoved="#removeSuccessMessage" text="Nothing to filter!" textFill="RED" visible="false" />
+                    <Label id="box_created" fx:id="f_filter_applied" disable="false" font="$x2" layoutX="263.0" layoutY="3.0" onMouseMoved="#removeSuccessMessage" text="Filter applied" textFill="#0c9900" visible="false" />
+                    <Label id="box_created" fx:id="f_filter_criteria" disable="false" font="$x2" layoutX="199.0" layoutY="6.0" onMouseMoved="#removeSuccessMessage" text="No filter criteria entered" textFill="RED" visible="false" />
                   </children>
                 </Pane>
               </children>

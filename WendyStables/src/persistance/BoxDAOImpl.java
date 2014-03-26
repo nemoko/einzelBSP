@@ -77,7 +77,7 @@ public class BoxDAOImpl implements BoxDAO {
 
         if(b.getDailyRate() != null) where += "dailyrate = '" + b.getDailyRate() + "' AND ";
         if(b.getSize() != null) where += "size = '" + b.getSize() + "' AND ";
-        if(b.getFloor() != null && !b.getFloor().isEmpty()) where += "floor = '" + b.getFloor() + "' AND ";
+        if(b.getFloor() != null && !b.getFloor().isEmpty() && !b.getFloor().contains("any")) where += "floor = '" + b.getFloor() + "' AND ";
         if(b.isWindow() != null) where += "window = '" + b.isWindow() + "' AND ";
         if(b.isOutside() != null) where += "outside = '" + b.isOutside() + "' AND ";
 

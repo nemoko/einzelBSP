@@ -66,23 +66,37 @@
             <file leaf-file-name="ManageBox.fxml" pinned="false" current="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/presentation/ManageBox.fxml">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="138" column="38" selection-start="7662" selection-end="7662" vertical-scroll-proportion="0.0" vertical-offset="2203" max-vertical-offset="4482">
+                  <state line="138" column="38" selection-start="7680" selection-end="7680" vertical-scroll-proportion="0.0" vertical-offset="2203" max-vertical-offset="4482">
                     <folding />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="ManageBoxController.java" pinned="false" current="true" current-in-tab="true">
+            <file leaf-file-name="ManageBoxController.java" pinned="false" current="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/presentation/ManageBoxController.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="50" column="29" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.20854272" vertical-offset="464" max-vertical-offset="7254">
+                  <state line="136" column="81" selection-start="3624" selection-end="3624" vertical-scroll-proportion="1.0590452" vertical-offset="1335" max-vertical-offset="7254">
                     <folding>
-                      <element signature="e#10426#10439#0" expanded="true" />
-                      <element signature="e#10640#10652#0" expanded="true" />
-                      <element signature="e#10835#10848#0" expanded="true" />
-                      <element signature="e#11027#11039#0" expanded="true" />
-                      <element signature="e#11223#11236#0" expanded="true" />
-                      <element signature="e#11426#11439#0" expanded="true" />
+                      <element signature="e#10666#10679#0" expanded="true" />
+                      <element signature="e#10880#10892#0" expanded="true" />
+                      <element signature="e#11075#11088#0" expanded="true" />
+                      <element signature="e#11267#11279#0" expanded="true" />
+                      <element signature="e#11463#11476#0" expanded="true" />
+                      <element signature="e#11666#11679#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file leaf-file-name="BoxDAOImpl.java" pinned="false" current="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/persistance/BoxDAOImpl.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state line="79" column="89" selection-start="2712" selection-end="2712" vertical-scroll-proportion="0.0" vertical-offset="689" max-vertical-offset="2124">
+                    <folding>
+                      <marker date="1395580932965" expanded="true" signature="1089:1180" placeholder="INSERT INTO ..." />
+                      <marker date="1395580932965" expanded="true" signature="1227:1244" placeholder="SELECT * FRO..box..." />
+                      <marker date="1395580932965" expanded="true" signature="2397:2414" placeholder="select * fro..box..." />
+                      <marker date="1395580932965" expanded="true" signature="2950:2965" placeholder="DELETED = FA..." />
                     </folding>
                   </state>
                 </provider>
@@ -99,10 +113,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="50" selection-start="552" selection-end="552" vertical-scroll-proportion="0.34123224" vertical-offset="0" max-vertical-offset="738">
+            <state line="33" column="35" selection-start="950" selection-end="950" vertical-scroll-proportion="0.7393365" vertical-offset="0" max-vertical-offset="738">
               <folding />
             </state>
           </provider>
@@ -561,12 +575,12 @@
       <workItem from="1395530641643" duration="127000" />
       <workItem from="1395530951675" duration="548000" />
       <workItem from="1395531519713" duration="7820000" />
-      <workItem from="1395570074934" duration="6522000" />
+      <workItem from="1395570074934" duration="7588000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15048000" />
+    <option name="totallyTimeSpent" value="16114000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1280" height="1000" extended-state="6" />
@@ -577,6 +591,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27109376" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -592,12 +607,11 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28478965" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28478965" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -721,38 +735,43 @@
         <state line="0" column="132" selection-start="132" selection-end="132" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/persistance/BoxDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="36" selection-start="2973" selection-end="2973" vertical-scroll-proportion="0.8756281" vertical-offset="635" max-vertical-offset="2124">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="50" selection-start="552" selection-end="552" vertical-scroll-proportion="0.34123224" vertical-offset="0" max-vertical-offset="738">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/ManageBox.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="38" selection-start="7662" selection-end="7662" vertical-scroll-proportion="0.0" vertical-offset="2203" max-vertical-offset="4482">
+        <state line="138" column="38" selection-start="7680" selection-end="7680" vertical-scroll-proportion="0.0" vertical-offset="2203" max-vertical-offset="4482">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/persistance/BoxDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="89" selection-start="2712" selection-end="2712" vertical-scroll-proportion="0.0" vertical-offset="689" max-vertical-offset="2124">
+          <folding>
+            <marker date="1395580932965" expanded="true" signature="1089:1180" placeholder="INSERT INTO ..." />
+            <marker date="1395580932965" expanded="true" signature="1227:1244" placeholder="SELECT * FRO..box..." />
+            <marker date="1395580932965" expanded="true" signature="2397:2414" placeholder="select * fro..box..." />
+            <marker date="1395580932965" expanded="true" signature="2950:2965" placeholder="DELETED = FA..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/ManageBoxController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="29" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.20854272" vertical-offset="464" max-vertical-offset="7254">
+        <state line="136" column="81" selection-start="3624" selection-end="3624" vertical-scroll-proportion="1.0590452" vertical-offset="1335" max-vertical-offset="7254">
           <folding>
-            <element signature="e#10426#10439#0" expanded="true" />
-            <element signature="e#10640#10652#0" expanded="true" />
-            <element signature="e#10835#10848#0" expanded="true" />
-            <element signature="e#11027#11039#0" expanded="true" />
-            <element signature="e#11223#11236#0" expanded="true" />
-            <element signature="e#11426#11439#0" expanded="true" />
+            <element signature="e#10666#10679#0" expanded="true" />
+            <element signature="e#10880#10892#0" expanded="true" />
+            <element signature="e#11075#11088#0" expanded="true" />
+            <element signature="e#11267#11279#0" expanded="true" />
+            <element signature="e#11463#11476#0" expanded="true" />
+            <element signature="e#11666#11679#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="35" selection-start="950" selection-end="950" vertical-scroll-proportion="0.7393365" vertical-offset="0" max-vertical-offset="738">
+          <folding />
         </state>
       </provider>
     </entry>
