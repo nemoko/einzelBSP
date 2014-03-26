@@ -48,7 +48,7 @@ public class ManageBoxController implements Initializable {
     private ComboBox<String> cb_floor;
     private String floor_type;
     @FXML
-    private Label e_daily;
+    private Label e_daily_int;
     @FXML
     private Label e_size;
     @FXML
@@ -82,6 +82,20 @@ public class ManageBoxController implements Initializable {
         box_created.setVisible(false);
         box_updated.setVisible(false);
         box_deleted.setVisible(false);
+        e_failed.setVisible(false);
+        e_filter_criteria.setVisible(false);
+        filter_applied.setVisible(false);
+        e_filter_failed.setVisible(false);
+    }
+
+    public void clearErrors() {
+        box_created.setVisible(false);
+        box_updated.setVisible(false);
+        box_deleted.setVisible(false);
+        e_failed.setVisible(false);
+        e_filter_failed.setVisible(false);
+        filter_applied.setVisible(false);
+        e_filter_criteria.setVisible(false);
     }
 
     @FXML
@@ -89,8 +103,12 @@ public class ManageBoxController implements Initializable {
         MainController.setWindow("Welcome.fxml");
     }
 
+
+
     @FXML
     public void onActionCreateBox() {
+        clearErrors();
+
         logger.info("OnActionCreateBox clicked");
 
         Box b = new Box();
@@ -98,7 +116,7 @@ public class ManageBoxController implements Initializable {
 
         try {
             e_daily_positive.setVisible(false);
-            e_daily.setVisible(false);
+            e_daily_int.setVisible(false);
             b.setDailyRate(Integer.parseInt(tf_daily_rate.getText()));
             if(Integer.signum(Integer.parseInt(tf_daily_rate.getText())) == -1) e_daily_positive.setVisible(true);
         } catch (Exception e) {
@@ -135,7 +153,7 @@ public class ManageBoxController implements Initializable {
 
         b.setPicURL("");
 
-        if(exception.contains("0")) e_daily.setVisible(true);
+        if(exception.contains("0")) e_daily_int.setVisible(true);
         if(exception.contains("1")) e_size.setVisible(true);
         if(exception.contains("2")) e_floor.setVisible(true);
         if(exception.contains("3")) e_window.setVisible(true);
@@ -161,7 +179,7 @@ public class ManageBoxController implements Initializable {
         ch_window.setDisable(false);
         ch_outside.setSelected(false);
         ch_outside.setDisable(false);
-        e_daily.setVisible(false);
+        e_daily_int.setVisible(false);
         e_size.setVisible(false);
         e_floor.setVisible(false);
         e_window.setVisible(false);
@@ -187,57 +205,71 @@ public class ManageBoxController implements Initializable {
 
     @FXML
     public void onActionFilterTable() {
+        clearErrors();
+
         Box b = new Box();
+        String exception = "";
 
         ObservableList<Box> olist = null;
 
-        String exception = "";
-
-        try {
-            e_daily_positive.setVisible(false);
-            e_daily.setVisible(false);
-
-            if(!tf_daily_rate.getText().isEmpty()) {
-                if(Integer.signum(Integer.parseInt(tf_daily_rate.getText())) == -1) e_daily_positive.setVisible(true);
-                b.setDailyRate(Integer.parseInt(tf_daily_rate.getText()));
+        //remove error messages from gui
+        e_daily_positive.setVisible(false);
+        e_daily_int.setVisible(false);
+        if(!tf_daily_rate.getText().isEmpty()) { //if NOT EMPTY
+            try {
+                if(Integer.signum(Integer.parseInt(tf_daily_rate.getText())) == -1) { //if -INT
+                    e_daily_positive.setVisible(true);
+                    exception += "0";
+                } else {
+                    b.setDailyRate(Integer.parseInt(tf_daily_rate.getText())); //add daily rate to find criteria
+                }
+            } catch (NumberFormatException ne) { //if STRING
+                    e_daily_int.setVisible(true);
+                    exception += "0";
             }
-        } catch (Exception e) {
-            exception += "0";
-        }
+        } else exception += "0"; //if EMPTY
 
-        try {
-            e_size_positive.setVisible(false);
-            e_size.setVisible(false);
-
-            if(!tf_size.getText().isEmpty()) {
-                if(Integer.signum(Integer.parseInt(tf_size.getText())) == -1) e_size_positive.setVisible(true);
-                b.setSize(Integer.parseInt(tf_size.getText()));
+        //remove error messages from gui
+        e_size_positive.setVisible(false);
+        e_size.setVisible(false);
+        if(!tf_size.getText().isEmpty()) { //if field is not empty
+            try {
+                if(Integer.signum(Integer.parseInt(tf_size.getText())) == -1) {
+                    e_size_positive.setVisible(true); //if int is negative, show error
+                    exception += "1";
+                } else {
+                    b.setSize(Integer.parseInt(tf_size.getText())); //add size to find criteria
+                }
+            } catch (NumberFormatException ne) { //if string entered instead of int, show error
+                e_size.setVisible(true);
+                exception += "1";
             }
-        } catch (Exception e) {
-            exception += "1";
-        }
+        } else exception += "1"; //if EMPTY
 
-        e_floor.setVisible(false);
-
-        if(floor_type == null || floor_type.isEmpty()) exception += "2";
+//      e_floor.setVisible(false);
+        if(floor_type == null || floor_type.isEmpty()) exception += "2"; //if no floor type, add to exception string -> decide if any criteria is selected
         else b.setFloor(floor_type);
 
-        e_window.setVisible(false);
-        b.setWindow(ch_window.isSelected());
-        if(ch_window.isSelected()) exception += "3";
-
-        e_outside.setVisible(false);
-        b.setOutside(ch_outside.isSelected());
-        if(ch_outside.isSelected()) exception += "4";
+        //if neither window or outside is selected
+        if(!ch_window.isSelected()) exception += "3";
+        if(!ch_outside.isSelected()) exception += "4";
 
         b.setPicURL("");
 
-        if(exception.contains("0")) e_daily.setVisible(true);
-        if(exception.contains("1")) e_size.setVisible(true);
+        if(exception.contains("01234")) {
+            e_filter_criteria.setVisible(true);
+            return;
+        }
 
-        if(exception.contains("01234")) e_filter_criteria.setVisible(true);
-
-        if(!exception.isEmpty() || e_daily_positive.isVisible() || e_size_positive.isVisible()) return;
+        //if neither window or outside is selected, prompt for selection
+        if(exception.contains("3") && exception.contains("4")) {
+            e_window.setVisible(true);
+            e_outside.setVisible(true);
+            return;
+        } else {
+            b.setWindow(ch_window.isSelected());
+            b.setOutside(ch_outside.isSelected());
+        }
 
         try {
             olist = BoxServiceImpl.initialize().find(b);
@@ -248,15 +280,51 @@ public class ManageBoxController implements Initializable {
             e.printStackTrace();
             e_filter_failed.setVisible(true);
         }
+
+
+
+/*
+//        if(clicked == null) {
+//            e_filter_criteria.setVisible(true);
+//            return;
+//        }
+//        Box b = new Box();
+
+
+        if(!exception.isEmpty() || e_daily_positive.isVisible() || e_size_positive.isVisible()) return;
+
+*/
+    }
+
+    @FXML
+    public void onActionDisplayAll() {
+        clearErrors();
+
+        Box b = new Box();
+        ObservableList<Box> olist = null;
+
+        try {
+            olist = BoxServiceImpl.initialize().find(b);
+            tabulka.setItems(olist);
+            filter_applied.setVisible(true);
+        } catch (Exception e) {
+            logger.info("Exception refreshing table");
+            e.printStackTrace();
+            e_filter_failed.setVisible(true);
+        }
+
     }
 
     @FXML
     public void onActionUpdateBox() {
+        clearErrors();
 
     }
 
     @FXML
     public void onActionDeleteBox() {
+        clearErrors();
+
     }
 
 

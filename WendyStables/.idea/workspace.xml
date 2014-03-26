@@ -66,7 +66,7 @@
             <file leaf-file-name="ManageBox.fxml" pinned="false" current="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/presentation/ManageBox.fxml">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="174" column="79" selection-start="10005" selection-end="10005" vertical-scroll-proportion="0.0" vertical-offset="2968" max-vertical-offset="4392">
+                  <state line="138" column="38" selection-start="7662" selection-end="7662" vertical-scroll-proportion="0.0" vertical-offset="2203" max-vertical-offset="4482">
                     <folding />
                   </state>
                 </provider>
@@ -75,8 +75,15 @@
             <file leaf-file-name="ManageBoxController.java" pinned="false" current="true" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/presentation/ManageBoxController.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="34" column="9" selection-start="880" selection-end="880" vertical-scroll-proportion="0.33919597" vertical-offset="72" max-vertical-offset="6030">
-                    <folding />
+                  <state line="50" column="29" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.20854272" vertical-offset="464" max-vertical-offset="7254">
+                    <folding>
+                      <element signature="e#10426#10439#0" expanded="true" />
+                      <element signature="e#10640#10652#0" expanded="true" />
+                      <element signature="e#10835#10848#0" expanded="true" />
+                      <element signature="e#11027#11039#0" expanded="true" />
+                      <element signature="e#11223#11236#0" expanded="true" />
+                      <element signature="e#11426#11439#0" expanded="true" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -95,7 +102,7 @@
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="50" selection-start="552" selection-end="552" vertical-scroll-proportion="0.24080268" vertical-offset="0" max-vertical-offset="897">
+            <state line="19" column="50" selection-start="552" selection-end="552" vertical-scroll-proportion="0.34123224" vertical-offset="0" max-vertical-offset="738">
               <folding />
             </state>
           </provider>
@@ -554,12 +561,12 @@
       <workItem from="1395530641643" duration="127000" />
       <workItem from="1395530951675" duration="548000" />
       <workItem from="1395531519713" duration="7820000" />
-      <workItem from="1395570074934" duration="1506000" />
+      <workItem from="1395570074934" duration="6522000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10032000" />
+    <option name="totallyTimeSpent" value="15048000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1280" height="1000" extended-state="6" />
@@ -578,19 +585,19 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11111111" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28478965" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28478965" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.11111111" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -721,24 +728,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/ManageBox.fxml">
+    <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="174" column="79" selection-start="10005" selection-end="10005" vertical-scroll-proportion="0.0" vertical-offset="2968" max-vertical-offset="4392">
+        <state line="19" column="50" selection-start="552" selection-end="552" vertical-scroll-proportion="0.34123224" vertical-offset="0" max-vertical-offset="738">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/presentation/ManageBox.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="50" selection-start="552" selection-end="552" vertical-scroll-proportion="0.24080268" vertical-offset="0" max-vertical-offset="897">
+        <state line="138" column="38" selection-start="7662" selection-end="7662" vertical-scroll-proportion="0.0" vertical-offset="2203" max-vertical-offset="4482">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/ManageBoxController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="9" selection-start="880" selection-end="880" vertical-scroll-proportion="0.33919597" vertical-offset="72" max-vertical-offset="6030">
-          <folding />
+        <state line="50" column="29" selection-start="1230" selection-end="1230" vertical-scroll-proportion="0.20854272" vertical-offset="464" max-vertical-offset="7254">
+          <folding>
+            <element signature="e#10426#10439#0" expanded="true" />
+            <element signature="e#10640#10652#0" expanded="true" />
+            <element signature="e#10835#10848#0" expanded="true" />
+            <element signature="e#11027#11039#0" expanded="true" />
+            <element signature="e#11223#11236#0" expanded="true" />
+            <element signature="e#11426#11439#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

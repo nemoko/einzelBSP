@@ -166,6 +166,11 @@
                     <Button id="b_delete" fx:id="b_clearall" mnemonicParsing="false" onAction="#onActionClearAll" text="Clear all" />
                   </children>
                 </HBox>
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                  <children>
+                    <Button id="b_delete" fx:id="b_displayAll" mnemonicParsing="false" onAction="#onActionDisplayAll" text="Display all" />
+                  </children>
+                </HBox>
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

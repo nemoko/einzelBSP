@@ -136,7 +136,7 @@
                     <Pane prefHeight="200.0" prefWidth="200.0">
                       <children>
                         <Label id="e_daily" fx:id="e_daily_positive" layoutX="6.0" layoutY="10.0" text="enter a positive int" textFill="$x1" visible="false" />
-                        <Label fx:id="e_daily" layoutX="6.0" layoutY="10.0" text="enter an int" textFill="$x1" visible="false" />
+                        <Label fx:id="e_daily_int" layoutX="6.0" layoutY="10.0" text="enter an int" textFill="$x1" visible="false" />
                       </children>
                     </Pane>
                   </children>
@@ -164,6 +164,11 @@
                 <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
                   <children>
                     <Button id="b_delete" fx:id="b_clearall" mnemonicParsing="false" onAction="#onActionClearAll" text="Clear all" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                  <children>
+                    <Button id="b_delete" fx:id="b_displayAll" mnemonicParsing="false" onAction="#onActionDisplayAll" text="Display all" />
                   </children>
                 </HBox>
               </children>
