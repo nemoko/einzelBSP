@@ -103,7 +103,11 @@
                 <VBox id="VBox" alignment="CENTER" spacing="5.0">
                   <children>
                     <TableView id="tabulka" fx:id="resbulka" onMouseClicked="#mouseClick" prefHeight="243.0" prefWidth="690.0" />
-                    <HBox prefHeight="100.0" prefWidth="200.0" />
+                    <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                      <children>
+                        <Button mnemonicParsing="false" text="Pay" />
+                      </children>
+                    </HBox>
                   </children>
                 </VBox>
               </children>

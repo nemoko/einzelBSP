@@ -200,6 +200,20 @@
                     <Label id="e_window" fx:id="e_outside_choose" text="Select one" textFill="$x1" visible="false" />
                   </children>
                 </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <children>
+                    <Label fx:id="e_customer" text="ERR" textFill="RED" visible="false">
+                      <font>
+                        <Font size="13.0" fx:id="x3" />
+                      </font>
+                    </Label>
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <children>
+                    <Label fx:id="e_horse" font="$x3" text="ERR" textFill="RED" visible="false" />
+                  </children>
+                </HBox>
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="72.0" />

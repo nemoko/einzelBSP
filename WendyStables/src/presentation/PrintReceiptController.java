@@ -145,7 +145,7 @@ public class PrintReceiptController implements Initializable {
 
         TableColumn<Reservation, Date> until = new TableColumn<Reservation, Date>("To");
         until.setMinWidth(50);
-        until.setCellValueFactory(new PropertyValueFactory<Reservation, Date>("until"));
+        until.setCellValueFactory(new PropertyValueFactory<Reservation, Date>("end"));
 
         TableColumn<Reservation, Date> boxid = new TableColumn<Reservation, Date>("Stable");
         boxid.setMinWidth(50);
