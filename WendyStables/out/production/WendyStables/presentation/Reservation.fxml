@@ -78,6 +78,13 @@
                     <TextField id="tf_daily_rate" fx:id="tf_start_year" prefWidth="64.0" promptText="YYYY" />
                   </children>
                 </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <children>
+                    <TextField id="tf_daily_rate" fx:id="tf_end_day" prefWidth="51.0" promptText="DD" />
+                    <TextField id="tf_daily_rate" fx:id="tf_end_month" prefWidth="52.0" promptText="MM" />
+                    <TextField id="tf_daily_rate" fx:id="tf_end_year" prefWidth="64.0" promptText="YYYY" />
+                  </children>
+                </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="45.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                   <children>
                     <Button id="b_create" fx:id="reserveButton" mnemonicParsing="false" onAction="#onActionCreateReservation" text="Reserve" />
@@ -162,13 +169,6 @@
                     <Button id="b_delete" mnemonicParsing="false" onAction="#onActionClearBox" text="Clear" />
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                  <children>
-                    <TextField id="tf_daily_rate" fx:id="tf_end_day" prefWidth="51.0" promptText="DD" />
-                    <TextField id="tf_daily_rate" fx:id="tf_end_month" prefWidth="52.0" promptText="MM" />
-                    <TextField id="tf_daily_rate" fx:id="tf_end_year" prefWidth="64.0" promptText="YYYY" />
-                  </children>
-                </HBox>
                 <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
                   <children>
                     <Label id="e_daily" fx:id="e_daily_positive" layoutX="6.0" layoutY="10.0" text="enter a positive int" visible="false">
@@ -251,8 +251,8 @@
             </VBox>
             <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="338.0" prefWidth="676.0" spacing="5.0">
               <children>
-                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="408.0" />
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f9f9f" height="331.0" stroke="BLACK" strokeType="INSIDE" width="258.0" />
+                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="437.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f9f9f" height="258.0" stroke="BLACK" strokeType="INSIDE" width="258.0" />
               </children>
             </HBox>
           </children>

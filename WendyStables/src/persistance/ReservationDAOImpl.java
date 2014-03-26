@@ -1,5 +1,7 @@
 package persistance;
 
+import entity.Box;
+import entity.BoxReservation;
 import entity.Reservation;
 import exception.ReservationException;
 import javafx.collections.FXCollections;
@@ -112,6 +114,30 @@ public class ReservationDAOImpl implements  ReservationDAO {
         }
         return olist;
     }
+
+//    public ObservableList<BoxReservation> findBR(Reservation r) {
+//        logger.info("BxoReservation finding in DB");
+//
+//        try {
+//            //findBRStmt.setDate(1, r.getStart());
+//
+//            ResultSet rset = findBRStmt.executeQuery();
+//
+//            while(rset.next()) {
+//
+//            }
+//
+//        } catch(SQLException e) {
+//            logger.info("exception during FINDBR in reservation");
+//            e.printStackTrace();
+//        }
+//
+//
+//
+//
+//        return null;
+//    }
+
 
     @Override
     public void update(Reservation r) {

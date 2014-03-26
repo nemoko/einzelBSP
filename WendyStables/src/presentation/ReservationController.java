@@ -60,10 +60,6 @@ public class ReservationController implements Initializable {
     @FXML
     private TextField tf_horseName;
     @FXML
-    private TextField tf_start;
-    @FXML
-    private TextField tf_end;
-    @FXML
     private Button reserveButton;
     @FXML
     private TextField tf_filter_id;
@@ -76,10 +72,8 @@ public class ReservationController implements Initializable {
     private Label error_filter_id;
     @FXML
     private Label f_select_stable;
-
     private String from;
     private String end;
-
     @FXML
     private TextField tf_daily_rate;
     @FXML
@@ -95,7 +89,6 @@ public class ReservationController implements Initializable {
     @FXML
     private ComboBox<String> cb_floor;
     private String floor_type;
-
     @FXML
     private Label error_message;
     @FXML
@@ -346,15 +339,13 @@ public class ReservationController implements Initializable {
     }
 
     public boolean checkLeapYear(int year) {
-
         if((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) {
             return true;
         } else return false;
-
     }
 
     public void refreshTable() {
-        Box b = new Box();
+        BoxReservation b = new BoxReservation();
 
         ObservableList<Box> olist = null;
 
@@ -369,7 +360,8 @@ public class ReservationController implements Initializable {
                 }
             }
 
-            tabulka.setItems(boxItemsToBR(b));
+            BoxService bx = new BoxServiceImpl().initialize();
+            tabulka.setItems(bx.find(b));
         } catch (Exception e) {
             logger.info("Exception refreshing table");
             e.printStackTrace();
@@ -406,7 +398,7 @@ public class ReservationController implements Initializable {
         outside.setCellValueFactory(new PropertyValueFactory<BoxReservation, Integer>("outside"));
 
         TableColumn<BoxReservation, String> horseName = new TableColumn<BoxReservation,String>("Horse");
-        horseName.setMinWidth(60);
+        horseName.setMinWidth(79);
         horseName.setCellValueFactory(new PropertyValueFactory<BoxReservation, String>("horseName"));
 
         tabulka.getColumns().addAll(id,dailyrate,size,floor,window,outside,horseName);
@@ -422,14 +414,13 @@ public class ReservationController implements Initializable {
     public void selectedOutside() {
         if(ch_window.isDisabled()) ch_window.setDisable(false);
         else ch_window.setDisable(true);
-
     }
 
     @FXML
     public void onActionFilterTable() {
         removeErrors();
 
-        Box b = new Box();
+        BoxReservation b = new BoxReservation();
         String exception = "";
 
 //        ObservableList<Box> olist = null;
@@ -497,7 +488,9 @@ public class ReservationController implements Initializable {
         }
 
         try {
-            tabulka.setItems(boxItemsToBR(b));
+            BoxService bx = new BoxServiceImpl().initialize();
+            tabulka.setItems(bx.find(b));
+
             if(!error_message.isVisible()) {
                 success_message.setText("Filter applied");
                 success_message.setVisible(true);
@@ -543,8 +536,9 @@ public class ReservationController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 //TODO method
 
-        Box b = new Box();
-        tabulka.setItems(boxItemsToBR(b));
+        BoxReservation b = new BoxReservation();
+        BoxService bx = new BoxServiceImpl().initialize();
+        tabulka.setItems(bx.find(b));
 
         initializeBoxTable();
 
@@ -565,30 +559,30 @@ public class ReservationController implements Initializable {
 //        });
     }
 
-    public ObservableList<BoxReservation> boxItemsToBR(Box b) {
-
-        BoxService bx = BoxServiceImpl.initialize();
-        ObservableList<Box> alist = bx.find(b);
-        ObservableList<BoxReservation> blist = FXCollections.observableArrayList();
-
-        for (Box krabicka : alist) {
-            BoxReservation br = new BoxReservation();
-            b = krabicka;
-
-            br.setId(b.getId());
-            br.setDailyRate(b.getDailyRate());
-            br.setSize(b.getSize());
-            br.setFloor(b.getFloor());
-            br.setWindow(b.isWindow());
-            br.setOutside(b.isOutside());
-            br.setDeleted(b.isDeleted());
-            br.setPicURL(b.getPicURL());
-            br.setHorseName("");
-
-            blist.add(br);
-        }
-        return blist;
-    }
+//    public ObservableList<BoxReservation> boxItemsToBR(Box b) {
+//
+//        BoxService bx = BoxServiceImpl.initialize();
+//        ObservableList<Box> alist = bx.find(b);
+//        ObservableList<BoxReservation> blist = FXCollections.observableArrayList();
+//
+//        for (Box krabicka : alist) {
+//            BoxReservation br = new BoxReservation();
+//            b = krabicka;
+//
+//            br.setId(b.getId());
+//            br.setDailyRate(b.getDailyRate());
+//            br.setSize(b.getSize());
+//            br.setFloor(b.getFloor());
+//            br.setWindow(b.isWindow());
+//            br.setOutside(b.isOutside());
+//            br.setDeleted(b.isDeleted());
+//            br.setPicURL(b.getPicURL());
+//            br.setHorseName("");
+//
+//            blist.add(br);
+//        }
+//        return blist;
+//    }
 
     @FXML
     public void onActionClearBox() {

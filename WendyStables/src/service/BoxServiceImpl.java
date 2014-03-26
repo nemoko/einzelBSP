@@ -1,6 +1,7 @@
 package service;
 
 import entity.Box;
+import entity.BoxReservation;
 import exception.BoxException;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
@@ -28,7 +29,7 @@ public class BoxServiceImpl implements BoxService {
     }
 
     @Override
-    public ObservableList<Box> find(Box b) {
+    public ObservableList<BoxReservation> find(BoxReservation b) {
 
         if(b == null) {
             //throw exception -> BOX not passed

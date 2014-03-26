@@ -1,5 +1,6 @@
 package persistance;
 
+import entity.BoxReservation;
 import entity.Reservation;
 import exception.ReservationException;
 import javafx.collections.ObservableList;

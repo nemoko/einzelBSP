@@ -1,6 +1,7 @@
 package persistance;
 
 import entity.Box;
+import entity.BoxReservation;
 import entity.Reservation;
 import exception.BoxException;
 import javafx.collections.FXCollections;
@@ -34,6 +35,7 @@ public class BoxDAOImpl implements BoxDAO {
 
         try {
             createStmt = c.prepareStatement("INSERT INTO box (dailyrate, picurl, size, floor, window, outside) " + "VALUES (?,?,?,?,?,?)");
+
         } catch (SQLException e) {
             logger.info("exception during BoxServicePrepareStatement");
             e.printStackTrace();
@@ -66,10 +68,54 @@ public class BoxDAOImpl implements BoxDAO {
         logger.info("New box should be created in DB");
     }
 
-    @Override
-    public ObservableList<Box> find(Box b) {
-        ObservableList<Box> olist = FXCollections.observableArrayList();
-        String query = "select * from box ";
+//    @Override
+//    public ObservableList<Box> find(Box b) {
+//        ObservableList<Box> olist = FXCollections.observableArrayList();
+//        String query = "select * from box ";
+//        String where = "WHERE ";
+//
+//        if(b.getDailyRate() != null) where += "dailyrate = '" + b.getDailyRate() + "' AND ";
+//        if(b.getSize() != null) where += "size = '" + b.getSize() + "' AND ";
+//        if(b.getFloor() != null && !b.getFloor().isEmpty() && !b.getFloor().contains("any")) where += "floor = '" + b.getFloor() + "' AND ";
+//        if(b.isWindow() != null && (b.isWindow() ^ b.isOutside())) where += "window = '" + b.isWindow() + "' AND ";
+//        if(b.isOutside() != null && (b.isWindow() ^ b.isOutside())) where += "outside = '" + b.isOutside() + "' AND ";
+//
+//        where += "DELETED = FALSE;";
+//
+//        String temp = query + where;
+//
+//        try {
+//            PreparedStatement ps = c.prepareStatement(temp);
+//            ResultSet rset = ps.executeQuery();
+//
+//            while(rset.next()) {
+//                Box box = new Box();
+//
+//                box.setId(rset.getInt("id"));
+//                box.setDailyRate(rset.getInt("dailyrate"));
+//                box.setPicURL(rset.getString("picurl"));
+//                box.setSize(rset.getInt("size"));
+//                box.setFloor(rset.getString("floor"));
+//                box.setWindow(rset.getBoolean("window"));
+//                box.setOutside(rset.getBoolean("outside"));
+//                box.setDeleted(rset.getBoolean("deleted"));
+//
+//                olist.add(box);
+//
+//            }
+//        } catch (SQLException e) {
+//            logger.info("exception during box find statement");
+//            e.printStackTrace();
+//        }
+//        return olist;
+//    }
+
+    public ObservableList<BoxReservation> find(BoxReservation b) {
+
+        ObservableList<BoxReservation> olist = FXCollections.observableArrayList();
+
+        String query = "( select b.id,b.dailyrate,b.size,b.floor,b.window,b.outside,r.horsename from box "
+                      +"INNER JOIN reservation r ON b.id = r.boxid ";
         String where = "WHERE ";
 
         if(b.getDailyRate() != null) where += "dailyrate = '" + b.getDailyRate() + "' AND ";
@@ -78,16 +124,24 @@ public class BoxDAOImpl implements BoxDAO {
         if(b.isWindow() != null && (b.isWindow() ^ b.isOutside())) where += "window = '" + b.isWindow() + "' AND ";
         if(b.isOutside() != null && (b.isWindow() ^ b.isOutside())) where += "outside = '" + b.isOutside() + "' AND ";
 
-        where += "DELETED = FALSE;";
+        where += "b.DELETED = FALSE and r.payed = FALSE ) ";
 
-        String temp = query + where;
+        String timeConstraint = "AND ((r.from < " + b.getStart() + " AND r.end > "  + b.getStart() + ") " +
+                                "OR   (r.from > " + b.getStart() + " AND r.from < " + b.getEnd()   + "))";
+
+        String temp;
+        if(b.getStart() != null && b.getEnd() != null) {
+                temp = query + where + "MINUS " + query + timeConstraint;
+        } else {
+            temp = query + where;
+        }
 
         try {
             PreparedStatement ps = c.prepareStatement(temp);
             ResultSet rset = ps.executeQuery();
 
             while(rset.next()) {
-                Box box = new Box();
+                BoxReservation box = new BoxReservation();
 
                 box.setId(rset.getInt("id"));
                 box.setDailyRate(rset.getInt("dailyrate"));
@@ -99,7 +153,6 @@ public class BoxDAOImpl implements BoxDAO {
                 box.setDeleted(rset.getBoolean("deleted"));
 
                 olist.add(box);
-
             }
         } catch (SQLException e) {
             logger.info("exception during box find statement");
