@@ -8,6 +8,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <StackPane id="StackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentation.ReservationController">
@@ -72,12 +73,9 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                   <children>
-                    <TextField id="tf_daily_rate" fx:id="tf_start" prefWidth="200.0" promptText="YYYY-MM-DD" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                  <children>
-                    <TextField id="tf_daily_rate" fx:id="tf_end" prefWidth="200.0" promptText="YYYY-MM-DD" />
+                    <TextField id="tf_daily_rate" fx:id="tf_start_day" prefWidth="51.0" promptText="DD" />
+                    <TextField id="tf_daily_rate" fx:id="tf_start_month" prefWidth="52.0" promptText="MM" />
+                    <TextField id="tf_daily_rate" fx:id="tf_start_year" prefWidth="64.0" promptText="YYYY" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="45.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
@@ -91,7 +89,7 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
                   <children>
-                    <Button id="b_delete" fx:id="b_clearall" mnemonicParsing="false" text="Clear all" />
+                    <Button id="b_delete" mnemonicParsing="false" onAction="#onActionClearAll" text="Clear all" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
@@ -161,15 +159,22 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
                   <children>
-                    <Button id="b_delete" mnemonicParsing="false" onAction="#onActionClearAll" text="Clear all" />
+                    <Button id="b_delete" mnemonicParsing="false" onAction="#onActionClearBox" text="Clear" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <children>
+                    <TextField id="tf_daily_rate" fx:id="tf_end_day" prefWidth="51.0" promptText="DD" />
+                    <TextField id="tf_daily_rate" fx:id="tf_end_month" prefWidth="52.0" promptText="MM" />
+                    <TextField id="tf_daily_rate" fx:id="tf_end_year" prefWidth="64.0" promptText="YYYY" />
                   </children>
                 </HBox>
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="72.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="182.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="82.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="87.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="161.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="1.0" prefWidth="8.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="0.0" prefWidth="87.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="90.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="90.0" />
@@ -200,6 +205,7 @@
             <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="338.0" prefWidth="676.0" spacing="5.0">
               <children>
                 <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="353.0000999999975" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f9f9f" height="331.0" stroke="BLACK" strokeType="INSIDE" width="331.0" />
               </children>
             </HBox>
           </children>

@@ -4,6 +4,8 @@ import entity.Box;
 import entity.Reservation;
 import exception.ReservationException;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -28,12 +30,20 @@ public class ReservationController implements Initializable {
 
     private static final Logger logger = Logger.getLogger(ReservationController.class);
 
-//    @FXML
-//    private Set<Box> clickedBox;
     @FXML
-    private Box clickedBox;
+    private TextField tf_start_day;
     @FXML
-    private Reservation clickedRes;
+    private TextField tf_start_month;
+    @FXML
+    private TextField tf_start_year;
+    @FXML
+    private TextField tf_end_day;
+    @FXML
+    private TextField tf_end_month;
+    @FXML
+    private TextField tf_end_year;
+    @FXML
+    private Set<Box> clickedBox;
     @FXML
     private TableView<Box> tabulka;
     @FXML
@@ -109,6 +119,7 @@ public class ReservationController implements Initializable {
     }
 
     public void removeErrors() {
+        f_select_stable.setVisible(false);
         e_from_date.setVisible(false);
         e_to_date.setVisible(false);
     }
@@ -124,30 +135,97 @@ public class ReservationController implements Initializable {
 
         logger.info("onReserveBoxClicked");
 
-        Reservation r = new Reservation();
-
-        try {
-            r.setBoxID(clickedBox.getId());
-        } catch (NullPointerException e) {
+        if(clickedBox == null || clickedBox.size() == 0) {
             f_select_stable.setVisible(true);
             return;
         }
 
-        try {
-            r.setCustomerName(tf_customer.getText());
-            r.setHorseName(tf_horseName.getText());
-            r.setStart(Date.valueOf(tf_start.getText()));
-            r.setEnd(Date.valueOf(tf_end.getText()));
-            r.setBoxID(clickedBox.getId());
-            r.setDailyCharge(clickedBox.getDailyRate());
+        for(Box b : clickedBox) {
 
-            ReservationServiceImpl.initialize().create(r);
-        } catch (ReservationException re) {
-            re.getMessage();
-        } catch (IllegalArgumentException ie) {
-            e_from_date.setVisible(true);
-            e_to_date.setVisible(true);
+            Reservation r = new Reservation();
+
+            //TODO can me removed?
+            try {
+                r.setBoxID(b.getId());
+            } catch (NullPointerException e) {
+                f_select_stable.setVisible(true);
+                return;
+            }
+
+            try {
+                //TODO check if customerName < 45
+                r.setCustomerName(tf_customer.getText());
+                //TODO check if horseName < 45
+                r.setHorseName(tf_horseName.getText());
+
+
+                //TODO FIX THIS BLOCK
+                try {
+                    Integer.parseInt(tf_start_day.getText());
+                    Integer.parseInt(tf_start_month.getText());
+                    Integer.parseInt(tf_start_year.getText());
+                } catch (NumberFormatException nfe) {
+                    if(tf_start_day.getText().equals("")  || tf_start_month.getText().equals("") || tf_start_year.getText().equals("") ) {
+                        e_from_date.setVisible(true);
+                        e_from_date.setText("incorrect date format");
+                    }if((tf_start_day.getText().equals("")  && tf_start_month.getText().equals("") && tf_start_year.getText().equals("") )) {
+                        e_from_date.setVisible(true);
+                        e_from_date.setText("enter date");
+                    } else {
+                        e_from_date.setVisible(true);
+                        e_from_date.setText("enter date");
+                    }
+                }
+
+                try {
+                    Integer.parseInt(tf_end_day.getText());
+                    Integer.parseInt(tf_end_month.getText());
+                    Integer.parseInt(tf_end_year.getText());
+                } catch (NumberFormatException nfe) {
+                    if(tf_end_day.getText().equals("") || tf_end_month.getText().equals("") || tf_end_year.getText().equals("") ) {
+                        e_to_date.setVisible(true);
+                        e_to_date.setText("enter date");
+                    } else {
+                        e_to_date.setVisible(true);
+                        e_to_date.setText("incorrect date format");
+                    }
+                }
+
+                if(checkLeapYear(Integer.parseInt(tf_start_year.getText()))) {
+
+                } else {
+
+                }
+
+                if(checkLeapYear(Integer.parseInt(tf_end_year.getText()))) {
+
+                } else {
+
+                }
+
+
+                r.setStart(Date.valueOf(tf_start.getText()));
+                r.setEnd(Date.valueOf(tf_end.getText()));
+                r.setBoxID(b.getId());
+                r.setDailyCharge(b.getDailyRate());
+
+                ReservationServiceImpl.initialize().create(r);
+            } catch (ReservationException re) {
+                re.getMessage();
+            } catch (IllegalArgumentException ie) {
+                logger.info("ILLEGAL ARGUMENT EXCEPTION");
+                e_from_date.setVisible(true);
+                e_to_date.setVisible(true);
+            }
         }
+    }
+
+    public boolean checkLeapYear(int year) {
+
+        if((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) {
+            return true;
+        } else return false;
+
     }
 
     @FXML
@@ -308,7 +386,16 @@ public class ReservationController implements Initializable {
 
     @FXML
     public void onActionClearAll() {
+
+        tf_start_day.setText("");
+        tf_start_month.setText("");
+        tf_start_year.setText("");
+        tf_end_day.setText("");
+        tf_end_month.setText("");
+        tf_end_year.setText("");
         tf_daily_rate.setText("");
+        tf_customer.setText("");
+        tf_horseName.setText("");
         tf_size.setText("");
         cb_floor.setValue("");
         ch_window.setSelected(false);
@@ -329,6 +416,14 @@ public class ReservationController implements Initializable {
 
         initializeBoxTable();
 
+        cb_floor.getItems().addAll("Sawdust","Straw","any");
+        cb_floor.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if (cb_floor.getValue() != null) floor_type = cb_floor.getValue();
+            }
+        });
+
 //        tf_filter_id.setOnKeyReleased(new EventHandler<KeyEvent>() {
 //            @Override
 //            public void handle(KeyEvent keyEvent) {
@@ -336,6 +431,17 @@ public class ReservationController implements Initializable {
 //                refreshTable();
 //            }
 //        });
+    }
+
+    @FXML
+    public void onActionClearBox() {
+        tf_daily_rate.setText("");
+        tf_size.setText("");
+        cb_floor.setValue("");
+        ch_window.setSelected(false);
+        ch_window.setDisable(false);
+        ch_outside.setSelected(false);
+        ch_outside.setDisable(false);
     }
 
     @FXML
