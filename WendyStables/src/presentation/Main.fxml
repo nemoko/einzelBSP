@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="1.0" prefHeight="802.0" prefWidth="1098.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentation.MainController">
+  <center>
+    <StackPane fx:id="window" prefHeight="730.0" prefWidth="800.0" />
+  </center>
+  <top>
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <children>
+        <Label text="Wendy's Horse Stables">
+          <font>
+            <Font name="NanumMyeongjoBold" size="38.0" />
+          </font>
+        </Label>
+      </children>
+    </HBox>
+  </top>
+</BorderPane>
