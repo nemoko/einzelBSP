@@ -22,7 +22,11 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public ObservableList<Reservation> find(Reservation r) {
-        return null;
+        if(r == null) {
+            return null;
+        } else {
+            return ReservationDAOImpl.initialize().find(r);
+        }
     }
 
     @Override

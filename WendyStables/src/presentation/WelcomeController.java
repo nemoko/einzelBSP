@@ -18,5 +18,4 @@ public class WelcomeController {
     public void onActionPrintReceipt() {
         MainController.setWindow("PrintReceipt.fxml");
     }
-
 }

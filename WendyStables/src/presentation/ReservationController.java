@@ -4,20 +4,21 @@ import entity.Box;
 import entity.Reservation;
 import exception.ReservationException;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import org.apache.log4j.Logger;
 import javafx.scene.control.TextField;
 import service.BoxService;
 import service.BoxServiceImpl;
+import service.ReservationService;
 import service.ReservationServiceImpl;
 
+import javax.swing.table.*;
 import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
@@ -31,6 +32,8 @@ public class ReservationController implements Initializable {
     @FXML
     private TableView<Box> tabulka;
     @FXML
+    private TableView<Reservation> resbulka;
+    @FXML
     private TextField tf_customer;
     @FXML
     private TextField tf_horseName;
@@ -40,8 +43,6 @@ public class ReservationController implements Initializable {
     private TextField tf_end;
     @FXML
     private Button reserveButton;
-    @FXML
-    private Button unReserveButton;
     @FXML
     private TextField tf_filter_id;
     private String filter_id_value;
@@ -105,21 +106,21 @@ public class ReservationController implements Initializable {
         }
     }
 
-    public void initializeTable() {
-        TableColumn<Box, Integer> id = new TableColumn<Box,Integer>("ID");
-        id.setMinWidth(60);
+    public void initializeBoxTable() {
+        TableColumn<Box, Integer> id = new TableColumn<Box,Integer>("#");
+        id.setMinWidth(7);
         id.setCellValueFactory(new PropertyValueFactory<Box, Integer>("id"));
 
         TableColumn<Box, Integer> dailyrate = new TableColumn<Box,Integer>("Daily Rate");
-        dailyrate.setMinWidth(90);
+        dailyrate.setMinWidth(80);
         dailyrate.setCellValueFactory(new PropertyValueFactory<Box, Integer>("dailyRate"));
 
-        TableColumn<Box, String> picURL = new TableColumn<Box,String>("pic");
-        picURL.setMinWidth(60);
-        picURL.setCellValueFactory(new PropertyValueFactory<Box, String>("picURL"));
+//        TableColumn<Box, String> picURL = new TableColumn<Box,String>("pic");
+//        picURL.setMinWidth(60);
+//        picURL.setCellValueFactory(new PropertyValueFactory<Box, String>("picURL"));
 
         TableColumn<Box, Integer> size = new TableColumn<Box,Integer>("size");
-        size.setMinWidth(60);
+        size.setMinWidth(40);
         size.setCellValueFactory(new PropertyValueFactory<Box, Integer>("size"));
 
         TableColumn<Box, String> floor = new TableColumn<Box,String>("floor");
@@ -134,7 +135,20 @@ public class ReservationController implements Initializable {
         outside.setMinWidth(60);
         outside.setCellValueFactory(new PropertyValueFactory<Box, Integer>("outside"));
 
-        tabulka.getColumns().addAll(id,picURL,dailyrate,size,floor,window,outside);
+        tabulka.getColumns().addAll(id,dailyrate,size,floor,window,outside);
+    }
+
+    public void initializeResTable() {
+        TableColumn<Reservation, String> customername = new TableColumn<Reservation, String>("Customer Name");
+        customername.setMinWidth(120);
+        customername.setCellValueFactory(new PropertyValueFactory<Reservation, String>("customerName"));
+
+//        TableColumn<Reservation, String> horsename = new TableColumn<Reservation, String>("Horse Name");
+//        horsename.setMinWidth(120);
+//        horsename.setCellValueFactory(new PropertyValueFactory<Reservation, String>("horseName"));
+
+
+        resbulka.getColumns().addAll(customername);
     }
 
     @Override
@@ -144,21 +158,26 @@ public class ReservationController implements Initializable {
         BoxService bx = BoxServiceImpl.initialize();
         tabulka.setItems(bx.find(b));
 
-        initializeTable();
+        initializeBoxTable();
 
-        tf_filter_id.setOnKeyReleased(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                filter_id_value = tf_filter_id.getText();
-                refreshTable();
-            }
-        });
+        Reservation r = new Reservation();
+        ReservationService rs = ReservationServiceImpl.initialize();
+        resbulka.setItems(rs.find(r));
+
+        initializeResTable();
+
+//        tf_filter_id.setOnKeyReleased(new EventHandler<KeyEvent>() {
+//            @Override
+//            public void handle(KeyEvent keyEvent) {
+//                filter_id_value = tf_filter_id.getText();
+//                refreshTable();
+//            }
+//        });
     }
 
     @FXML
     public void mouseClick(MouseEvent arg0) {
         clicked = tabulka.getSelectionModel().getSelectedItem();
         reserveButton.setDisable(false);
-        unReserveButton.setDisable(false);
     }
 }

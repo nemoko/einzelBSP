@@ -1,55 +1,80 @@
 package entity;
 
+import javafx.beans.property.SimpleStringProperty;
+
 import java.sql.Date;
 
 public class Reservation {
 
-    private int id;
-    private int boxID;
-    private int dailyCharge;
-    private String customerName;
-    private String horseName;
+    private Integer id;
+    private Integer boxID;
+    private Integer dailyCharge;
+    private Integer receiptID;
+    private SimpleStringProperty customerName;
+    private SimpleStringProperty horseName;
     private Date start;
     private Date end;
+    private Boolean payed;
 
-    public int getId() {
+    public Reservation() {
+        this.customerName = new SimpleStringProperty("");
+        this.horseName = new SimpleStringProperty("");
+    }
+
+    public Boolean getPayed() {
+        return payed;
+    }
+
+    public void setPayed(Boolean payed) {
+        this.payed = payed;
+    }
+
+    public Integer getReceiptID() {
+        return receiptID;
+    }
+
+    public void setReceiptID(Integer receiptID) {
+        this.receiptID = receiptID;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getBoxID() {
+    public Integer getBoxID() {
         return boxID;
     }
 
-    public void setBoxID(int boxID) {
+    public void setBoxID(Integer boxID) {
         this.boxID = boxID;
     }
 
-    public int getDailyCharge() {
+    public Integer getDailyCharge() {
         return dailyCharge;
     }
 
-    public void setDailyCharge(int dailyCharge) {
+    public void setDailyCharge(Integer dailyCharge) {
         this.dailyCharge = dailyCharge;
     }
 
     public String getCustomerName() {
-        return customerName;
+        return customerName.get();
     }
 
     public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+        this.customerName = new SimpleStringProperty(customerName);
     }
 
     public String getHorseName() {
-        return horseName;
+        return horseName.get();
     }
 
     public void setHorseName(String horseName) {
-        this.horseName = horseName;
+        this.horseName = new SimpleStringProperty(horseName);
     }
 
     public Date getStart() {
@@ -67,4 +92,6 @@ public class Reservation {
     public void setEnd(Date until) {
         this.end = until;
     }
+
+
 }

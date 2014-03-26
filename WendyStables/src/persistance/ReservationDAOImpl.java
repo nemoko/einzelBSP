@@ -2,11 +2,13 @@ package persistance;
 
 import entity.Reservation;
 import exception.ReservationException;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ReservationDAOImpl implements  ReservationDAO {
@@ -69,7 +71,46 @@ public class ReservationDAOImpl implements  ReservationDAO {
 
     @Override
     public ObservableList<Reservation> find(Reservation r) {
-        return null;
+        ObservableList<Reservation> olist = FXCollections.observableArrayList();
+        String query = "select * from reservation ";
+        String where = "WHERE ";
+
+        if(r.getCustomerName() != null) where += "customername = '" + r.getCustomerName() + "' AND ";
+        if(r.getHorseName() != null) where += "horsename = '" + r.getHorseName() + "' AND ";
+        if(r.getStart() != null) where += "start = '" + r.getStart() + "' AND ";
+        if(r.getEnd() != null) where += "until = '" + r.getEnd() + "' AND ";
+        if(r.getBoxID() != null) where += "boxid = '" + r.getBoxID() + "' AND ";
+        if(r.getReceiptID() != null) where += "receiptid = '" + r.getReceiptID() + "' AND ";
+        if(r.getDailyCharge() != null) where += "dailycharge = '" + r.getDailyCharge() + "' AND ";
+//      if(r.getPayed() != null) where += "payed = '" + r.getPayed() + "' AND ";
+
+        where += "PAYED = FALSE;";
+
+        String temp = query + where;
+
+        try {
+            PreparedStatement ps = c.prepareStatement(temp);
+            ResultSet rset = ps.executeQuery();
+
+            while(rset.next()) {
+                Reservation rr = new Reservation();
+
+                rr.setId(rset.getInt("id"));
+                rr.setCustomerName(rset.getString("customername"));
+                rr.setHorseName(rset.getString("horsename"));
+                rr.setStart(rset.getDate("start"));
+                rr.setEnd(rset.getDate("end"));
+                rr.setBoxID(rset.getInt("boxid"));
+                rr.setDailyCharge(rset.getInt("dailycharge"));
+                rr.setPayed(rset.getBoolean("payed"));
+
+                olist.add(rr);
+            }
+        } catch (SQLException e) {
+            logger.info("exception during reservation find statement");
+            e.printStackTrace();
+        }
+        return olist;
     }
 
     @Override

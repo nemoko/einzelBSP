@@ -5,8 +5,6 @@ import javafx.beans.property.SimpleStringProperty;
 public class Box {
 
     private Integer id;
-    private Integer reservationID;
-    private SimpleStringProperty horseName;
     private Integer dailyRate;
     private SimpleStringProperty picURL;
     private Integer size;
@@ -17,7 +15,6 @@ public class Box {
 
     public Box() {
         this.floor = new SimpleStringProperty("");
-        this.horseName = new SimpleStringProperty("");
         this.picURL = new SimpleStringProperty("");
     }
 
@@ -27,22 +24,6 @@ public class Box {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getReservationID() {
-        return reservationID;
-    }
-
-    public void setReservationID(Integer reservationID) {
-        this.reservationID = reservationID;
-    }
-
-    public String getHorseName() {
-        return horseName.get();
-    }
-
-    public void setHorseName(String horseName) {
-        this.horseName = new SimpleStringProperty(horseName);
     }
 
     public Integer getDailyRate() {
@@ -105,8 +86,6 @@ public class Box {
     public String toString() {
         return "Box{" +
                 "id=" + id +
-                ", reservationID=" + reservationID +
-                ", horseName='" + horseName.get() + '\'' +
                 ", dailyRate=" + dailyRate +
                 ", picURL='" + picURL.get() + '\'' +
                 ", size=" + size +
