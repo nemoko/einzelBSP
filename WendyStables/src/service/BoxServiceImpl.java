@@ -49,6 +49,11 @@ public class BoxServiceImpl implements BoxService {
 
     @Override
     public void delete(Box b) {
+        if(b == null) {
+
+        } else {
+            BoxDAOImpl.initialize().delete(b);
+        }
 
     }
 }

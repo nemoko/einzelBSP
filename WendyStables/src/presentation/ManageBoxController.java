@@ -7,9 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import service.BoxService;
 import service.BoxServiceImpl;
@@ -130,11 +133,19 @@ public class ManageBoxController implements Initializable {
         if(floor_type == null || floor_type.isEmpty() || floor_type.contains("any")) exception += "2";
         else b.setFloor(floor_type);
 
-        if(ch_window.isSelected() ^ !ch_outside.isSelected()) b.setWindow(true);
-        else exception += "3";
 
-        if(ch_outside.isSelected() ^ !ch_window.isSelected()) b.setOutside(true);
-        else exception += "4";
+        if(!ch_window.isSelected() && !ch_outside.isSelected()) {
+            exception += "34";
+        } else {
+            if(ch_window.isSelected()) {
+                b.setWindow(true);
+                b.setOutside(false);
+            }
+            if(ch_outside.isSelected()) {
+                b.setWindow(false);
+                b.setOutside(true);
+            }
+        }
 
         b.setPicURL("");
 
@@ -313,11 +324,19 @@ public class ManageBoxController implements Initializable {
         if(floor_type == null || floor_type.isEmpty() || floor_type.contains("any")) exception += "2";
         else b.setFloor(floor_type);
 
-        if(ch_window.isSelected()) b.setWindow(true);
-        else exception += "3";
 
-        if(ch_outside.isSelected()) b.setOutside(true);
-        else exception += "4";
+        if(!ch_window.isSelected() && !ch_outside.isSelected()) {
+            exception += "34";
+        } else {
+            if(ch_window.isSelected()) {
+                b.setWindow(true);
+                b.setOutside(false);
+            }
+            if(ch_outside.isSelected()) {
+                b.setWindow(false);
+                b.setOutside(true);
+            }
+        }
 
         b.setPicURL("");
 
@@ -337,7 +356,7 @@ public class ManageBoxController implements Initializable {
             BoxService bs = BoxServiceImpl.initialize();
             bs.update(b);
             onActionDisplayAll();
-            f_box_created.setVisible(true);
+            f_box_updated.setVisible(true);
 //        } catch (BoxException be) {
 //            f_box_failed.setVisible(true);
 //        }
@@ -348,8 +367,23 @@ public class ManageBoxController implements Initializable {
 
     @FXML
     public void onActionDeleteBox() {
+        logger.info("onActionDeleteBox clicked");
         removeSuccessMessage();
         clearPrompts();
+
+        Box b = clicked;
+
+        popUp();
+
+        BoxService bs = BoxServiceImpl.initialize();
+        bs.delete(b);
+        onActionDisplayAll();
+        f_box_deleted.setVisible(true);
+
+
+    }
+
+    public void popUp()     {
 
     }
 

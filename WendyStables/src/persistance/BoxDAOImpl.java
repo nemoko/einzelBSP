@@ -142,6 +142,16 @@ public class BoxDAOImpl implements BoxDAO {
 
     @Override
     public void delete(Box b) {
+        String delete = "UPDATE BOX Set deleted = true where id ='" + b.getId() + "';";
 
+        try {
+            PreparedStatement ps = c.prepareStatement(delete);
+            ps.executeUpdate();
+
+            logger.info("box deleted");
+        } catch (SQLException e) {
+            logger.info("exception during box deletion");
+            e.printStackTrace();
+        }
     }
 }
