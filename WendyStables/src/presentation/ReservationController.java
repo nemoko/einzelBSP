@@ -4,6 +4,7 @@ import entity.Box;
 import entity.BoxReservation;
 import entity.Reservation;
 import exception.ReservationException;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,6 +25,7 @@ import service.ReservationServiceImpl;
 import java.net.URL;
 import java.sql.Date;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 import java.util.Set;
 
@@ -46,9 +48,9 @@ public class ReservationController implements Initializable {
     @FXML
     private TextField tf_end_year;
     @FXML
-    private Set<Box> clickedBox;
+    private Set<BoxReservation> clickedBox;
     @FXML
-    private TableView<Box> tabulka;
+    private TableView<BoxReservation> tabulka;
     @FXML
     private TextField tf_customer;
     @FXML
@@ -149,7 +151,7 @@ public class ReservationController implements Initializable {
             return;
         }
 
-        for(Box b : clickedBox) {
+        for(BoxReservation b : clickedBox) {
 
             Reservation r = new Reservation();
 
@@ -258,8 +260,7 @@ public class ReservationController implements Initializable {
                 }
             }
 
-            olist = BoxServiceImpl.initialize().find(b);
-            tabulka.setItems(olist);
+            tabulka.setItems(boxItemsToBR(b));
         } catch (Exception e) {
             logger.info("Exception refreshing table");
             e.printStackTrace();
@@ -267,39 +268,39 @@ public class ReservationController implements Initializable {
     }
 
     public void initializeBoxTable() {
-        TableColumn<BoxReservation, Integer> id = new TableColumn<Box,Integer>("#");
+        TableColumn<BoxReservation, Integer> id = new TableColumn<BoxReservation,Integer>("#");
         id.setMinWidth(7);
-        id.setCellValueFactory(new PropertyValueFactory<Box, Integer>("id"));
+        id.setCellValueFactory(new PropertyValueFactory<BoxReservation, Integer>("id"));
 
-        TableColumn<BoxReservation, Integer> dailyrate = new TableColumn<Box,Integer>("Daily Rate");
+        TableColumn<BoxReservation, Integer> dailyrate = new TableColumn<BoxReservation,Integer>("Daily Rate");
         dailyrate.setMinWidth(80);
-        dailyrate.setCellValueFactory(new PropertyValueFactory<Box, Integer>("dailyRate"));
+        dailyrate.setCellValueFactory(new PropertyValueFactory<BoxReservation, Integer>("dailyRate"));
 
 //        TableColumn<Box, String> picURL = new TableColumn<Box,String>("pic");
 //        picURL.setMinWidth(60);
 //        picURL.setCellValueFactory(new PropertyValueFactory<Box, String>("picURL"));
 
-        TableColumn<BoxReservation, Integer> size = new TableColumn<Box,Integer>("size");
+        TableColumn<BoxReservation, Integer> size = new TableColumn<BoxReservation,Integer>("size");
         size.setMinWidth(40);
-        size.setCellValueFactory(new PropertyValueFactory<Box, Integer>("size"));
+        size.setCellValueFactory(new PropertyValueFactory<BoxReservation, Integer>("size"));
 
-        TableColumn<BoxReservation, String> floor = new TableColumn<Box,String>("floor");
+        TableColumn<BoxReservation, String> floor = new TableColumn<BoxReservation,String>("floor");
         floor.setMinWidth(60);
-        floor.setCellValueFactory(new PropertyValueFactory<Box, String>("floor"));
+        floor.setCellValueFactory(new PropertyValueFactory<BoxReservation, String>("floor"));
 
-        TableColumn<BoxReservation, Integer> window = new TableColumn<Box,Integer>("window");
+        TableColumn<BoxReservation, Integer> window = new TableColumn<BoxReservation,Integer>("window");
         window.setMinWidth(60);
-        window.setCellValueFactory(new PropertyValueFactory<Box, Integer>("window"));
+        window.setCellValueFactory(new PropertyValueFactory<BoxReservation, Integer>("window"));
 
-        TableColumn<BoxReservation, Integer> outside = new TableColumn<Box,Integer>("outside");
+        TableColumn<BoxReservation, Integer> outside = new TableColumn<BoxReservation,Integer>("outside");
         outside.setMinWidth(60);
-        outside.setCellValueFactory(new PropertyValueFactory<Box, Integer>("outside"));
+        outside.setCellValueFactory(new PropertyValueFactory<BoxReservation, Integer>("outside"));
 
-//        TableColumn<Box, String> picURL = new TableColumn<Box,String>("pic");
-//        picURL.setMinWidth(60);
-//        picURL.setCellValueFactory(new PropertyValueFactory<Box, String>("picURL"));
+        TableColumn<BoxReservation, String> horseName = new TableColumn<BoxReservation,String>("Horse");
+        horseName.setMinWidth(60);
+        horseName.setCellValueFactory(new PropertyValueFactory<BoxReservation, String>("horseName"));
 
-        tabulka.getColumns().addAll(id,dailyrate,size,floor,window,outside);
+        tabulka.getColumns().addAll(id,dailyrate,size,floor,window,outside,horseName);
     }
 
     @FXML
@@ -322,7 +323,7 @@ public class ReservationController implements Initializable {
         Box b = new Box();
         String exception = "";
 
-        ObservableList<BoxReservation> olist = null;
+        ObservableList<Box> olist = null;
 
         if(!tf_daily_rate.getText().isEmpty()) { //if NOT EMPTY
             try {
@@ -387,8 +388,7 @@ public class ReservationController implements Initializable {
         }
 
         try {
-            olist = BoxServiceImpl.initialize().find(b);
-            tabulka.setItems(olist);
+            tabulka.setItems(boxItemsToBR(b));
             if(!error_message.isVisible()) {
                 success_message.setText("Filter applied");
                 success_message.setVisible(true);
@@ -432,10 +432,10 @@ public class ReservationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Box b = new Box();
+//TODO method
 
-        BoxService bx = BoxServiceImpl.initialize();
-        tabulka.setItems(bx.find(b));
+        Box b = new Box();
+        tabulka.setItems(boxItemsToBR(b));
 
         initializeBoxTable();
 
@@ -456,6 +456,32 @@ public class ReservationController implements Initializable {
 //        });
     }
 
+    //TODO         (Box x : olist)  not working
+    public ObservableList<BoxReservation> boxItemsToBR(Box b) {
+
+        BoxService bx = BoxServiceImpl.initialize();
+        ObservableList<Box> alist = bx.find(b);
+        ObservableList<BoxReservation> blist = FXCollections.observableArrayList();
+
+        for(int i = 0; i < alist.size(); i++) {
+            BoxReservation br = new BoxReservation();
+            b = alist.get(i);
+
+            br.setId(b.getId());
+            br.setDailyRate(b.getDailyRate());
+            br.setSize(b.getSize());
+            br.setFloor(b.getFloor());
+            br.setWindow(b.isWindow());
+            br.setOutside(b.isOutside());
+            br.setDeleted(b.isDeleted());
+            br.setPicURL(b.getPicURL());
+            br.setHorseName("");
+
+            blist.add(br);
+        }
+        return blist;
+    }
+
     @FXML
     public void onActionClearBox() {
         tf_daily_rate.setText("");
@@ -470,7 +496,7 @@ public class ReservationController implements Initializable {
     @FXML
     public void mouseClick(MouseEvent arg0) {
         tabulka.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        clickedBox = new HashSet<Box>(tabulka.getSelectionModel().getSelectedItems());
+        clickedBox = new HashSet<BoxReservation>(tabulka.getSelectionModel().getSelectedItems());
 //TODO do we need this?
         reserveButton.setDisable(false);
     }

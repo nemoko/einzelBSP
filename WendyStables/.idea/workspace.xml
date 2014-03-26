@@ -59,6 +59,25 @@
     <breakpoint_rules />
     <ui_properties />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="Box.java" pinned="false" current="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/entity/Box.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state line="35" column="0" selection-start="764" selection-end="764" vertical-scroll-proportion="0.47826087" vertical-offset="46" max-vertical-offset="1548">
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="WendyStables" />
@@ -68,38 +87,36 @@
       <file leaf-file-name="ReservationController.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/presentation/ReservationController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="324" column="37" selection-start="10055" selection-end="10055" vertical-scroll-proportion="0.122994654" vertical-offset="5740" max-vertical-offset="8694">
+            <state line="430" column="5" selection-start="14068" selection-end="14068" vertical-scroll-proportion="0.37831324" vertical-offset="7583" max-vertical-offset="9162">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#14213#14433#0" expanded="true" />
-                <element signature="e#14422#14423#0" expanded="true" />
+                <element signature="e#7939#7963#0" expanded="true" />
+                <element signature="e#8159#8183#0" expanded="true" />
+                <element signature="e#8607#8631#0" expanded="true" />
+                <element signature="e#8832#8855#0" expanded="true" />
+                <element signature="e#9061#9085#0" expanded="true" />
+                <element signature="e#9297#9321#0" expanded="true" />
+                <element signature="e#9538#9561#0" expanded="true" />
+                <element signature="e#14360#14580#0" expanded="true" />
+                <element signature="e#14569#14570#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoxReservation.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entity/BoxReservation.java">
+      <file leaf-file-name="Reservation.fxml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/presentation/Reservation.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
+            <state line="143" column="27" selection-start="7641" selection-end="7649" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4896">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Reservation.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/entity/Reservation.java">
+      <file leaf-file-name="MainController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/presentation/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="21" selection-start="282" selection-end="326" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1314">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PrintReceiptController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="9" selection-start="1125" selection-end="1125" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="3078">
+            <state line="25" column="0" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
               <folding />
             </state>
           </provider>
@@ -109,28 +126,6 @@
         <entry file="file://$PROJECT_DIR$/src/presentation/WelcomeController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="8" column="0" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ManageBoxController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/presentation/ManageBoxController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="479" column="13" selection-start="14638" selection-end="14639" vertical-scroll-proportion="-7.6" vertical-offset="8160" max-vertical-offset="9810">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#14402#14622#0" expanded="true" />
-                <element signature="e#14611#14612#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/presentation/MainController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
               <folding />
             </state>
           </provider>
@@ -147,12 +142,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/entity/temp.java" />
-        <option value="$PROJECT_DIR$/src/service/BoxServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/persistance/BoxDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/presentation/WelcomeController.java" />
-        <option value="$PROJECT_DIR$/src/service/ReservationServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/entity/Reservation.java" />
-        <option value="$PROJECT_DIR$/src/persistance/ReservationDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/presentation/PrintReceiptController.java" />
         <option value="db-console:/3579fe72/34d29c5e-dda9-4a66-9177-90fdf6456d8b/" />
         <option value="$PROJECT_DIR$/src/presentation/ManageBox.fxml" />
@@ -163,13 +155,19 @@
         <option value="$PROJECT_DIR$/src/presentation/Main.java" />
         <option value="$PROJECT_DIR$/src/presentation/PrintReceipt.fxml" />
         <option value="$PROJECT_DIR$/src/entity/Box.java" />
+        <option value="$PROJECT_DIR$/src/service/ReservationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/service/ReservationService.java" />
+        <option value="$PROJECT_DIR$/src/persistance/ReservationDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/persistance/ReservationDAO.java" />
         <option value="$PROJECT_DIR$/src/entity/BoxReservation.java" />
+        <option value="$PROJECT_DIR$/src/service/BoxService.java" />
+        <option value="$PROJECT_DIR$/src/service/BoxServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/presentation/ReservationController.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
+    <option name="y" value="1048" />
     <option name="width" value="1600" />
     <option name="height" value="876" />
   </component>
@@ -201,7 +199,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -327,6 +324,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -563,6 +561,12 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -580,12 +584,6 @@
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <list size="1">
@@ -621,23 +619,24 @@
       <workItem from="1395699289438" duration="612000" />
       <workItem from="1395701948792" duration="72000" />
       <workItem from="1395741120135" duration="5228000" />
-      <workItem from="1395746499840" duration="9923000" />
+      <workItem from="1395746499840" duration="12443000" />
+      <workItem from="1395775482104" duration="7988000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85909000" />
+    <option name="totallyTimeSpent" value="96417000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1600" height="876" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="1048" width="1600" height="876" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1625" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4321295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -652,7 +651,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3860523" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40846825" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -682,22 +681,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="500" selection-end="500" vertical-scroll-proportion="0.0" vertical-offset="648" max-vertical-offset="10080" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/ManageBoxController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="387" column="5" selection-start="11407" selection-end="11407" vertical-scroll-proportion="0.0" vertical-offset="6966" max-vertical-offset="8658">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#14402#14622#0" expanded="true" />
-            <element signature="e#14611#14612#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/Reservation.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="23" selection-start="4210" selection-end="4210" vertical-scroll-proportion="0.0" vertical-offset="1422" max-vertical-offset="2934">
@@ -710,8 +693,15 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3384">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#14213#14433#0" expanded="true" />
-            <element signature="e#14422#14423#0" expanded="true" />
+            <element signature="e#7939#7963#0" expanded="true" />
+            <element signature="e#8159#8183#0" expanded="true" />
+            <element signature="e#8607#8631#0" expanded="true" />
+            <element signature="e#8832#8855#0" expanded="true" />
+            <element signature="e#9061#9085#0" expanded="true" />
+            <element signature="e#9297#9321#0" expanded="true" />
+            <element signature="e#9538#9561#0" expanded="true" />
+            <element signature="e#14360#14580#0" expanded="true" />
+            <element signature="e#14569#14570#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -745,11 +735,7 @@
     <entry file="file://$PROJECT_DIR$/src/presentation/ManageBoxController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="237" column="0" selection-start="7037" selection-end="7037" vertical-scroll-proportion="0.0" vertical-offset="4266" max-vertical-offset="8046">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#14402#14622#0" expanded="true" />
-            <element signature="e#14611#14612#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -840,20 +826,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/ReservationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="836" selection-end="836" vertical-scroll-proportion="0.0" vertical-offset="338" max-vertical-offset="774">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/ReservationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="0" selection-start="500" selection-end="500" vertical-scroll-proportion="-0.8589212" vertical-offset="648" max-vertical-offset="9666" />
@@ -903,34 +875,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/BoxServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="44" selection-start="822" selection-end="822" vertical-scroll-proportion="0.18499354" vertical-offset="325" max-vertical-offset="1098">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/Reservation.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="41" selection-start="7641" selection-end="7649" vertical-scroll-proportion="0.19589041" vertical-offset="2359" max-vertical-offset="4302">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar!/javafx/fxml/FXMLLoader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="241" column="20" selection-start="12787" selection-end="12787" vertical-scroll-proportion="0.33171913" vertical-offset="4183" max-vertical-offset="8964">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/WelcomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="14" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="738">
@@ -940,26 +884,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/application.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="29" selection-start="311" selection-end="311" vertical-scroll-proportion="0.4090909" vertical-offset="0" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="576">
-          <folding />
-        </state>
+        <state line="13" column="29" selection-start="311" selection-end="311" vertical-scroll-proportion="0.4090909" vertical-offset="0" max-vertical-offset="720" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/ManageBoxController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="479" column="13" selection-start="14638" selection-end="14639" vertical-scroll-proportion="-7.6" vertical-offset="8160" max-vertical-offset="9810">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#14402#14622#0" expanded="true" />
-            <element signature="e#14611#14612#0" expanded="true" />
-          </folding>
+        <state line="479" column="13" selection-start="14638" selection-end="14639" vertical-scroll-proportion="0.0" vertical-offset="8622" max-vertical-offset="10044">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -967,17 +898,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="29" selection-start="485" selection-end="495" vertical-scroll-proportion="0.3848684" vertical-offset="0" max-vertical-offset="1098">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/persistance/ReservationDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2287" selection-end="2287" vertical-scroll-proportion="0.6084034" vertical-offset="628" max-vertical-offset="2214">
-          <folding>
-            <marker date="1395608642405" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1395608642405" expanded="true" signature="-1:-1" placeholder="select * fro..reservation..." />
-            <marker date="1395608642405" expanded="true" signature="-1:-1" placeholder="PAYED = FALS..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1009,13 +929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/Box.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="335" selection-end="335" vertical-scroll-proportion="0.31283423" vertical-offset="0" max-vertical-offset="1548">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/Reservation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="21" selection-start="282" selection-end="326" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1314">
@@ -1023,20 +936,108 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/Reservation.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="143" column="27" selection-start="7641" selection-end="7649" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4896">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/ReservationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="34" selection-start="592" selection-end="603" vertical-scroll-proportion="0.17028381" vertical-offset="150" max-vertical-offset="774">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/ReservationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="34" selection-start="189" selection-end="200" vertical-scroll-proportion="0.1803005" vertical-offset="0" max-vertical-offset="599">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/persistance/ReservationDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="34" selection-start="189" selection-end="200" vertical-scroll-proportion="0.17307693" vertical-offset="0" max-vertical-offset="624">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/persistance/ReservationDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="4" selection-start="1509" selection-end="1509" vertical-scroll-proportion="0.33224222" vertical-offset="481" max-vertical-offset="2214">
+          <folding>
+            <marker date="1395776223917" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1395776223917" expanded="true" signature="-1:-1" placeholder="select * fro..reservation..." />
+            <marker date="1395776223917" expanded="true" signature="-1:-1" placeholder="PAYED = FALS..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/WelcomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="133" selection-end="133" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/presentation/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="583" selection-end="583" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/BoxReservation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="231" selection-end="231" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
+        <state line="13" column="50" selection-start="330" selection-end="330" vertical-scroll-proportion="0.25434783" vertical-offset="0" max-vertical-offset="920">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar!/javafx/fxml/FXMLLoader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="241" column="20" selection-start="12787" selection-end="12787" vertical-scroll-proportion="0.33171913" vertical-offset="4183" max-vertical-offset="8964">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/BoxService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="27" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="288">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/BoxServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="27" selection-start="201" selection-end="201" vertical-scroll-proportion="0.040449437" vertical-offset="54" max-vertical-offset="1098">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/Box.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="0" selection-start="764" selection-end="764" vertical-scroll-proportion="0.47826087" vertical-offset="46" max-vertical-offset="1548">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/ReservationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="324" column="37" selection-start="10055" selection-end="10055" vertical-scroll-proportion="0.122994654" vertical-offset="5740" max-vertical-offset="8694">
+        <state line="430" column="5" selection-start="14068" selection-end="14068" vertical-scroll-proportion="0.37831324" vertical-offset="7583" max-vertical-offset="9162">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#14213#14433#0" expanded="true" />
-            <element signature="e#14422#14423#0" expanded="true" />
+            <element signature="e#7939#7963#0" expanded="true" />
+            <element signature="e#8159#8183#0" expanded="true" />
+            <element signature="e#8607#8631#0" expanded="true" />
+            <element signature="e#8832#8855#0" expanded="true" />
+            <element signature="e#9061#9085#0" expanded="true" />
+            <element signature="e#9297#9321#0" expanded="true" />
+            <element signature="e#9538#9561#0" expanded="true" />
+            <element signature="e#14360#14580#0" expanded="true" />
+            <element signature="e#14569#14570#0" expanded="true" />
           </folding>
         </state>
       </provider>

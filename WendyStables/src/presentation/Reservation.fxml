@@ -237,8 +237,8 @@
             </VBox>
             <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="338.0" prefWidth="676.0" spacing="5.0">
               <children>
-                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="353.0000999999975" />
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f9f9f" height="331.0" stroke="BLACK" strokeType="INSIDE" width="331.0" />
+                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="408.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f9f9f" height="331.0" stroke="BLACK" strokeType="INSIDE" width="258.0" />
               </children>
             </HBox>
           </children>

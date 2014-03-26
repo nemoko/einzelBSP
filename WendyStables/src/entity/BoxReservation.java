@@ -11,6 +11,6 @@ public class BoxReservation extends Box {
     }
 
     public void setHorseName(String horseName) {
-        this.horseName.set(horseName);
+        this.horseName = new SimpleStringProperty(horseName);
     }
 }
