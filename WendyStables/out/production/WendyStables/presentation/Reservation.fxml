@@ -193,11 +193,13 @@
               <children>
                 <Pane prefHeight="200.0" prefWidth="200.0">
                   <children>
-                    <Label fx:id="f_select_stable" layoutX="198.0" layoutY="11.0" onMouseMoved="#removeSuccessMessage" text="Select a stable to reserve" textFill="RED" visible="false">
+                    <Label fx:id="f_select_stable" layoutX="198.0" layoutY="11.0" onMouseMoved="#removeFeedback" text="Select a stable to reserve" textFill="RED" visible="false">
                       <font>
-                        <Font size="23.0" />
+                        <Font size="23.0" fx:id="x1" />
                       </font>
                     </Label>
+                    <Label fx:id="error_message" font="$x1" layoutX="203.0" layoutY="11.0" onMouseMoved="#removeFeedback" text="ERR" textFill="RED" visible="false" />
+                    <Label id="error_message" fx:id="success_message" font="$x1" layoutX="258.0" layoutY="11.0" onMouseMoved="#removeFeedback" text="SUCCESS" textFill="#319900" visible="false" />
                   </children>
                 </Pane>
               </children>

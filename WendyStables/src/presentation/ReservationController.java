@@ -31,6 +31,8 @@ public class ReservationController implements Initializable {
     private static final Logger logger = Logger.getLogger(ReservationController.class);
 
     @FXML
+    private Label success_message;
+    @FXML
     private TextField tf_start_day;
     @FXML
     private TextField tf_start_month;
@@ -85,6 +87,8 @@ public class ReservationController implements Initializable {
     private String floor_type;
 
     @FXML
+    private Label error_message;
+    @FXML
     private Label e_daily_int;
     @FXML
     private Label e_daily_positive;
@@ -122,11 +126,8 @@ public class ReservationController implements Initializable {
         f_select_stable.setVisible(false);
         e_from_date.setVisible(false);
         e_to_date.setVisible(false);
-    }
-
-    @FXML
-    public void removeSuccessMessage() {
-        f_select_stable.setVisible(false);
+        success_message.setVisible(false);
+        error_message.setVisible(false);
     }
 
     @FXML
@@ -302,14 +303,9 @@ public class ReservationController implements Initializable {
 
     }
 
-    public void clearPrompts() {
-
-    }
-
     @FXML
     public void onActionFilterTable() {
-        removeSuccessMessage();
-        clearPrompts();
+        removeErrors();
 
         Box b = new Box();
         String exception = "";
@@ -358,9 +354,11 @@ public class ReservationController implements Initializable {
 
         if(exception.contains("01234")) { //displaying alls
             if(clickedBox == null) {
-                f_filter_failed.setVisible(true);
+                error_message.setText("Already displaying all stables");
+                error_message.setVisible(true);
             } else {
-                f_filter_criteria.setVisible(true);
+                error_message.setText("No filter criteria set");
+                error_message.setVisible(true);
             }
             //return;
         } else {
@@ -376,12 +374,23 @@ public class ReservationController implements Initializable {
         try {
             olist = BoxServiceImpl.initialize().find(b);
             tabulka.setItems(olist);
-            if(!f_filter_criteria.isVisible() && !f_filter_failed.isVisible()) f_filter_applied.setVisible(true);
+            if(!error_message.isVisible()) {
+                success_message.setText("Filter applied");
+                success_message.setVisible(true);
+            }
         } catch (Exception e) {
             logger.info("Exception refreshing table");
             e.printStackTrace();
-            f_filter_failed.setVisible(true);
+            error_message.setText("EXCEPTION");
+            error_message.setVisible(true);
         }
+    }
+
+    @FXML
+    public void removeFeedback() {
+        error_message.setVisible(false);
+        success_message.setVisible(false);
+        f_select_stable.setVisible(false);
     }
 
     @FXML
@@ -403,8 +412,7 @@ public class ReservationController implements Initializable {
         ch_outside.setSelected(false);
         ch_outside.setDisable(false);
 
-        removeSuccessMessage();
-        clearPrompts();
+        removeErrors();
     }
 
     @Override
