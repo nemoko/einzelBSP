@@ -130,17 +130,11 @@ public class ManageBoxController implements Initializable {
         if(floor_type == null || floor_type.isEmpty() || floor_type.contains("any")) exception += "2";
         else b.setFloor(floor_type);
 
-        try {
-            b.setWindow(ch_window.isSelected());
-        } catch (Exception e) {
-            exception += "3";
-        }
+        if(ch_window.isSelected() ^ !ch_outside.isSelected()) b.setWindow(true);
+        else exception += "3";
 
-        try {
-            b.setOutside(ch_outside.isSelected());
-        } catch (Exception e) {
-            exception += "4";
-        }
+        if(ch_outside.isSelected() ^ !ch_window.isSelected()) b.setOutside(true);
+        else exception += "4";
 
         b.setPicURL("");
 
@@ -241,7 +235,6 @@ public class ManageBoxController implements Initializable {
             exception += "2";
         }
 
-        //if neither window or outside is selected
         if(!ch_window.isSelected()) exception += "3";
         if(!ch_outside.isSelected()) exception += "4";
 
@@ -320,17 +313,11 @@ public class ManageBoxController implements Initializable {
         if(floor_type == null || floor_type.isEmpty() || floor_type.contains("any")) exception += "2";
         else b.setFloor(floor_type);
 
-        try {
-            b.setWindow(ch_window.isSelected());
-        } catch (Exception e) {
-            exception += "3";
-        }
+        if(ch_window.isSelected()) b.setWindow(true);
+        else exception += "3";
 
-        try {
-            b.setOutside(ch_outside.isSelected());
-        } catch (Exception e) {
-            exception += "4";
-        }
+        if(ch_outside.isSelected()) b.setOutside(true);
+        else exception += "4";
 
         b.setPicURL("");
 
