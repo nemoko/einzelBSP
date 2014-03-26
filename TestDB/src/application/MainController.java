@@ -1,6 +1,5 @@
 package application;
 
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,13 +19,11 @@ public class MainController implements Initializable {
 
     static void setWindow(String fxml) {
         try {
-            window.getChildren().setAll(
-                    (Node) FXMLLoader.load(mc.getClass().getResource(fxml)));
+            window.getChildren().setAll( (Node) FXMLLoader.load(mc.getClass().getResource(fxml)) );
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

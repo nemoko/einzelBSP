@@ -14,9 +14,9 @@
   <top>
     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
       <children>
-        <Label text="Pferde">
+        <Label text="Wendy's Horse Stables">
           <font>
-            <Font size="30.0" />
+            <Font name="NanumMyeongjoBold" size="38.0" />
           </font>
         </Label>
       </children>
