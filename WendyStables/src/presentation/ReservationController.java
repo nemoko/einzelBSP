@@ -18,7 +18,6 @@ import service.BoxServiceImpl;
 import service.ReservationService;
 import service.ReservationServiceImpl;
 
-import javax.swing.table.*;
 import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
@@ -28,7 +27,9 @@ public class ReservationController implements Initializable {
     private static final Logger logger = Logger.getLogger(ReservationController.class);
 
     @FXML
-    private Box clicked;
+    private Box clickedBox;
+    @FXML
+    private Reservation clickedRes;
     @FXML
     private TableView<Box> tabulka;
     @FXML
@@ -47,33 +48,58 @@ public class ReservationController implements Initializable {
     private TextField tf_filter_id;
     private String filter_id_value;
     @FXML
-    private Label error_input_date;
+    private Label e_from_date;
+    @FXML
+    private Label e_to_date;
     @FXML
     private Label error_filter_id;
+    @FXML
+    private Label f_select_stable;
 
     @FXML
     public void onActionHomePage() {
         MainController.setWindow("Welcome.fxml");
     }
 
+    public void removeErrors() {
+        e_from_date.setVisible(false);
+        e_to_date.setVisible(false);
+    }
+
+    @FXML
+    public void removeSuccessMessage() {
+        f_select_stable.setVisible(false);
+    }
+
     @FXML
     public void onActionCreateReservation() {
+        removeErrors();
+
         logger.info("onReserveBoxClicked");
 
         Reservation r = new Reservation();
 
-        r.setBoxID(clicked.getId());
+        try {
+            r.setBoxID(clickedBox.getId());
+        } catch (NullPointerException e) {
+            f_select_stable.setVisible(true);
+            return;
+        }
+
         r.setCustomerName(tf_customer.getText());
         r.setHorseName(tf_horseName.getText());
         r.setStart(Date.valueOf(tf_start.getText()));
         r.setEnd(Date.valueOf(tf_end.getText()));
-        r.setBoxID(clicked.getId());
-        r.setDailyCharge(clicked.getDailyRate());
+        r.setBoxID(clickedBox.getId());
+        r.setDailyCharge(clickedBox.getDailyRate());
 
         try {
             ReservationServiceImpl.initialize().create(r);
         } catch (ReservationException re) {
             re.getMessage();
+        } catch (IllegalArgumentException ie) {
+            e_from_date.setVisible(true);
+            e_to_date.setVisible(true);
         }
     }
 
@@ -143,12 +169,19 @@ public class ReservationController implements Initializable {
         customername.setMinWidth(120);
         customername.setCellValueFactory(new PropertyValueFactory<Reservation, String>("customerName"));
 
-//        TableColumn<Reservation, String> horsename = new TableColumn<Reservation, String>("Horse Name");
-//        horsename.setMinWidth(120);
-//        horsename.setCellValueFactory(new PropertyValueFactory<Reservation, String>("horseName"));
+        TableColumn<Reservation, String> horsename = new TableColumn<Reservation, String>("Horse Name");
+        horsename.setMinWidth(100);
+        horsename.setCellValueFactory(new PropertyValueFactory<Reservation, String>("horseName"));
 
+        TableColumn<Reservation, Date> start = new TableColumn<Reservation, Date>("From");
+        start.setMinWidth(50);
+        start.setCellValueFactory(new PropertyValueFactory<Reservation, Date>("start"));
 
-        resbulka.getColumns().addAll(customername);
+        TableColumn<Reservation, Date> until = new TableColumn<Reservation, Date>("To");
+        until.setMinWidth(50);
+        until.setCellValueFactory(new PropertyValueFactory<Reservation, Date>("until"));
+
+        resbulka.getColumns().addAll(customername,horsename, start, until);
     }
 
     @Override
@@ -177,7 +210,9 @@ public class ReservationController implements Initializable {
 
     @FXML
     public void mouseClick(MouseEvent arg0) {
-        clicked = tabulka.getSelectionModel().getSelectedItem();
+        clickedBox = tabulka.getSelectionModel().getSelectedItem();
+        clickedRes = resbulka.getSelectionModel().getSelectedItem();
+
         reserveButton.setDisable(false);
     }
 }

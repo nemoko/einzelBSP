@@ -75,8 +75,8 @@ public class ReservationDAOImpl implements  ReservationDAO {
         String query = "select * from reservation ";
         String where = "WHERE ";
 
-        if(r.getCustomerName() != null) where += "customername = '" + r.getCustomerName() + "' AND ";
-        if(r.getHorseName() != null) where += "horsename = '" + r.getHorseName() + "' AND ";
+        if(!r.getCustomerName().isEmpty() && r.getCustomerName() != null) where += "customername = '" + r.getCustomerName() + "' AND ";
+        if(!r.getHorseName().isEmpty() && r.getHorseName() != null) where += "horsename = '" + r.getHorseName() + "' AND ";
         if(r.getStart() != null) where += "start = '" + r.getStart() + "' AND ";
         if(r.getEnd() != null) where += "until = '" + r.getEnd() + "' AND ";
         if(r.getBoxID() != null) where += "boxid = '" + r.getBoxID() + "' AND ";
@@ -99,7 +99,7 @@ public class ReservationDAOImpl implements  ReservationDAO {
                 rr.setCustomerName(rset.getString("customername"));
                 rr.setHorseName(rset.getString("horsename"));
                 rr.setStart(rset.getDate("start"));
-                rr.setEnd(rset.getDate("end"));
+                rr.setEnd(rset.getDate("until"));
                 rr.setBoxID(rset.getInt("boxid"));
                 rr.setDailyCharge(rset.getInt("dailycharge"));
                 rr.setPayed(rset.getBoolean("payed"));
