@@ -1,19 +1,27 @@
 package entity;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class Box {
 
-    private int id;
+    private Integer id;
     private int reservationID;
-    private String horseName; //SimpleStringProperty horseName = new SimpleStringProperty("");
+    private SimpleStringProperty horseName;
     private int dailyRate;
-    private String picURL; //SimpleStringProperty
+    private SimpleStringProperty picURL;
     private int size;
-    private String floor; //SimpleStringProperty
+    private SimpleStringProperty floor;
     private boolean window;
     private boolean outside;
     private boolean deleted;
 
-    public int getId() {
+    public Box() {
+        this.floor = new SimpleStringProperty("");
+        this.horseName = new SimpleStringProperty("");
+        this.picURL = new SimpleStringProperty("");
+    }
+
+    public Integer getId() {
         return id;
     }
 
@@ -30,12 +38,12 @@ public class Box {
     }
 
     public String getHorseName() {
-        return horseName;
-    } // return horseName.get();
+        return horseName.get();
+    }
 
     public void setHorseName(String horseName) {
-        this.horseName = horseName;
-    } // this.horseName = new SimpleStringProperty(horseName);
+        this.horseName = new SimpleStringProperty(horseName);
+    }
 
     public int getDailyRate() {
         return dailyRate;
@@ -46,11 +54,11 @@ public class Box {
     }
 
     public String getPicURL() {
-        return picURL;
+        return picURL.get();
     }
 
     public void setPicURL(String picURL) {
-        this.picURL = picURL;
+        this.picURL =  new SimpleStringProperty(picURL);
     }
 
     public int getSize() {
@@ -62,11 +70,11 @@ public class Box {
     }
 
     public String whatFloor() {
-        return floor;
+        return floor.get();
     }
 
     public void setFloor(String floor) {
-        this.floor = floor;
+        this.floor =  new SimpleStringProperty(floor);
     }
 
     public boolean isWindow() {
@@ -98,11 +106,11 @@ public class Box {
         return "Box{" +
                 "id=" + id +
                 ", reservationID=" + reservationID +
-                ", horseName='" + horseName + '\'' +
+                ", horseName='" + horseName.get() + '\'' +
                 ", dailyRate=" + dailyRate +
-                ", picURL='" + picURL + '\'' +
+                ", picURL='" + picURL.get() + '\'' +
                 ", size=" + size +
-                ", floor='" + floor + '\'' +
+                ", floor='" + floor.get() + '\'' +
                 ", window=" + window +
                 ", outside=" + outside +
                 ", deleted=" + deleted +

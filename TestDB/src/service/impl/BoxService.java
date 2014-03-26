@@ -10,6 +10,7 @@ public interface BoxService extends DAO {
 
     public void create(Box b);
     public ObservableList<Box> find();
+    public ObservableList<Box> findByExample(Box b);
     public void update(Box b);
     public void reserve(Reservation r);
     public void delete(Box b);

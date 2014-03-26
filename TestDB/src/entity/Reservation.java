@@ -6,6 +6,7 @@ public class Reservation {
 
     private int id;
     private int boxID;
+    private int dailyCharge;
     private String customerName;
     private String horseName;
     private Date start;
@@ -25,6 +26,14 @@ public class Reservation {
 
     public void setBoxID(int boxID) {
         this.boxID = boxID;
+    }
+
+    public int getDailyCharge() {
+        return dailyCharge;
+    }
+
+    public void setDailyCharge(int dailyCharge) {
+        this.dailyCharge = dailyCharge;
     }
 
     public String getCustomerName() {

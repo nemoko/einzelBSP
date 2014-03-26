@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ReservationService extends DAO {
 
-    public void create(Reservation r, Box b);
+    public void create(Reservation r);
     public ObservableList<Reservation> find();
     public void update(Reservation r);
     public void delete(Reservation r);

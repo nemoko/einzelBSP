@@ -18,11 +18,12 @@ public class BoxServiceImpl implements BoxService {
     private PreparedStatement updateStmt;
     private PreparedStatement reserveStmt;
     private PreparedStatement deleteStmt;
+    private Connection c;
 
     public BoxServiceImpl(String url, String usr, String pw) {
 
         try {
-            Connection c = DriverManager.getConnection(url, usr, pw);
+            c = DriverManager.getConnection(url, usr, pw);
 
             createStmt = c.prepareStatement("INSERT INTO box(dailyrate, picurl, size, floor, window, outside) VALUES (?, ?, ?, ?, ?, ?)");
             findStmt   = c.prepareStatement("SELECT * FROM box");
@@ -76,6 +77,44 @@ public class BoxServiceImpl implements BoxService {
 
                 olist.add(b);
             }
+        } catch (SQLException e) {
+            logger.info("exception during box find statement");
+            e.printStackTrace();
+        }
+        return olist;
+    }
+
+
+    public ObservableList<Box> findByExample(Box b) {
+        ObservableList<Box> olist = FXCollections.observableArrayList();
+        String query = "select * from box ";
+        String where = "";
+
+        if(b.getId() != null) {
+            where = "WHERE ID = " + b.getId() + ";";
+
+        }
+
+        try {
+            PreparedStatement ps = c.prepareStatement(query + where);
+            ResultSet rset = ps.executeQuery();
+
+            Box box = new Box();
+
+            while(rset.next()) {
+                box.setId(rset.getInt("id"));
+                box.setDailyRate(rset.getInt("dailyrate"));
+                box.setPicURL(rset.getString("picurl"));
+                box.setSize(rset.getInt("size"));
+                box.setFloor(rset.getString("floor"));
+                box.setWindow(rset.getBoolean("window"));
+                box.setOutside(rset.getBoolean("outside"));
+                box.setDeleted(rset.getBoolean("deleted"));
+
+                olist.add(box);
+            }
+
+
         } catch (SQLException e) {
             logger.info("exception during box find statement");
             e.printStackTrace();
