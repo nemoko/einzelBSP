@@ -29,6 +29,16 @@ public class BoxServiceImpl implements BoxService {
     }
 
     @Override
+    public ObservableList<Box> findBox(Box b) {
+        if(b == null) {
+            //throw exception -> BOX not passed
+            return null;
+        } else {
+            return BoxDAOImpl.initialize().findBox(b);
+        }
+    }
+
+    @Override
     public ObservableList<BoxReservation> find(BoxReservation b) {
 
         if(b == null) {

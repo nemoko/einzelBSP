@@ -277,7 +277,7 @@ public class ManageBoxController implements Initializable {
         }
 
         try {
-            olist = BoxServiceImpl.initialize().find(b);
+            olist = BoxServiceImpl.initialize().findBox(b);
             tabulka.setItems(olist);
             if(!f_filter_criteria.isVisible() && !f_filter_failed.isVisible()) f_filter_applied.setVisible(true);
         } catch (Exception e) {
@@ -295,7 +295,7 @@ public class ManageBoxController implements Initializable {
         ObservableList<Box> olist = null;
 
         try {
-            olist = BoxServiceImpl.initialize().find(b);
+            olist = BoxServiceImpl.initialize().findBox(b);
             tabulka.setItems(olist);
             //f_filter_applied.setVisible(true);
         } catch (Exception e) {
@@ -481,7 +481,7 @@ public class ManageBoxController implements Initializable {
 
         BoxService bx = BoxServiceImpl.initialize();
 
-        ObservableList<Box> ob = bx.find(b);
+        ObservableList<Box> ob = bx.findBox(b);
         tabulka.setItems(ob);
 
         initializeTable();

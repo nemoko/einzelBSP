@@ -68,53 +68,53 @@ public class BoxDAOImpl implements BoxDAO {
         logger.info("New box should be created in DB");
     }
 
-//    @Override
-//    public ObservableList<Box> find(Box b) {
-//        ObservableList<Box> olist = FXCollections.observableArrayList();
-//        String query = "select * from box ";
-//        String where = "WHERE ";
-//
-//        if(b.getDailyRate() != null) where += "dailyrate = '" + b.getDailyRate() + "' AND ";
-//        if(b.getSize() != null) where += "size = '" + b.getSize() + "' AND ";
-//        if(b.getFloor() != null && !b.getFloor().isEmpty() && !b.getFloor().contains("any")) where += "floor = '" + b.getFloor() + "' AND ";
-//        if(b.isWindow() != null && (b.isWindow() ^ b.isOutside())) where += "window = '" + b.isWindow() + "' AND ";
-//        if(b.isOutside() != null && (b.isWindow() ^ b.isOutside())) where += "outside = '" + b.isOutside() + "' AND ";
-//
-//        where += "DELETED = FALSE;";
-//
-//        String temp = query + where;
-//
-//        try {
-//            PreparedStatement ps = c.prepareStatement(temp);
-//            ResultSet rset = ps.executeQuery();
-//
-//            while(rset.next()) {
-//                Box box = new Box();
-//
-//                box.setId(rset.getInt("id"));
-//                box.setDailyRate(rset.getInt("dailyrate"));
-//                box.setPicURL(rset.getString("picurl"));
-//                box.setSize(rset.getInt("size"));
-//                box.setFloor(rset.getString("floor"));
-//                box.setWindow(rset.getBoolean("window"));
-//                box.setOutside(rset.getBoolean("outside"));
-//                box.setDeleted(rset.getBoolean("deleted"));
-//
-//                olist.add(box);
-//
-//            }
-//        } catch (SQLException e) {
-//            logger.info("exception during box find statement");
-//            e.printStackTrace();
-//        }
-//        return olist;
-//    }
+    @Override
+    public ObservableList<Box> findBox(Box b) {
+        ObservableList<Box> olist = FXCollections.observableArrayList();
+        String query = "select * from box ";
+        String where = "WHERE ";
+
+        if(b.getDailyRate() != null) where += "dailyrate = '" + b.getDailyRate() + "' AND ";
+        if(b.getSize() != null) where += "size = '" + b.getSize() + "' AND ";
+        if(b.getFloor() != null && !b.getFloor().isEmpty() && !b.getFloor().contains("any")) where += "floor = '" + b.getFloor() + "' AND ";
+        if(b.isWindow() != null && (b.isWindow() ^ b.isOutside())) where += "window = '" + b.isWindow() + "' AND ";
+        if(b.isOutside() != null && (b.isWindow() ^ b.isOutside())) where += "outside = '" + b.isOutside() + "' AND ";
+
+        where += "DELETED = FALSE;";
+
+        String temp = query + where;
+
+        try {
+            PreparedStatement ps = c.prepareStatement(temp);
+            ResultSet rset = ps.executeQuery();
+
+            while(rset.next()) {
+                Box box = new Box();
+
+                box.setId(rset.getInt("id"));
+                box.setDailyRate(rset.getInt("dailyrate"));
+                box.setPicURL(rset.getString("picurl"));
+                box.setSize(rset.getInt("size"));
+                box.setFloor(rset.getString("floor"));
+                box.setWindow(rset.getBoolean("window"));
+                box.setOutside(rset.getBoolean("outside"));
+                box.setDeleted(rset.getBoolean("deleted"));
+
+                olist.add(box);
+
+            }
+        } catch (SQLException e) {
+            logger.info("exception during box find statement");
+            e.printStackTrace();
+        }
+        return olist;
+    }
 
     public ObservableList<BoxReservation> find(BoxReservation b) {
 
         ObservableList<BoxReservation> olist = FXCollections.observableArrayList();
 
-        String query = "( select b.id,b.dailyrate,b.size,b.floor,b.window,b.outside,r.horsename from box "
+        String query = "( select b.id,b.dailyrate,b.size,b.floor,b.window,b.outside,r.horsename from box b "
                       +"INNER JOIN reservation r ON b.id = r.boxid ";
         String where = "WHERE ";
 
@@ -145,12 +145,11 @@ public class BoxDAOImpl implements BoxDAO {
 
                 box.setId(rset.getInt("id"));
                 box.setDailyRate(rset.getInt("dailyrate"));
-                box.setPicURL(rset.getString("picurl"));
                 box.setSize(rset.getInt("size"));
                 box.setFloor(rset.getString("floor"));
                 box.setWindow(rset.getBoolean("window"));
                 box.setOutside(rset.getBoolean("outside"));
-                box.setDeleted(rset.getBoolean("deleted"));
+                box.setHorseName(rset.getString("horsename"));
 
                 olist.add(box);
             }
