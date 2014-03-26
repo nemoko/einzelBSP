@@ -23,9 +23,9 @@ public class MainFrameController implements Initializable {
 	
 	private static final Logger logger = Logger.getLogger(MainFrameController.class);
 
-    private static final BoxService boxService = new BoxServiceImpl(db_URL,db_USR,db_PWD);
-    private static final ReservationService reservationService = new ReservationServiceImpl(db_URL,db_USR,db_PWD);
-    private static final ReceiptService receiptService = new ReceiptServiceImpl(db_URL,db_USR,db_PWD);
+    public static final BoxService boxService = new BoxServiceImpl(db_URL,db_USR,db_PWD);
+    public static final ReservationService reservationService = new ReservationServiceImpl(db_URL,db_USR,db_PWD);
+    public static final ReceiptService receiptService = new ReceiptServiceImpl(db_URL,db_USR,db_PWD);
 
     @FXML
     private Box clicked;
@@ -69,7 +69,6 @@ public class MainFrameController implements Initializable {
         tabulka.setItems(boxService.find());
 
         initializeTable();
-
     }
 
     @FXML
@@ -111,19 +110,19 @@ public class MainFrameController implements Initializable {
         boxService.delete(b);
     }
 
-    @FXML
-    private void onSaveReservationClicked() throws SQLException {
-        logger.info("saveReservationButtonClicked");
-
-        Reservation r = new Reservation();
-
-        r.setCustomerName(tf_res_customerName.getText());
-        r.setHorseName(tf_res_horseName.getText());
-        r.setStart(Date.valueOf(tf_res_start.getText()));
-        r.setEnd(Date.valueOf(tf_res_end.getText()));
-
-        reservationService.create(r);
-    }
+//    @FXML
+//    private void onSaveReservationClicked() throws SQLException {
+//        logger.info("saveReservationButtonClicked");
+//
+//        Reservation r = new Reservation();
+//
+//        r.setCustomerName(tf_res_customerName.getText());
+//        r.setHorseName(tf_res_horseName.getText());
+//        r.setStart(Date.valueOf(tf_res_start.getText()));
+//        r.setEnd(Date.valueOf(tf_res_end.getText()));
+//
+//        reservationService.create(r);
+//    }
 
 
     @FXML

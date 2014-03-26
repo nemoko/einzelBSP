@@ -5,6 +5,7 @@ import java.sql.Date;
 public class Reservation {
 
     private int id;
+    private int boxID;
     private String customerName;
     private String horseName;
     private Date start;
@@ -16,6 +17,14 @@ public class Reservation {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getBoxID() {
+        return boxID;
+    }
+
+    public void setBoxID(int boxID) {
+        this.boxID = boxID;
     }
 
     public String getCustomerName() {

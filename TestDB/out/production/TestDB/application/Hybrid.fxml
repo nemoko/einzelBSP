@@ -10,8 +10,9 @@
   <children>
     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0">
       <children>
-        <Button mnemonicParsing="false" onAction="#onActionTestPage" text="TestPage" />
-        <Button mnemonicParsing="false" text="Button" />
+        <Button mnemonicParsing="false" onAction="#onActionReservation" text="Reservations" />
+        <Button mnemonicParsing="false" onAction="#onActionManageBox" text="Manage Stables" />
+        <Button mnemonicParsing="false" onAction="#onActionPrintReceipt" text="Print a receipt" />
       </children>
     </VBox>
   </children>

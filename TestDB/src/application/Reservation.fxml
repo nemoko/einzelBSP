@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<StackPane id="StackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.ReservationController">
+  <children>
+    <Pane prefHeight="200.0" prefWidth="200.0">
+      <children>
+        <TableView fx:id="tabulka" layoutX="14.0" layoutY="139.0" onMouseClicked="#mouseClick" prefHeight="185.0" prefWidth="564.0" tableMenuButtonVisible="false" />
+        <Button alignment="BOTTOM_LEFT" disable="false" focusTraversable="true" graphicTextGap="4.0" layoutX="14.0" layoutY="370.0" mnemonicParsing="false" onAction="#onActionHomePage" text="Back" textAlignment="LEFT" visible="true" wrapText="false" />
+        <Button id="reserve" fx:id="reserveButton" alignment="BOTTOM_LEFT" disable="true" focusTraversable="true" graphicTextGap="4.0" layoutX="503.0" layoutY="360.0" mnemonicParsing="false" onAction="#onActionCreateReservation" text="Reserve" textAlignment="LEFT" visible="true" wrapText="false" />
+        <Button id="unreserve" fx:id="unReserveButton" alignment="BOTTOM_LEFT" disable="true" focusTraversable="true" graphicTextGap="4.0" layoutX="429.0" layoutY="334.0" mnemonicParsing="false" onAction="#onActionCancelReservation" text="Cancel Reservation" textAlignment="LEFT" visible="true" wrapText="false" />
+      </children>
+    </Pane>
+  </children>
+</StackPane>

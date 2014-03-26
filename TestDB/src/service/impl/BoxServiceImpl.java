@@ -3,6 +3,7 @@ package service.impl;
 import java.sql.*;
 import java.util.List;
 
+import entity.Reservation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
@@ -15,6 +16,7 @@ public class BoxServiceImpl implements BoxService {
     private PreparedStatement createStmt;
     private PreparedStatement findStmt;
     private PreparedStatement updateStmt;
+    private PreparedStatement reserveStmt;
     private PreparedStatement deleteStmt;
 
     public BoxServiceImpl(String url, String usr, String pw) {
@@ -24,7 +26,8 @@ public class BoxServiceImpl implements BoxService {
 
             createStmt = c.prepareStatement("INSERT INTO box(dailyrate, picurl, size, floor, window, outside) VALUES (?, ?, ?, ?, ?, ?)");
             findStmt   = c.prepareStatement("SELECT * FROM box");
-            updateStmt = c.prepareStatement("UPDATE box set reservationID = ? WHERE id = ?");
+            //updateStmt = c.prepareStatement("UPDATE box set reservationID = ? WHERE id = ?");
+            //reserveStmt= c.prepareStatement("UPDATE box set reservationID = ? WHERE id = ?");
             deleteStmt = c.prepareStatement("UPDATE box set deleted = true WHERE id = ?");
 
         } catch (Exception e) {
@@ -63,7 +66,6 @@ public class BoxServiceImpl implements BoxService {
             while(rset.next()) {
                 Box b = new Box();
                 b.setId(rset.getInt("id"));
-                b.setReservationID(rset.getInt("reservationid"));
                 b.setDailyRate(rset.getInt("dailyrate"));
                 b.setPicURL(rset.getString("picurl"));
                 b.setSize(rset.getInt("size"));
@@ -81,14 +83,28 @@ public class BoxServiceImpl implements BoxService {
         return olist;
     }
 
+       @Override
+       public void update(Box b) {
+         logger.info("reservation created");
+//
+//        try {
+//            updateStmt.setInt(1, b.getReservationID());
+//            updateStmt.setInt(2, b.getId());
+//            updateStmt.executeUpdate();
+//        } catch (SQLException e) {
+//            logger.info("reservation failed");
+//            e.printStackTrace();
+//        }
+        }
+
     @Override
-    public void update(Box b) {
+    public void reserve(Reservation r) {
         logger.info("reservation created");
 
         try {
-            updateStmt.setInt(1, b.getReservationID());
-            updateStmt.setInt(2, b.getId());
-            updateStmt.executeUpdate();
+            reserveStmt.setInt(1, r.getId());;
+            reserveStmt.setInt(2, r.getBoxID());
+            reserveStmt.executeUpdate();
         } catch (SQLException e) {
             logger.info("reservation failed");
             e.printStackTrace();

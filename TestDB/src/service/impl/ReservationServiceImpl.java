@@ -1,5 +1,6 @@
 package service.impl;
 
+import entity.Box;
 import entity.Reservation;
 
 import java.sql.Connection;
@@ -24,7 +25,7 @@ public class ReservationServiceImpl implements ReservationService {
         try {
             Connection c = DriverManager.getConnection(url, usr, pw);
 
-            createStmt = c.prepareStatement("INSERT INTO reservation(customername, horsename, start, end) " + "VALUES (?, ?, ?, ?)");
+            createStmt = c.prepareStatement("INSERT INTO reservation(customername, horsename, start, end, dailyCharge, boxid) " + "VALUES (?, ?, ?, ?, ?, ?)");
             findStmt   = c.prepareStatement("SELECT * FROM reservation "  + "WHERE customername = ?");
     //      updateStmt = ;
     //      deleteStmt = ;
@@ -36,7 +37,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public void create(Reservation r) {
+    public void create(Reservation r, Box b) {
         logger.info("Preparing create statement for a new reservation");
 
         try {
@@ -44,6 +45,8 @@ public class ReservationServiceImpl implements ReservationService {
             createStmt.setString(2, r.getHorseName());
             createStmt.setDate(3, r.getStart());
             createStmt.setDate(4, r.getEnd());
+            createStmt.setInt(5, b.getDailyRate());
+            createStmt.setInt(6, b.getId());
 
             createStmt.executeUpdate();
         } catch (Exception e) {
