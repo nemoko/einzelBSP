@@ -40,7 +40,11 @@ public class BoxServiceImpl implements BoxService {
 
     @Override
     public void update(Box b) {
+        if(b == null) {
 
+        } else {
+            BoxDAOImpl.initialize().update(b);
+        }
     }
 
     @Override

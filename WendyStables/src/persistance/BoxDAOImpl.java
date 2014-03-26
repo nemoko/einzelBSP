@@ -110,26 +110,34 @@ public class BoxDAOImpl implements BoxDAO {
 
     @Override
     public void update(Box b) {
+        logger.info("updating Box in DB");
 
         //        UPDATE Customers
         //        SET ContactName='Alfred Schmidt', City='Hamburg'
         //        WHERE CustomerName='Alfreds Futterkiste';
 
         String query = "UPDATE BOX ";
-        String set = "";
-        String where = "";
+        String set   = "SET ";
+        String where = " WHERE id='" + b.getId() + "';";
 
-        if(b.getDailyRate() != null) where += "dailyrate = '" + b.getDailyRate() + "' AND ";
-        if(b.getSize() != null) where += "size = '" + b.getSize() + "' AND ";
-        if(b.getFloor() != null && !b.getFloor().isEmpty() && !b.getFloor().contains("any")) where += "floor = '" + b.getFloor() + "' AND ";
-        if(b.isWindow() != null && (b.isWindow() ^ b.isOutside())) where += "window = '" + b.isWindow() + "' AND ";
-        if(b.isOutside() != null && (b.isWindow() ^ b.isOutside())) where += "outside = '" + b.isOutside() + "' AND ";
+        if(b.getDailyRate() != null) set += "dailyrate = '" + b.getDailyRate() + "', ";
+        if(b.getSize() != null) set += "size = '" + b.getSize() + "', ";
+        if(b.getFloor() != null && !b.getFloor().isEmpty() && !b.getFloor().contains("any")) set += "floor = '" + b.getFloor() + "', ";
+        if(b.isWindow() != null && (b.isWindow() ^ b.isOutside())) set += "window = '" + b.isWindow() + "', ";
+        if(b.isOutside() != null && (b.isWindow() ^ b.isOutside())) set += "outside = '" + b.isOutside() + "', ";
+        //PICTURE??
 
-        where += "DELETED = FALSE;";
+        String temp = query + set.substring(0, set.length()-2) + where;
 
-        String temp = query + where;
+        try {
+            PreparedStatement ps = c.prepareStatement(temp);
+            ps.executeUpdate();
 
-
+            logger.info("Box successfully updated");
+        } catch (SQLException e) {
+            logger.info("exception during box update statement");
+            e.printStackTrace();
+        }
     }
 
     @Override

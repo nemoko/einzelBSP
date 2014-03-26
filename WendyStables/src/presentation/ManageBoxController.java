@@ -103,8 +103,6 @@ public class ManageBoxController implements Initializable {
         MainController.setWindow("Welcome.fxml");
     }
 
-
-
     @FXML
     public void onActionCreateBox() {
         removeSuccessMessage();
@@ -300,6 +298,64 @@ public class ManageBoxController implements Initializable {
     public void onActionUpdateBox() {
         removeSuccessMessage();
         clearPrompts();
+
+        Box b = clicked;
+
+        String exception = "";
+
+        try {
+            b.setDailyRate(Integer.parseInt(tf_daily_rate.getText()));
+            if(Integer.signum(Integer.parseInt(tf_daily_rate.getText())) == -1) e_daily_positive.setVisible(true);
+        } catch (Exception e) {
+            exception += "0";
+        }
+
+        try {
+            b.setSize(Integer.parseInt(tf_size.getText()));
+            if(Integer.signum(Integer.parseInt(tf_size.getText())) == -1) e_size_positive.setVisible(true);
+        } catch (Exception e) {
+            exception += "1";
+        }
+
+        if(floor_type == null || floor_type.isEmpty() || floor_type.contains("any")) exception += "2";
+        else b.setFloor(floor_type);
+
+        try {
+            b.setWindow(ch_window.isSelected());
+        } catch (Exception e) {
+            exception += "3";
+        }
+
+        try {
+            b.setOutside(ch_outside.isSelected());
+        } catch (Exception e) {
+            exception += "4";
+        }
+
+        b.setPicURL("");
+
+        if(exception.contains("0")) e_daily_int.setVisible(true);
+        if(exception.contains("1")) e_size_int.setVisible(true);
+        if(exception.contains("2")) e_floor_choose.setVisible(true);
+        if(exception.contains("3")) e_window_choose.setVisible(true);
+        if(exception.contains("4")) e_outside_choose.setVisible(true);
+
+        if(exception.contains("3") && exception.contains("4")) {
+            return;
+        }
+
+        if(!exception.isEmpty() || e_daily_positive.isVisible() || e_size_positive.isVisible()) return;
+
+//        try {
+            BoxService bs = BoxServiceImpl.initialize();
+            bs.update(b);
+            onActionDisplayAll();
+            f_box_created.setVisible(true);
+//        } catch (BoxException be) {
+//            f_box_failed.setVisible(true);
+//        }
+
+
 
     }
 
