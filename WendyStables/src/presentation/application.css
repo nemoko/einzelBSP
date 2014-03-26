@@ -1,4 +1,7 @@
-.layout {
-    -fx-background-color: blueviolet;
+.root {
+    -fx-background-image: url("background.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1450, 1450;
+    -fx-background-position: center;
 }
 

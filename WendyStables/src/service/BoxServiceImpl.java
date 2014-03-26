@@ -1,6 +1,7 @@
 package service;
 
 import entity.Box;
+import exception.BoxException;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
 import persistance.BoxDAOImpl;
@@ -16,11 +17,11 @@ public class BoxServiceImpl implements BoxService {
     }
 
     @Override
-    public void create(Box b) {
+    public void create(Box b) throws BoxException {
         logger.info("create received by service layer");
 
         if(b == null) {
-            //throw create null exception
+            throw new BoxException("box is null");
         } else {
             BoxDAOImpl.initialize().create(b);
         }

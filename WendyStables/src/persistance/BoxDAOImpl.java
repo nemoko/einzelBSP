@@ -2,6 +2,7 @@ package persistance;
 
 import entity.Box;
 import entity.Reservation;
+import exception.BoxException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
@@ -48,7 +49,7 @@ public class BoxDAOImpl implements BoxDAO {
     }
 
     @Override
-    public void create(Box b) {
+    public void create(Box b) throws BoxException {
         logger.info("create received by persistance layer");
 
         try {
@@ -63,6 +64,7 @@ public class BoxDAOImpl implements BoxDAO {
 
         } catch (SQLException e) {
             logger.info("exception during box DB creation");
+            throw new BoxException("box is null");
         }
         logger.info("New box should be created in DB");
     }

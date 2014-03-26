@@ -1,6 +1,7 @@
 package presentation;
 
 import entity.Box;
+import exception.BoxException;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -42,12 +43,39 @@ public class ManageBoxController implements Initializable {
     @FXML
     private Button b_delete;
     @FXML
+    private Button b_clearall;
+    @FXML
     private ComboBox<String> cb_floor;
     private String floor_type;
     @FXML
     private Label e_daily;
     @FXML
     private Label e_size;
+    @FXML
+    private Label e_floor;
+    @FXML
+    private Label e_window;
+    @FXML
+    private Label e_outside;
+    @FXML
+    private Label e_failed;
+    @FXML
+    private Label box_created;
+    @FXML
+    private Label box_updated;
+    @FXML
+    private Label box_deleted;
+    @FXML
+    private Label e_daily_positive;
+    @FXML
+    private Label e_size_positive;
+
+    @FXML
+    public void removeSuccessMessage() {
+        box_created.setVisible(false);
+        box_updated.setVisible(false);
+        box_deleted.setVisible(false);
+    }
 
     @FXML
     public void onActionHomePage() {
@@ -59,28 +87,86 @@ public class ManageBoxController implements Initializable {
         logger.info("OnActionCreateBox clicked");
 
         Box b = new Box();
+        String exception = "";
 
         try {
             b.setDailyRate(Integer.parseInt(tf_daily_rate.getText()));
             e_daily.setVisible(false);
+            e_daily_positive.setVisible(false);
+            if(Integer.signum(Integer.parseInt(tf_daily_rate.getText())) == -1) e_daily_positive.setVisible(true);
         } catch (Exception e) {
-            e_daily.setVisible(true);
+            exception += "0";
         }
 
         try {
             b.setSize(Integer.parseInt(tf_size.getText()));
             e_size.setVisible(false);
+            e_size_positive.setVisible(false);
+            if(Integer.signum(Integer.parseInt(tf_size.getText())) == -1) e_size_positive.setVisible(true);
         } catch (Exception e) {
-            e_size.setVisible(true);
+            exception += "1";
+        }
+
+        e_floor.setVisible(false);
+
+        if(floor_type == null) exception += "2";
+        else b.setFloor(floor_type);
+
+        try {
+            b.setWindow(ch_window.isSelected());
+            e_window.setVisible(false);
+        } catch (Exception e) {
+            exception += "3";
+        }
+
+        try {
+            b.setOutside(ch_outside.isSelected());
+            e_outside.setVisible(false);
+        } catch (Exception e) {
+            exception += "4";
         }
 
         b.setPicURL("");
-        b.setFloor(floor_type);
-        b.setWindow(ch_window.isSelected());
-        b.setOutside(ch_outside.isSelected());
 
-        BoxService bs = BoxServiceImpl.initialize();
-        bs.create(b);
+        if(exception.contains("0")) e_daily.setVisible(true);
+        if(exception.contains("1")) e_size.setVisible(true);
+        if(exception.contains("2")) e_floor.setVisible(true);
+        if(exception.contains("3")) e_window.setVisible(true);
+        if(exception.contains("4")) e_outside.setVisible(true);
+
+        if(!exception.isEmpty() || e_daily_positive.isVisible() || e_size_positive.isVisible()) return;
+
+        try {
+            BoxService bs = BoxServiceImpl.initialize();
+            bs.create(b);
+            box_created.setVisible(true);
+        } catch (BoxException be) {
+            e_failed.setVisible(true);
+        }
+    }
+
+    @FXML
+    public void onActionClearAll() {
+        tf_daily_rate.setText("");
+        tf_size.setText("");
+        cb_floor.setValue("");
+        ch_window.setSelected(false);
+        ch_window.setDisable(false);
+        ch_outside.setSelected(false);
+        ch_outside.setDisable(false);
+    }
+
+    @FXML
+    public void selectedWindow() {
+        if(ch_outside.isDisabled()) ch_outside.setDisable(false);
+        else ch_outside.setDisable(true);
+    }
+
+    @FXML
+    public void selectedOutside() {
+        if(ch_window.isDisabled()) ch_window.setDisable(false);
+        else ch_window.setDisable(true);
+
     }
 
     @FXML
@@ -119,6 +205,10 @@ public class ManageBoxController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        b_filter.setDisable(true);
+        b_create.setDisable(false);
+        b_update.setDisable(true);
+        b_delete.setDisable(true);
 
         cb_floor.getItems().addAll("Sawdust","Straw");
         cb_floor.setOnAction(new EventHandler<ActionEvent>() {
@@ -178,8 +268,18 @@ public class ManageBoxController implements Initializable {
         if(clicked != null) {
             tf_daily_rate.setText("" + clicked.getDailyRate());
             cb_floor.setValue(clicked.getFloor());
-            ch_window.setSelected(clicked.isWindow());
-            ch_outside.setSelected(clicked.isOutside());
+            if(clicked.isWindow()) {
+                ch_window.setSelected(true);
+                ch_window.setDisable(false);
+                ch_outside.setSelected(false);
+                ch_outside.setDisable(true);
+            }
+            if(clicked.isOutside()) {
+                ch_outside.setSelected(true);
+                ch_outside.setDisable(false);
+                ch_window.setSelected(false);
+                ch_window.setDisable(true);
+            }
             tf_size.setText("" + clicked.getSize());
 
         }

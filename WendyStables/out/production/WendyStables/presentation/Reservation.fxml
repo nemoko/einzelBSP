@@ -35,6 +35,5 @@
         </Label>
       </children>
     </Pane>
-    <BorderPane prefHeight="200.0" prefWidth="200.0" />
   </children>
 </StackPane>

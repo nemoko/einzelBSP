@@ -4,6 +4,7 @@
 <?import java.util.*?>
 <?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
@@ -35,7 +36,7 @@
       <center>
         <VBox prefHeight="200.0" prefWidth="100.0">
           <children>
-            <GridPane prefHeight="213.0" prefWidth="676.0">
+            <GridPane prefHeight="226.0" prefWidth="676.0">
               <children>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                   <children>
@@ -46,25 +47,19 @@
                     </HBox>
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <children>
+                    <Label id="e_label" fx:id="e_floor" text="Choose one" textFill="RED" visible="false" />
+                  </children>
+                </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
                   <children>
                     <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0">
                       <children>
-                        <Button fx:id="b_filter" mnemonicParsing="false" onAction="#onActionFilterTable" text="Filter" />
+                        <Button fx:id="b_update" mnemonicParsing="false" onAction="#onActionUpdateBox" text="Update" />
                       </children>
                     </HBox>
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                  <children>
-                    <Button fx:id="b_create" mnemonicParsing="false" onAction="#onActionCreateBox" text="Create" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
-                  <children>
-                    <Button fx:id="b_update" mnemonicParsing="false" onAction="#onActionUpdateBox" text="Update" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
@@ -109,17 +104,17 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
                   <children>
-                    <CheckBox fx:id="ch_outside" mnemonicParsing="false" text="" />
+                    <CheckBox fx:id="ch_outside" mnemonicParsing="false" onAction="#selectedOutside" text="" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                   <children>
-                    <CheckBox fx:id="ch_window" mnemonicParsing="false" text="" />
+                    <CheckBox fx:id="ch_window" mnemonicParsing="false" onAction="#selectedWindow" text="" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                   <children>
-                    <Label text="Select one" visible="false">
+                    <Label fx:id="e_window" text="Select one" visible="false">
                       <textFill>
                         <Color blue="0.200" green="0.200" red="1.000" fx:id="x1" />
                       </textFill>
@@ -128,17 +123,47 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="29.000099999997474" prefWidth="135.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                   <children>
-                    <Label fx:id="e_size" text="enter a number" textFill="$x1" visible="false" />
+                    <Pane prefHeight="200.0" prefWidth="200.0">
+                      <children>
+                        <Label fx:id="e_size" layoutX="6.0" layoutY="6.0" text="enter an int" textFill="$x1" visible="false" />
+                        <Label id="e_size" fx:id="e_size_positive" layoutX="6.0" layoutY="6.0" text="enter a positive int" textFill="$x1" visible="false" />
+                      </children>
+                    </Pane>
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                   <children>
-                    <Label fx:id="e_daily" text="enter a number" textFill="$x1" visible="false" />
+                    <Pane prefHeight="200.0" prefWidth="200.0">
+                      <children>
+                        <Label id="e_daily" fx:id="e_daily_positive" layoutX="6.0" layoutY="10.0" text="enter a positive int" textFill="$x1" visible="false" />
+                        <Label fx:id="e_daily" layoutX="6.0" layoutY="10.0" text="enter an int" textFill="$x1" visible="false" />
+                      </children>
+                    </Pane>
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                  <children>
+                    <Label id="e_window" fx:id="e_outside" text="Select one" textFill="$x1" visible="false" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                  <children>
+                    <Button fx:id="b_create" mnemonicParsing="false" onAction="#onActionCreateBox" text="Create" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <children>
+                    <Button fx:id="b_filter" mnemonicParsing="false" onAction="#onActionFilterTable" text="Filter" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                  <children>
+                    <Button fx:id="b_delete" mnemonicParsing="false" onAction="#onActionDeleteBox" text="Delete" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
                   <children>
-                    <Button fx:id="b_delete" mnemonicParsing="false" onAction="#onActionDeleteBox" text="Delete" />
+                    <Button id="b_delete" fx:id="b_clearall" mnemonicParsing="false" onAction="#onActionClearAll" text="Clear all" />
                   </children>
                 </HBox>
               </children>
@@ -160,24 +185,29 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="309.0" prefWidth="676.0" />
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <VBox alignment="CENTER" disable="false" prefHeight="52.0" prefWidth="676.0" spacing="0.0" visible="true">
               <children>
-                <GridPane prefHeight="94.0" prefWidth="676.0">
-                  <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  </columnConstraints>
-                  <rowConstraints>
-                    <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
-                  </rowConstraints>
-                </GridPane>
+                <Pane prefHeight="200.0" prefWidth="200.0">
+                  <children>
+                    <Label fx:id="box_created" disable="false" layoutX="239.0" layoutY="8.0" onMouseMoved="#removeSuccessMessage" text="A Box was created" visible="false">
+                      <font>
+                        <Font size="23.0" fx:id="x2" />
+                      </font>
+                      <textFill>
+                        <Color blue="0.000" green="0.600" red="0.047" fx:id="x3" />
+                      </textFill>
+                    </Label>
+                    <Label id="box_created" fx:id="box_updated" font="$x2" layoutX="239.0" layoutY="7.0" onMouseMoved="#removeSuccessMessage" text="A Box was updated" textFill="$x3" visible="false" />
+                    <Label id="box_created" fx:id="box_deleted" font="$x2" layoutX="239.0" layoutY="7.0" onMouseMoved="#removeSuccessMessage" text="A Box was deleted" textFill="$x3" visible="false" />
+                    <Label id="box_created" fx:id="e_failed" disable="false" font="$x2" layoutX="231.0" layoutY="11.0" onMouseMoved="#removeSuccessMessage" text="Box creation failed!" textFill="RED" visible="false" />
+                  </children>
+                </Pane>
+              </children>
+            </VBox>
+            <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="338.0" prefWidth="676.0" spacing="5.0">
+              <children>
+                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="299.0" prefWidth="466.0" />
+                <ImageView id="image_field" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
               </children>
             </HBox>
           </children>
