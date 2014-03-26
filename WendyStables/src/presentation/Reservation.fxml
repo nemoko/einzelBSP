@@ -104,6 +104,66 @@
                     <Label fx:id="e_from_date" text="incorrect date format" textFill="RED" visible="false" />
                   </children>
                 </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                  <children>
+                    <Label text="Daily Rate" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                  <children>
+                    <Label text="Size (sq m)" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                  <children>
+                    <Label text="Floor Type" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                  <children>
+                    <Label text="Window" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                  <children>
+                    <Label text="Outside" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                  <children>
+                    <TextField fx:id="tf_daily_rate" prefWidth="200.0" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                  <children>
+                    <TextField fx:id="tf_size" prefWidth="200.0" />
+                  </children>
+                </HBox>
+                <ComboBox fx:id="cb_floor" prefHeight="23.0" prefWidth="135.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList" />
+                  </items>
+                </ComboBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                  <children>
+                    <CheckBox fx:id="ch_window" mnemonicParsing="false" onAction="#selectedWindow" text="" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                  <children>
+                    <CheckBox fx:id="ch_outside" mnemonicParsing="false" onAction="#selectedOutside" text="" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                  <children>
+                    <Button id="b_filter" mnemonicParsing="false" onAction="#onActionFilterTable" text="Filter" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                  <children>
+                    <Button id="b_delete" mnemonicParsing="false" onAction="#onActionClearAll" text="Clear all" />
+                  </children>
+                </HBox>
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="72.0" />
@@ -139,8 +199,7 @@
             </VBox>
             <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="338.0" prefWidth="676.0" spacing="5.0">
               <children>
-                <TableView id="tabulka" fx:id="resbulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="353.0" />
-                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="353.0" />
+                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="353.0000999999975" />
               </children>
             </HBox>
           </children>

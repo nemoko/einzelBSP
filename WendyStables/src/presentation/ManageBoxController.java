@@ -329,7 +329,6 @@ public class ManageBoxController implements Initializable {
         if(floor_type == null || floor_type.isEmpty() || floor_type.contains("any")) exception += "2";
         else b.setFloor(floor_type);
 
-
         if(!ch_window.isSelected() && !ch_outside.isSelected()) {
             exception += "34";
         } else {
@@ -381,6 +380,8 @@ public class ManageBoxController implements Initializable {
         popUp(b);
 
         onActionDisplayAll();
+//        onActionFilterTable();
+//        f_filter_applied.setVisible(false);
     }
 
     public void popUp(Box b) {
@@ -413,7 +414,7 @@ public class ManageBoxController implements Initializable {
                 // delete box
                 BoxService bs = BoxServiceImpl.initialize();
                 bs.delete(box);
-//                f_box_deleted.setVisible(true);
+//              f_box_deleted.setVisible(true);
 
                 popUp.close();
             }
