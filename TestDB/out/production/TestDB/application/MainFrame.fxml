@@ -5,6 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?scenebuilder-stylesheet application.css?>
 
 <AnchorPane prefHeight="589.0" prefWidth="498.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.MainFrameController">
   <!-- TODO Add Nodes -->
@@ -17,22 +18,11 @@
     <TextField fx:id="tf_box_dailyRate" layoutX="101.0" layoutY="150.0" prefWidth="200.0" />
     <Label id="" layoutX="14.0" layoutY="185.0" text="Straw Floor:" />
     <TextField fx:id="tf_box_strawFloor" layoutX="101.0" layoutY="182.0" prefWidth="200.0" />
-    <Label id="" layoutX="21.0" layoutY="242.0" text="Deleted:" />
-    <TextField fx:id="tf_box_deleted" layoutX="101.0" layoutY="239.0" prefWidth="200.0" />
+    <Label id="" layoutX="20.0" layoutY="282.0" text="Delete:" />
     <CheckBox fx:id="cb_box_window" layoutX="32.0" layoutY="88.0" mnemonicParsing="false" text="Window" />
     <CheckBox fx:id="cb_box_outside" layoutX="120.0" layoutY="88.0" mnemonicParsing="false" text="Outside" />
-    <Button layoutX="363.0" layoutY="261.0" mnemonicParsing="false" onAction="#onSaveBoxClicked" text="Save" />
+    <Button layoutX="317.0" layoutY="223.0" mnemonicParsing="false" onAction="#onSaveBoxClicked" text="Save" />
     <TextField fx:id="tf_box_delete" layoutX="101.0" layoutY="279.0" prefWidth="200.0" />
-    <Button layoutX="359.0" layoutY="315.0" mnemonicParsing="false" onAction="#onDeleteBoxClicked" text="Delete" />
-
-    <ChoiceBox layoutX="220.0" layoutY="88.0">
-      <items>
-        <FXCollections fx:factory="observableArrayList">
-          <String fx:value="Sawdust floor" />
-          <String fx:value="Straw floor" />
-        </FXCollections>
-      </items>
-    </ChoiceBox>
-
+    <Button layoutX="312.0" layoutY="308.0" mnemonicParsing="false" onAction="#onDeleteBoxClicked" text="Delete" />
   </children>
 </AnchorPane>

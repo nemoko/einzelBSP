@@ -22,7 +22,7 @@ public class ReservationServiceImpl implements ReservationService {
         try {
             Connection c = DriverManager.getConnection(url, usr, pw);
 
-            createStmt = c.prepareStatement("INSERT INTO reservation(customername, horsename, start, until, boxid) " + "VALUES (?, ?, ?, ?, ?)");
+            createStmt = c.prepareStatement("INSERT INTO reservation(customername, horsename, start, end) " + "VALUES (?, ?, ?, ?)");
             findStmt   = c.prepareStatement("SELECT * FROM reservation "  + "WHERE customername = ?");
     //      updateStmt = ;
     //      deleteStmt = ;
@@ -42,8 +42,8 @@ public class ReservationServiceImpl implements ReservationService {
             createStmt.setString(1, r.getCustomerName());
             createStmt.setString(2, r.getHorseName());
             createStmt.setDate(3, r.getStart());
-            createStmt.setDate(4, r.getUntil());
-            createStmt.setInt(5, r.getBoxID());
+            createStmt.setDate(4, r.getEnd());
+
             createStmt.executeUpdate();
         } catch (Exception e) {
             logger.info("exception during Reservation DB creation");

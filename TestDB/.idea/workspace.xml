@@ -69,49 +69,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BoxServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/service/impl/BoxServiceImpl.java">
+      <file leaf-file-name="Reservation.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/entity/Reservation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1566">
+            <state line="4" column="13" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="684">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReservationServiceImpl.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/service/impl/ReservationServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="104" selection-start="788" selection-end="788" vertical-scroll-proportion="0.5775401" vertical-offset="0" max-vertical-offset="1242">
               <folding>
-                <marker date="1395235380307" expanded="true" signature="718:844" placeholder="INSERT INTO ..." />
-                <marker date="1395235380307" expanded="true" signature="893:940" placeholder="SELECT * FRO..box..." />
-                <marker date="1395235380307" expanded="true" signature="1012:1054" placeholder="UPDATE box s..." />
+                <marker date="1395262763228" expanded="true" signature="729:814" placeholder="INSERT INTO ..." />
+                <marker date="1395262763228" expanded="true" signature="863:917" placeholder="SELECT * FRO..reservation..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HSQLDB - xdb@localhost" pinned="false" current="false" current-in-tab="false">
-        <entry file="dbDummy://db-console:/4dc6ff5f/3067730e-9151-46a8-9e89-c4b03acecdea/">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="108">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PUBLIC.PUBLIC.BOX" pinned="false" current="true" current-in-tab="true">
-        <entry file="dbDummy://dbtable:/4dc6ff5f/3067730e-9151-46a8-9e89-c4b03acecdea/PUBLIC.PUBLIC.BOX">
-          <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainFrame.fxml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/MainFrame.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0" vertical-offset="468" max-vertical-offset="612">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/application/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="17" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="1062">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -128,20 +102,20 @@
       <list>
         <option value="$PROJECT_DIR$/src/entity/Receipt.java" />
         <option value="$PROJECT_DIR$/src/service/impl/BuchServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/entity/Box.java" />
         <option value="$PROJECT_DIR$/src/application/Main.java" />
-        <option value="$PROJECT_DIR$/src/entity/Reservation.java" />
-        <option value="$PROJECT_DIR$/src/service/impl/ReceiptServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/service/impl/DAO.java" />
         <option value="$PROJECT_DIR$/src/service/impl/BoxService.java" />
         <option value="$PROJECT_DIR$/src/service/impl/ReceiptService.java" />
         <option value="$PROJECT_DIR$/src/service/impl/ReservationService.java" />
-        <option value="$PROJECT_DIR$/src/service/impl/ReservationServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/service/impl/BoxServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/application/application.css" />
         <option value="$PROJECT_DIR$/src/application/MainFrame.fxml" />
-        <option value="$PROJECT_DIR$/src/application/MainFrameController.java" />
         <option value="db-console:/4dc6ff5f/3067730e-9151-46a8-9e89-c4b03acecdea/" />
+        <option value="$PROJECT_DIR$/src/entity/Box.java" />
+        <option value="$PROJECT_DIR$/src/service/impl/ReceiptServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/entity/Reservation.java" />
+        <option value="$PROJECT_DIR$/src/application/MainFrameController.java" />
+        <option value="$PROJECT_DIR$/src/service/impl/BoxServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/service/impl/ReservationServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -630,18 +604,18 @@
       <workItem from="1395234296126" duration="1003000" />
       <workItem from="1395235324516" duration="4495000" />
       <workItem from="1395241979162" duration="4966000" />
-      <workItem from="1395258553898" duration="2467000" />
+      <workItem from="1395258553898" duration="4216000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53015000" />
+    <option name="totallyTimeSpent" value="54764000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1600" y="24" width="1600" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32876712" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -655,18 +629,18 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.183125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24782068" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24782068" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -723,9 +697,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="40" selection-start="642" selection-end="642" vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="1404">
           <folding>
-            <marker date="1395235380307" expanded="true" signature="718:844" placeholder="INSERT INTO ..." />
-            <marker date="1395235380307" expanded="true" signature="893:940" placeholder="SELECT * FRO..box..." />
-            <marker date="1395235380307" expanded="true" signature="1012:1054" placeholder="UPDATE box s..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..box..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
           </folding>
         </state>
       </provider>
@@ -741,9 +715,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="77" column="9" selection-start="2565" selection-end="2565" vertical-scroll-proportion="0.0" vertical-offset="1386" max-vertical-offset="1440">
           <folding>
-            <marker date="1395235380307" expanded="true" signature="718:844" placeholder="INSERT INTO ..." />
-            <marker date="1395235380307" expanded="true" signature="893:940" placeholder="SELECT * FRO..box..." />
-            <marker date="1395235380307" expanded="true" signature="1012:1054" placeholder="UPDATE box s..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..box..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
           </folding>
         </state>
       </provider>
@@ -780,9 +754,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="0" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1386">
           <folding>
-            <marker date="1395235380307" expanded="true" signature="718:844" placeholder="INSERT INTO ..." />
-            <marker date="1395235380307" expanded="true" signature="893:940" placeholder="SELECT * FRO..box..." />
-            <marker date="1395235380307" expanded="true" signature="1012:1054" placeholder="UPDATE box s..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..box..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
           </folding>
         </state>
       </provider>
@@ -812,9 +786,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="55" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="1404">
           <folding>
-            <marker date="1395235380307" expanded="true" signature="718:844" placeholder="INSERT INTO ..." />
-            <marker date="1395235380307" expanded="true" signature="893:940" placeholder="SELECT * FRO..box..." />
-            <marker date="1395235380307" expanded="true" signature="1012:1054" placeholder="UPDATE box s..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..box..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
           </folding>
         </state>
       </provider>
@@ -869,9 +843,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="13" selection-start="111" selection-end="111" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="720">
           <folding>
-            <marker date="1395235380307" expanded="true" signature="718:844" placeholder="INSERT INTO ..." />
-            <marker date="1395235380307" expanded="true" signature="893:940" placeholder="SELECT * FRO..box..." />
-            <marker date="1395235380307" expanded="true" signature="1012:1054" placeholder="UPDATE box s..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..box..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
           </folding>
         </state>
       </provider>
@@ -910,9 +884,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="13" selection-start="111" selection-end="111" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="720">
           <folding>
-            <marker date="1395235380307" expanded="true" signature="718:844" placeholder="INSERT INTO ..." />
-            <marker date="1395235380307" expanded="true" signature="893:940" placeholder="SELECT * FRO..box..." />
-            <marker date="1395235380307" expanded="true" signature="1012:1054" placeholder="UPDATE box s..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..box..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
           </folding>
         </state>
       </provider>
@@ -948,13 +922,6 @@
             <Category>Key columns</Category>
           </Categories>
           <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/Box.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="19" selection-start="1431" selection-end="1431" vertical-scroll-proportion="1.0478655" vertical-offset="0" max-vertical-offset="1098">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1003,23 +970,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/Reservation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="23" selection-start="198" selection-end="198" vertical-scroll-proportion="0.20827943" vertical-offset="19" max-vertical-offset="792">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/entity/Receipt.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="0" selection-start="204" selection-end="204" vertical-scroll-proportion="0.23285899" vertical-offset="0" max-vertical-offset="773">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/impl/ReceiptServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="343" selection-end="343" vertical-scroll-proportion="0.12834224" vertical-offset="162" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
@@ -1037,13 +990,6 @@
           <Categories />
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/impl/ReservationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="50" selection-start="734" selection-end="734" vertical-scroll-proportion="0.6737968" vertical-offset="54" max-vertical-offset="1350">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1075,37 +1021,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/application/application.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="36" selection-start="46" selection-end="46" vertical-scroll-proportion="0.031358887" vertical-offset="0" max-vertical-offset="574" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/MainFrame.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="612">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/MainFrameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="1" selection-start="959" selection-end="1005" vertical-scroll-proportion="0.5644599" vertical-offset="0" max-vertical-offset="2106">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/impl/BoxServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1458">
-          <folding>
-            <marker date="1395235380307" expanded="true" signature="718:844" placeholder="INSERT INTO ..." />
-            <marker date="1395235380307" expanded="true" signature="893:940" placeholder="SELECT * FRO..box..." />
-            <marker date="1395235380307" expanded="true" signature="1012:1054" placeholder="UPDATE box s..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/application/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="17" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0" vertical-offset="311" max-vertical-offset="864">
+        <state line="1" column="36" selection-start="46" selection-end="46" vertical-scroll-proportion="0.031358887" vertical-offset="0" max-vertical-offset="574">
           <folding />
         </state>
       </provider>
@@ -1133,7 +1049,7 @@
     </entry>
     <entry file="dbDummy://db-console:/4dc6ff5f/3067730e-9151-46a8-9e89-c4b03acecdea/">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="108">
+        <state line="0" column="18" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
           <folding />
         </state>
       </provider>
@@ -1141,6 +1057,72 @@
     <entry file="dbDummy://dbtable:/4dc6ff5f/3067730e-9151-46a8-9e89-c4b03acecdea/PUBLIC.PUBLIC.BOX">
       <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/Box.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="14" selection-start="346" selection-end="346" vertical-scroll-proportion="0.4243615" vertical-offset="54" max-vertical-offset="1134">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/impl/ReceiptServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="12" selection-start="1235" selection-end="1235" vertical-scroll-proportion="0.75261325" vertical-offset="216" max-vertical-offset="1188">
+          <folding>
+            <marker date="1395262400760" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1395262400760" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..receipt..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/impl/BoxServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="0" selection-start="1607" selection-end="1607" vertical-scroll-proportion="0.93582886" vertical-offset="213" max-vertical-offset="1440">
+          <folding>
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..box..." />
+            <marker date="1395262663984" expanded="true" signature="-1:-1" placeholder="UPDATE box s..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/MainFrame.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/MainFrameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="0" selection-start="1480" selection-end="1480" vertical-scroll-proportion="1.3170732" vertical-offset="0" max-vertical-offset="1818">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/application/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="17" selection-start="834" selection-end="834" vertical-scroll-proportion="0.027874565" vertical-offset="290" max-vertical-offset="864">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/entity/Reservation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="13" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="684">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/impl/ReservationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="104" selection-start="788" selection-end="788" vertical-scroll-proportion="0.5775401" vertical-offset="0" max-vertical-offset="1242">
+          <folding>
+            <marker date="1395262763228" expanded="true" signature="729:814" placeholder="INSERT INTO ..." />
+            <marker date="1395262763228" expanded="true" signature="863:917" placeholder="SELECT * FRO..reservation..." />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

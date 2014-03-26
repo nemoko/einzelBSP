@@ -8,7 +8,7 @@ public class Box {
     private int dailyRate;
     private String picURL;
     private int size;
-    private boolean strawFloor;
+    private String floor;
     private boolean window;
     private boolean outside;
     private boolean deleted;
@@ -61,12 +61,12 @@ public class Box {
         this.size = size;
     }
 
-    public boolean isStrawFloor() {
-        return strawFloor;
+    public String whatFloor() {
+        return floor;
     }
 
-    public void setStrawFloor(boolean strawFloor) {
-        this.strawFloor = strawFloor;
+    public void setFloor(String floor) {
+        this.floor = floor;
     }
 
     public boolean isWindow() {

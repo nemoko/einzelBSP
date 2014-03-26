@@ -22,8 +22,8 @@ public class ReceiptServiceImpl implements ReceiptService {
         try {
             Connection c = DriverManager.getConnection(url, usr, pw);
 
-            createStmt = c.prepareStatement("INSERT INTO receipt(customername, boxid, reservationid, dailyrate, totalcharge) " + "VALUES (?, ?, ?, ?, ?)");
-            findStmt   = c.prepareStatement("SELECT * FROM receipt "  + "WHERE reservationid = ?");
+            //createStmt = c.prepareStatement("INSERT INTO receipt() " + "VALUES ()");
+            //findStmt   = c.prepareStatement("SELECT * FROM receipt "  + "WHERE reservationid = ?");
 //      updateStmt = ;
 //      deleteStmt = ;
 
@@ -39,11 +39,8 @@ public class ReceiptServiceImpl implements ReceiptService {
         logger.info("preparing create statement for a new receipt");
 
         try {
-            createStmt.setString(1, r.getCustomerName());
-            createStmt.setInt(2, r.getBoxID());
-            createStmt.setInt(3, r.getReservationID());
-            createStmt.setInt(4, r.getDailyRate());
-            createStmt.setInt(5, r.getTotalCharge());
+// get info into the entity
+
             createStmt.executeUpdate();
         } catch (Exception e) {
             logger.info("exception during the receipt DB creation");

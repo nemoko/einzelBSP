@@ -8,8 +8,7 @@ public class Reservation {
     private String customerName;
     private String horseName;
     private Date start;
-    private Date until;
-    private int boxID;
+    private Date end;
 
     public int getId() {
         return id;
@@ -43,20 +42,11 @@ public class Reservation {
         this.start = start;
     }
 
-    public Date getUntil() {
-        return until;
+    public Date getEnd() {
+        return end;
     }
 
-    public void setUntil(Date until) {
-        this.until = until;
+    public void setEnd(Date until) {
+        this.end = until;
     }
-
-    public int getBoxID() {
-        return boxID;
-    }
-
-    public void setBoxID(int boxID) {
-        this.boxID = boxID;
-    }
-
 }
