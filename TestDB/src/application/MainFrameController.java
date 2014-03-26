@@ -12,7 +12,7 @@ public class MainFrameController {
 	
 	private static final Logger logger = Logger.getLogger(MainFrameController.class);
 	
-    private BoxService boxService;
+    private BoxService boxService = new BoxServiceImpl();
 
     @FXML
     private TextField tf_size;

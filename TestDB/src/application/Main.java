@@ -36,20 +36,20 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args)  throws SQLException, ClassNotFoundException {
-//
-//        //starting DB
-//        try {
-//            Class.forName("org.hsqldb.jdbc.JDBCDriver");
-//        } catch (Exception e) {
-//            System.err.println("ERROR: failed to load HSQLDB JDBC driver.");
-//            e.printStackTrace();
-//            return;
-//        }
-//
-        BoxServiceImpl boximpl = new BoxServiceImpl(db_URL,db_USR,db_PWD);
+
+        //starting DB
+        try {
+            Class.forName("org.hsqldb.jdbc.JDBCDriver");
+        } catch (Exception e) {
+            System.err.println("ERROR: failed to load HSQLDB JDBC driver.");
+            e.printStackTrace();
+            return;
+        }
+
+        BoxServiceImpl boximpl = new BoxServiceImpl();
 
 
-        //Connection c = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost:9001/xdb", "SA", "");
+        Connection c = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost:9001/xdb", "SA", "");
 
         //javaFX
 		logger.info("Application starting...");
