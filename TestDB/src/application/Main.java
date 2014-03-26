@@ -45,8 +45,6 @@ public class Main extends Application {
             return;
         }
 
-        BoxServiceImpl boxImpl = new BoxServiceImpl(db_URL,db_USR,db_PWD);
-
         //javaFX
 		logger.info("Application starting...");
 		
