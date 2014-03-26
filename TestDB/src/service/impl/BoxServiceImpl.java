@@ -3,6 +3,7 @@ package service.impl;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 import org.apache.log4j.Logger;
 import entity.Box;
@@ -24,7 +25,7 @@ public class BoxServiceImpl implements BoxService {
             createStmt = c.prepareStatement("INSERT INTO box(size, window, picurl, strawfloor, outside, horsename, dailyrate, deleted) " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             findStmt   = c.prepareStatement("SELECT * FROM box "  + "WHERE reservationid = ?");
 //      updateStmt = ;
-//      deleteStmt = ;
+            deleteStmt = c.prepareStatement("UPDATE box set deleted = true WHERE id = ?");
 
         } catch (Exception e) {
             logger.info("exception during connection in BoxServiceImpl");
@@ -36,7 +37,7 @@ public class BoxServiceImpl implements BoxService {
     public void create(Box b) {
         logger.info("Preparing create statement for a new box");
 
-        try {
+        try{
             createStmt.setInt(1, b.getSize());
             createStmt.setBoolean(2, b.isWindow());
             createStmt.setString(3, b.getPicURL());
@@ -46,10 +47,11 @@ public class BoxServiceImpl implements BoxService {
             createStmt.setInt(7, b.getDailyRate());
             createStmt.setBoolean(8, b.isDeleted());
             createStmt.executeUpdate();
-        } catch (Exception e) {
-            logger.info("exception during Box DB creation");
+        } catch (SQLException e) {
+            logger.info("Exception during box statement creation");
             e.printStackTrace();
         }
+
         logger.info("New box should be created in the DB");
     }
 
@@ -66,6 +68,14 @@ public class BoxServiceImpl implements BoxService {
 
     @Override
     public void delete(Box b) {
-        // TODO Auto-generated method stub
+        logger.info("Preparing delete statement for a box");
+
+        try {
+            deleteStmt.setInt(1, b.getId());
+            deleteStmt.executeUpdate();
+        } catch (SQLException e) {
+            logger.info("exception during BOX DB deletion");
+            e.printStackTrace();
+        }
     }
 }

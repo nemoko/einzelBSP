@@ -1,9 +1,12 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import org.apache.log4j.Logger;
 
+import java.awt.*;
 import java.sql.Date;
 import java.sql.SQLException;
 
@@ -25,19 +28,19 @@ public class MainFrameController {
     @FXML
     private TextField tf_box_size;
     @FXML
-    private TextField tf_box_window;
+    private CheckBox cb_box_window;
+    @FXML
+    private CheckBox cb_box_outside;
     @FXML
     private TextField tf_box_picURL;
-    @FXML
-    private TextField tf_box_strawFloor;
-    @FXML
-    private TextField tf_box_outside;
     @FXML
     private TextField tf_box_horseName;
     @FXML
     private TextField tf_box_dailyRate;
     @FXML
     private TextField tf_box_deleted;
+    @FXML
+    private TextField tf_box_delete;
     @FXML
     private TextField tf_rec_customerName;
     @FXML
@@ -66,13 +69,13 @@ public class MainFrameController {
         Box b = new Box();
 
         b.setSize(Integer.parseInt(tf_box_size.getText()));
-        b.setWindow(Boolean.parseBoolean(tf_box_window.getText()));
+        b.setWindow(cb_box_window.isSelected());
+        b.setOutside(cb_box_outside.isSelected());
         b.setPicURL(tf_box_picURL.getText());
-        b.setStrawFloor(Boolean.parseBoolean(tf_box_strawFloor.getText()));
-        b.setOutside(Boolean.parseBoolean(tf_box_outside.getText()));
-        b.setHorseName(tf_box_horseName.getText());
+        b.setStrawFloor(false);
         b.setDailyRate(Integer.parseInt(tf_box_dailyRate.getText()));
-        b.setDeleted(Boolean.parseBoolean(tf_box_deleted.getText()));
+        b.setDeleted(false);
+        //b.setHorseName();
 
         boxService.create(b);
 	}
@@ -102,8 +105,19 @@ public class MainFrameController {
         r.setHorseName(tf_res_horseName.getText());
         r.setStart(Date.valueOf(tf_res_start.getText()));
         r.setUntil(Date.valueOf(tf_res_until.getText()));
-        r.setBoxID(Integer.valueOf(tf_res_boxID.getText()));
+        r.setBoxID(Integer.parseInt(tf_res_boxID.getText()));
 
         reservationService.create(r);
+    }
+
+    @FXML
+    private void onDeleteBoxClicked() throws SQLException {
+        logger.info("deleteBoxClicked");
+
+        Box b = new Box();
+
+        b.setId(Integer.parseInt(tf_box_delete.getText()));
+
+        boxService.delete(b);
     }
 }
