@@ -1,7 +1,5 @@
 package application;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
@@ -68,6 +66,7 @@ public class MainFrameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         list.setItems(boxService.find());
+        //list.getItems(boxService.find());
     }
 
     @FXML

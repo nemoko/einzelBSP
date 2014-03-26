@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.List;
+
+import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
 
 public class ReservationServiceImpl implements ReservationService {
@@ -52,7 +54,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public List<Reservation> find(Reservation r) {
+    public ObservableList<Reservation> find() {
         return null;
     }
 

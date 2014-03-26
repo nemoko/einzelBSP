@@ -92,4 +92,20 @@ public class Box {
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
     }
+
+    @Override
+    public String toString() {
+        return "Box{" +
+                "id=" + id +
+                ", reservationID=" + reservationID +
+                ", horseName='" + horseName + '\'' +
+                ", dailyRate=" + dailyRate +
+                ", picURL='" + picURL + '\'' +
+                ", size=" + size +
+                ", floor='" + floor + '\'' +
+                ", window=" + window +
+                ", outside=" + outside +
+                ", deleted=" + deleted +
+                '}';
+    }
 }
