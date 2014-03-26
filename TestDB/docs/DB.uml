@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>3067730e-9151-46a8-9e89-c4b03acecdea.schema:PUBLIC.PUBLIC</OriginalElement>
+  <nodes>
+    <node x="0.0" y="322.0">3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.RESERVATION</node>
+    <node x="60.75" y="548.0">3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.RECEIPT</node>
+    <node x="20.75" y="0.0">3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.BOX</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.RECEIPT" target="3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.RESERVATION">
+      <point x="-55.5" y="-88.0" />
+      <point x="116.25" y="523.0" />
+      <point x="111.0" y="523.0" />
+      <point x="0.0" y="88.0" />
+    </edge>
+    <edge source="3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.RECEIPT" target="3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.BOX">
+      <point x="55.5" y="-88.0" />
+      <point x="227.25" y="523.0" />
+      <point x="232.5" y="523.0" />
+      <point x="232.5" y="297.0" />
+      <point x="247.25" y="297.0" />
+      <point x="75.5" y="136.0" />
+    </edge>
+    <edge source="3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.RESERVATION" target="3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.BOX">
+      <point x="0.0" y="-88.0" />
+      <point x="111.0" y="297.0" />
+      <point x="96.25" y="297.0" />
+      <point x="-75.5" y="136.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7352150537634409" x="161.5" y="362.0" />
+  <SelectedNodes>
+    <node>3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.BOX</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+

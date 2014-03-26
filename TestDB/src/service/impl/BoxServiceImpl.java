@@ -11,51 +11,46 @@ public class BoxServiceImpl implements BoxService {
 
     private static final Logger logger = Logger.getLogger(BoxServiceImpl.class);
 
-    private static Connection c;
-
     private PreparedStatement createStmt;
     private PreparedStatement findStmt;
     private PreparedStatement updateStmt;
     private PreparedStatement deleteStmt;
 
-    public BoxServiceImpl(String url, String user, String pw) {
+    public BoxServiceImpl(String url, String usr, String pw) {
 
         try {
-            c = DriverManager.getConnection(url, user, pw);
+            Connection c = DriverManager.getConnection(url, usr, pw);
 
             createStmt = c.prepareStatement("INSERT INTO box(size, window, picurl, strawfloor, outside, horsename, dailyrate, deleted) " + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            findStmt   = c.prepareStatement("SELECT size, window, picurl FROM box "  + "WHERE reservationid = ?");
+            findStmt   = c.prepareStatement("SELECT * FROM box "  + "WHERE reservationid = ?");
 //      updateStmt = ;
 //      deleteStmt = ;
-        } catch (Exception e) {
-            logger.info("exception during connection");
-        }
 
+        } catch (Exception e) {
+            logger.info("exception during connection in BoxServiceImpl");
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void create(Box b) {
-
         logger.info("Preparing create statement for a new box");
 
         try {
             createStmt.setInt(1, b.getSize());
             createStmt.setBoolean(2, b.isWindow());
             createStmt.setString(3, b.getPicURL());
-            createStmt.setBoolean(4,b.isStrawFloor());
-            createStmt.setBoolean(5,b.isOutside());
-            createStmt.setString(6,b.getHorseName());
-            createStmt.setInt(7,b.getDailyRate());
-            createStmt.setBoolean(8,b.isDeleted());
-
-        createStmt.executeUpdate();
+            createStmt.setBoolean(4, b.isStrawFloor());
+            createStmt.setBoolean(5, b.isOutside());
+            createStmt.setString(6, b.getHorseName());
+            createStmt.setInt(7, b.getDailyRate());
+            createStmt.setBoolean(8, b.isDeleted());
+            createStmt.executeUpdate();
         } catch (Exception e) {
             logger.info("exception during Box DB creation");
             e.printStackTrace();
         }
-
-
-        logger.info("New Box should be created in the DB");
+        logger.info("New box should be created in the DB");
     }
 
     @Override

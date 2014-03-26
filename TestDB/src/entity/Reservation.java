@@ -1,13 +1,15 @@
 package entity;
 
+import java.sql.Date;
+
 public class Reservation {
 
     private int id;
     private String customerName;
     private String horseName;
-    private String start;
-    private String until;
-    private String boxID;
+    private Date start;
+    private Date until;
+    private int boxID;
 
     public int getId() {
         return id;
@@ -33,27 +35,27 @@ public class Reservation {
         this.horseName = horseName;
     }
 
-    public String getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public void setStart(String start) {
+    public void setStart(Date start) {
         this.start = start;
     }
 
-    public String getUntil() {
+    public Date getUntil() {
         return until;
     }
 
-    public void setUntil(String until) {
+    public void setUntil(Date until) {
         this.until = until;
     }
 
-    public String getBoxID() {
+    public int getBoxID() {
         return boxID;
     }
 
-    public void setBoxID(String boxID) {
+    public void setBoxID(int boxID) {
         this.boxID = boxID;
     }
 
