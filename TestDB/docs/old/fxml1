@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="437.0" prefWidth="495.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.MainFrameController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <TabPane layoutX="0.0" layoutY="0.0" prefHeight="437.0" prefWidth="495.0" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab text="Box">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Text layoutX="20.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a new box:">
+                  <font>
+                    <Font name="System Bold" size="13.0" fx:id="x1" />
+                  </font>
+                </Text>
+                <Text layoutX="93.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="size:" />
+                <TextField id="tf_size" layoutX="133.0" layoutY="30.0" prefWidth="57.23681640625" />
+                <Text layoutX="64.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="bedding:" />
+                <Text layoutX="72.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="picture:" />
+                <TextField id="tf_picURL" layoutX="136.0" layoutY="160.0" prefWidth="200.0" />
+                <Text layoutX="67.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="window:" />
+                <Text layoutX="70.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="outside:" />
+                <Button layoutX="406.0" layoutY="190.0" mnemonicParsing="false" onAction="#onSpeichernClicked" text="Save" />
+                <Text font="$x1" layoutX="15.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for a box:" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Reservation">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a new reservation:" />
+                <Text layoutX="14.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find a reservation:" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Receipt">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Text layoutX="14.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a new receipt:" />
+                <Text layoutX="14.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find a receipt:" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </children>
+</AnchorPane>

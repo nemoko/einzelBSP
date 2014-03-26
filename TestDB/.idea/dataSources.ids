@@ -1093,39 +1093,35 @@
     <table name="BOX" schema="PUBLIC" catalog="PUBLIC" type="TABLE">
       <column name="ID" sqlType="INTEGER" length="32" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="RESERVATIONID" sqlType="INTEGER" length="32" precision="0" nullable="true" jdbcType="4"/>
-      <column name="HORSENAME" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
       <column name="DAILYRATE" sqlType="INTEGER" length="32" precision="0" nullable="false" jdbcType="4"/>
-      <column name="PICURL" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
+      <column name="PICURL" sqlType="VARCHAR" length="45" precision="0" nullable="true" jdbcType="12"/>
       <column name="SIZE" sqlType="INTEGER" length="32" precision="0" nullable="false" jdbcType="4"/>
-      <column name="STRAWFLOOR" sqlType="BOOLEAN" length="0" precision="0" nullable="false" jdbcType="16"/>
+      <column name="FLOOR" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
       <column name="WINDOW" sqlType="BOOLEAN" length="0" precision="0" nullable="false" jdbcType="16"/>
       <column name="OUTSIDE" sqlType="BOOLEAN" length="0" precision="0" nullable="false" jdbcType="16"/>
-      <column name="DELETED" sqlType="BOOLEAN" length="0" precision="0" nullable="false" jdbcType="16"/>
-      <primary-key name="SYS_PK_10330" columns="ID"/>
-      <exported-key name="SYS_FK_10370" table="RECEIPT" schema="PUBLIC" catalog="PUBLIC" columns="BOXID"/>
-      <exported-key name="SYS_FK_10356" table="RESERVATION" schema="PUBLIC" catalog="PUBLIC" columns="BOXID"/>
+      <column name="DELETED" sqlType="BOOLEAN" length="0" precision="0" nullable="false" jdbcType="16" def="RkFMU0U="/>
+      <primary-key name="SYS_PK_11681" columns="ID"/>
+      <foreign-key name="SYS_FK_11683" columns="RESERVATIONID" ref-table="RESERVATION" ref-schema="PUBLIC" ref-catalog="PUBLIC" ref-columns="ID" update-rule="3" delete-rule="3"/>
     </table>
     <table name="RECEIPT" schema="PUBLIC" catalog="PUBLIC" type="TABLE">
       <column name="ID" sqlType="INTEGER" length="32" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="CUSTOMERNAME" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
-      <column name="BOXID" sqlType="INTEGER" length="32" precision="0" nullable="false" jdbcType="4"/>
-      <column name="RESERVATIONID" sqlType="INTEGER" length="32" precision="0" nullable="false" jdbcType="4"/>
       <column name="DAILYRATE" sqlType="INTEGER" length="32" precision="0" nullable="false" jdbcType="4"/>
       <column name="TOTALCHARGE" sqlType="INTEGER" length="32" precision="0" nullable="false" jdbcType="4"/>
-      <primary-key name="SYS_PK_10367" columns="ID"/>
-      <foreign-key name="SYS_FK_10370" columns="BOXID" ref-table="BOX" ref-schema="PUBLIC" ref-catalog="PUBLIC" ref-columns="ID" update-rule="3" delete-rule="3"/>
-      <foreign-key name="SYS_FK_10372" columns="RESERVATIONID" ref-table="RESERVATION" ref-schema="PUBLIC" ref-catalog="PUBLIC" ref-columns="ID" update-rule="3" delete-rule="3"/>
+      <primary-key name="SYS_PK_10856" columns="ID"/>
+      <exported-key name="SYS_FK_11266" table="RESERVATION" schema="PUBLIC" catalog="PUBLIC" columns="RECEIPTID"/>
     </table>
     <table name="RESERVATION" schema="PUBLIC" catalog="PUBLIC" type="TABLE">
       <column name="ID" sqlType="INTEGER" length="32" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="CUSTOMERNAME" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
       <column name="HORSENAME" sqlType="VARCHAR" length="45" precision="0" nullable="false" jdbcType="12"/>
       <column name="START" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
-      <column name="UNTIL" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
-      <column name="BOXID" sqlType="INTEGER" length="32" precision="0" nullable="false" jdbcType="4"/>
-      <primary-key name="SYS_PK_10350" columns="ID"/>
-      <foreign-key name="SYS_FK_10356" columns="BOXID" ref-table="BOX" ref-schema="PUBLIC" ref-catalog="PUBLIC" ref-columns="ID" update-rule="3" delete-rule="3"/>
-      <exported-key name="SYS_FK_10372" table="RECEIPT" schema="PUBLIC" catalog="PUBLIC" columns="RESERVATIONID"/>
+      <column name="END" sqlType="DATE" length="10" precision="0" nullable="false" jdbcType="91"/>
+      <column name="RECEIPTID" sqlType="INTEGER" length="32" precision="0" nullable="true" jdbcType="4"/>
+      <column name="TOTALCHARGE" sqlType="INTEGER" length="32" precision="0" nullable="false" jdbcType="4"/>
+      <column name="PAYED" sqlType="BOOLEAN" length="0" precision="0" nullable="false" jdbcType="16" def="RkFMU0U="/>
+      <primary-key name="SYS_PK_11260" columns="ID"/>
+      <foreign-key name="SYS_FK_11266" columns="RECEIPTID" ref-table="RECEIPT" ref-schema="PUBLIC" ref-catalog="PUBLIC" ref-columns="ID" update-rule="3" delete-rule="3"/>
+      <exported-key name="SYS_FK_11683" table="BOX" schema="PUBLIC" catalog="PUBLIC" columns="RESERVATIONID"/>
     </table>
     <table name="BLOCKS" schema="SYSTEM_LOBS" catalog="PUBLIC" type="SYSTEM TABLE">
       <column name="BLOCK_ADDR" sqlType="INTEGER" length="32" precision="0" nullable="false" jdbcType="4"/>

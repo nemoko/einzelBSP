@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>3067730e-9151-46a8-9e89-c4b03acecdea.schema:PUBLIC.PUBLIC</OriginalElement>
+  <nodes>
+    <node x="-11.0" y="168.0">3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.RESERVATION</node>
+    <node x="39.0" y="-12.0">3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.RECEIPT</node>
+    <node x="339.0" y="156.0">3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.BOX</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.RESERVATION" target="3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.RECEIPT">
+      <point x="0.0" y="-112.0" />
+      <point x="0.0" y="52.0" />
+    </edge>
+    <edge source="3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.BOX" target="3067730e-9151-46a8-9e89-c4b03acecdea.table:PUBLIC.PUBLIC.RESERVATION">
+      <point x="-141.0" y="0.0" />
+      <point x="131.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9925287356321838" x="141.2697095435684" y="197.99999999999994" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+
