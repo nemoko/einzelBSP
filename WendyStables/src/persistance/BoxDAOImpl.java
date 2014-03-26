@@ -21,7 +21,6 @@ public class BoxDAOImpl implements BoxDAO {
     private DBconnection dbcon;
 
     private PreparedStatement createStmt;
-    private PreparedStatement findStmt;
     private PreparedStatement updateStmt;
     private PreparedStatement deleteStmt;
 
@@ -35,8 +34,6 @@ public class BoxDAOImpl implements BoxDAO {
 
         try {
             createStmt = c.prepareStatement("INSERT INTO box (dailyrate, picurl, size, floor, window, outside) " + "VALUES (?,?,?,?,?,?)");
-            findStmt = c.prepareStatement("SELECT * FROM box");
-
         } catch (SQLException e) {
             logger.info("exception during BoxServicePrepareStatement");
             e.printStackTrace();
@@ -78,8 +75,8 @@ public class BoxDAOImpl implements BoxDAO {
         if(b.getDailyRate() != null) where += "dailyrate = '" + b.getDailyRate() + "' AND ";
         if(b.getSize() != null) where += "size = '" + b.getSize() + "' AND ";
         if(b.getFloor() != null && !b.getFloor().isEmpty() && !b.getFloor().contains("any")) where += "floor = '" + b.getFloor() + "' AND ";
-        if(b.isWindow() != null) where += "window = '" + b.isWindow() + "' AND ";
-        if(b.isOutside() != null) where += "outside = '" + b.isOutside() + "' AND ";
+        if(b.isWindow() != null && (b.isWindow() ^ b.isOutside())) where += "window = '" + b.isWindow() + "' AND ";
+        if(b.isOutside() != null && (b.isWindow() ^ b.isOutside())) where += "outside = '" + b.isOutside() + "' AND ";
 
         where += "DELETED = FALSE;";
 
@@ -113,6 +110,25 @@ public class BoxDAOImpl implements BoxDAO {
 
     @Override
     public void update(Box b) {
+
+        //        UPDATE Customers
+        //        SET ContactName='Alfred Schmidt', City='Hamburg'
+        //        WHERE CustomerName='Alfreds Futterkiste';
+
+        String query = "UPDATE BOX ";
+        String set = "";
+        String where = "";
+
+        if(b.getDailyRate() != null) where += "dailyrate = '" + b.getDailyRate() + "' AND ";
+        if(b.getSize() != null) where += "size = '" + b.getSize() + "' AND ";
+        if(b.getFloor() != null && !b.getFloor().isEmpty() && !b.getFloor().contains("any")) where += "floor = '" + b.getFloor() + "' AND ";
+        if(b.isWindow() != null && (b.isWindow() ^ b.isOutside())) where += "window = '" + b.isWindow() + "' AND ";
+        if(b.isOutside() != null && (b.isWindow() ^ b.isOutside())) where += "outside = '" + b.isOutside() + "' AND ";
+
+        where += "DELETED = FALSE;";
+
+        String temp = query + where;
+
 
     }
 

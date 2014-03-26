@@ -79,7 +79,7 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
                   <children>
-                    <Label text="Size" />
+                    <Label text="Size (sq m)" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
@@ -161,14 +161,9 @@
                     <Button fx:id="b_delete" mnemonicParsing="false" onAction="#onActionDeleteBox" text="Delete" />
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
                   <children>
                     <Button id="b_delete" fx:id="b_clearall" mnemonicParsing="false" onAction="#onActionClearAll" text="Clear all" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                  <children>
-                    <Button id="b_delete" fx:id="b_displayAll" mnemonicParsing="false" onAction="#onActionDisplayAll" text="Display all" />
                   </children>
                 </HBox>
               </children>
@@ -194,7 +189,7 @@
               <children>
                 <Pane prefHeight="200.0" prefWidth="200.0">
                   <children>
-                    <Label fx:id="f_box_created" disable="false" layoutX="239.0" layoutY="8.0" onMouseMoved="#removeSuccessMessage" text="A Box was created" visible="false">
+                    <Label fx:id="f_box_created" disable="false" layoutX="218.0" layoutY="7.0" onMouseMoved="#removeSuccessMessage" text="A stable was created" visible="false">
                       <font>
                         <Font size="23.0" fx:id="x2" />
                       </font>
@@ -202,20 +197,24 @@
                         <Color blue="0.000" green="0.600" red="0.047" fx:id="x3" />
                       </textFill>
                     </Label>
-                    <Label id="box_created" fx:id="f_box_updated" font="$x2" layoutX="239.0" layoutY="7.0" onMouseMoved="#removeSuccessMessage" text="A Box was updated" textFill="$x3" visible="false" />
-                    <Label id="box_created" fx:id="f_box_deleted" font="$x2" layoutX="239.0" layoutY="7.0" onMouseMoved="#removeSuccessMessage" text="A Box was deleted" textFill="$x3" visible="false" />
-                    <Label id="box_created" fx:id="f_box_failed" disable="false" font="$x2" layoutX="231.0" layoutY="11.0" onMouseMoved="#removeSuccessMessage" text="Box creation failed!" textFill="RED" visible="false" />
+                    <Label id="box_created" fx:id="f_box_updated" font="$x2" layoutX="214.0" layoutY="7.0" onMouseMoved="#removeSuccessMessage" text="A stable was updated" textFill="$x3" visible="false" />
+                    <Label id="box_created" fx:id="f_box_deleted" font="$x2" layoutX="218.0" layoutY="7.0" onMouseMoved="#removeSuccessMessage" text="A stable was deleted" textFill="$x3" visible="false" />
+                    <Label id="box_created" fx:id="f_box_failed" disable="false" font="$x2" layoutX="211.0" layoutY="11.0" onMouseMoved="#removeSuccessMessage" text="Stable creation failed!" textFill="RED" visible="false" />
                     <Label id="box_created" fx:id="f_filter_failed" disable="false" font="$x2" layoutX="251.0" layoutY="6.0" onMouseMoved="#removeSuccessMessage" text="Nothing to filter!" textFill="RED" visible="false" />
-                    <Label id="box_created" fx:id="f_filter_applied" disable="false" font="$x2" layoutX="263.0" layoutY="3.0" onMouseMoved="#removeSuccessMessage" text="Filter applied" textFill="#0c9900" visible="false" />
-                    <Label id="box_created" fx:id="f_filter_criteria" disable="false" font="$x2" layoutX="199.0" layoutY="6.0" onMouseMoved="#removeSuccessMessage" text="No filter criteria entered" textFill="RED" visible="false" />
+                    <Label id="box_created" fx:id="f_filter_applied" disable="false" font="$x2" layoutX="263.0" layoutY="11.0" onMouseMoved="#removeSuccessMessage" text="Filter applied" textFill="#0c9900" visible="false" />
+                    <Label id="box_created" fx:id="f_filter_criteria" disable="false" font="$x2" layoutX="216.0" layoutY="11.0" onMouseMoved="#removeSuccessMessage" text="Displaying all stables" textFill="#319900" visible="false" />
                   </children>
                 </Pane>
               </children>
             </VBox>
             <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="338.0" prefWidth="676.0" spacing="5.0">
               <children>
-                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="299.0" prefWidth="466.0" />
-                <ImageView id="image_field" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="353.0" />
+                <ImageView id="image_field" fitHeight="236.53604125976562" fitWidth="315.69739403862917" pickOnBounds="true" preserveRatio="true" visible="true">
+                  <image>
+                    <Image url="@../../img/1163412-1302181714577011-p.jpg" />
+                  </image>
+                </ImageView>
               </children>
             </HBox>
           </children>
