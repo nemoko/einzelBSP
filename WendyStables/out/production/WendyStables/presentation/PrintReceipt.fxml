@@ -89,7 +89,7 @@
               <children>
                 <Pane prefHeight="200.0" prefWidth="200.0">
                   <children>
-                    <Label fx:id="f_select_stable" layoutX="198.0" layoutY="11.0" onMouseMoved="#removeFeedback" text="Select a stable to reserve" textFill="RED" visible="false">
+                    <Label fx:id="f_select_stable" layoutX="198.0" layoutY="11.0" text="Select a stable to reserve" textFill="RED" visible="false">
                       <font>
                         <Font size="23.0" />
                       </font>

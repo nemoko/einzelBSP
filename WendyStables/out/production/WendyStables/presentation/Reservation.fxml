@@ -169,6 +169,37 @@
                     <TextField id="tf_daily_rate" fx:id="tf_end_year" prefWidth="64.0" promptText="YYYY" />
                   </children>
                 </HBox>
+                <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                  <children>
+                    <Label id="e_daily" fx:id="e_daily_positive" layoutX="6.0" layoutY="10.0" text="enter a positive int" visible="false">
+                      <textFill>
+                        <Color blue="0.200" green="0.200" red="1.000" fx:id="x1" />
+                      </textFill>
+                    </Label>
+                    <Label fx:id="e_daily_int" layoutX="6.0" layoutY="10.0" text="enter an int" textFill="$x1" visible="false" />
+                  </children>
+                </Pane>
+                <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                  <children>
+                    <Label fx:id="e_size_int" layoutX="6.0" layoutY="6.0" text="enter an int" textFill="$x1" visible="false" />
+                    <Label id="e_size" fx:id="e_size_positive" layoutX="6.0" layoutY="6.0" text="enter a positive int" textFill="$x1" visible="false" />
+                  </children>
+                </Pane>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                  <children>
+                    <Label id="e_label" fx:id="e_floor_choose" text="Choose one" textFill="RED" visible="false" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                  <children>
+                    <Label fx:id="e_window_choose" text="Select one" textFill="$x1" visible="false" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                  <children>
+                    <Label id="e_window" fx:id="e_outside_choose" text="Select one" textFill="$x1" visible="false" />
+                  </children>
+                </HBox>
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="72.0" />
@@ -195,11 +226,11 @@
                   <children>
                     <Label fx:id="f_select_stable" layoutX="198.0" layoutY="11.0" onMouseMoved="#removeFeedback" text="Select a stable to reserve" textFill="RED" visible="false">
                       <font>
-                        <Font size="23.0" fx:id="x1" />
+                        <Font size="23.0" fx:id="x2" />
                       </font>
                     </Label>
-                    <Label fx:id="error_message" font="$x1" layoutX="203.0" layoutY="11.0" onMouseMoved="#removeFeedback" text="ERR" textFill="RED" visible="false" />
-                    <Label id="error_message" fx:id="success_message" font="$x1" layoutX="258.0" layoutY="11.0" onMouseMoved="#removeFeedback" text="SUCCESS" textFill="#319900" visible="false" />
+                    <Label fx:id="error_message" font="$x2" layoutX="203.0" layoutY="11.0" onMouseMoved="#removeFeedback" text="ERR" textFill="RED" visible="false" />
+                    <Label id="error_message" fx:id="success_message" font="$x2" layoutX="258.0" layoutY="11.0" onMouseMoved="#removeFeedback" text="SUCCESS" textFill="#319900" visible="false" />
                   </children>
                 </Pane>
               </children>

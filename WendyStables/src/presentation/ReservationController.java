@@ -1,6 +1,7 @@
 package presentation;
 
 import entity.Box;
+import entity.BoxReservation;
 import entity.Reservation;
 import exception.ReservationException;
 import javafx.collections.ObservableList;
@@ -128,6 +129,13 @@ public class ReservationController implements Initializable {
         e_to_date.setVisible(false);
         success_message.setVisible(false);
         error_message.setVisible(false);
+        e_daily_int.setVisible(false);
+        e_daily_positive.setVisible(false);
+        e_size_int.setVisible(false);
+        e_size_positive.setVisible(false);
+        e_floor_choose.setVisible(false);
+        e_window_choose.setVisible(false);
+        e_outside_choose.setVisible(false);
     }
 
     @FXML
@@ -259,11 +267,11 @@ public class ReservationController implements Initializable {
     }
 
     public void initializeBoxTable() {
-        TableColumn<Box, Integer> id = new TableColumn<Box,Integer>("#");
+        TableColumn<BoxReservation, Integer> id = new TableColumn<Box,Integer>("#");
         id.setMinWidth(7);
         id.setCellValueFactory(new PropertyValueFactory<Box, Integer>("id"));
 
-        TableColumn<Box, Integer> dailyrate = new TableColumn<Box,Integer>("Daily Rate");
+        TableColumn<BoxReservation, Integer> dailyrate = new TableColumn<Box,Integer>("Daily Rate");
         dailyrate.setMinWidth(80);
         dailyrate.setCellValueFactory(new PropertyValueFactory<Box, Integer>("dailyRate"));
 
@@ -271,21 +279,25 @@ public class ReservationController implements Initializable {
 //        picURL.setMinWidth(60);
 //        picURL.setCellValueFactory(new PropertyValueFactory<Box, String>("picURL"));
 
-        TableColumn<Box, Integer> size = new TableColumn<Box,Integer>("size");
+        TableColumn<BoxReservation, Integer> size = new TableColumn<Box,Integer>("size");
         size.setMinWidth(40);
         size.setCellValueFactory(new PropertyValueFactory<Box, Integer>("size"));
 
-        TableColumn<Box, String> floor = new TableColumn<Box,String>("floor");
+        TableColumn<BoxReservation, String> floor = new TableColumn<Box,String>("floor");
         floor.setMinWidth(60);
         floor.setCellValueFactory(new PropertyValueFactory<Box, String>("floor"));
 
-        TableColumn<Box, Integer> window = new TableColumn<Box,Integer>("window");
+        TableColumn<BoxReservation, Integer> window = new TableColumn<Box,Integer>("window");
         window.setMinWidth(60);
         window.setCellValueFactory(new PropertyValueFactory<Box, Integer>("window"));
 
-        TableColumn<Box, Integer> outside = new TableColumn<Box,Integer>("outside");
+        TableColumn<BoxReservation, Integer> outside = new TableColumn<Box,Integer>("outside");
         outside.setMinWidth(60);
         outside.setCellValueFactory(new PropertyValueFactory<Box, Integer>("outside"));
+
+//        TableColumn<Box, String> picURL = new TableColumn<Box,String>("pic");
+//        picURL.setMinWidth(60);
+//        picURL.setCellValueFactory(new PropertyValueFactory<Box, String>("picURL"));
 
         tabulka.getColumns().addAll(id,dailyrate,size,floor,window,outside);
     }
@@ -310,7 +322,7 @@ public class ReservationController implements Initializable {
         Box b = new Box();
         String exception = "";
 
-        ObservableList<Box> olist = null;
+        ObservableList<BoxReservation> olist = null;
 
         if(!tf_daily_rate.getText().isEmpty()) { //if NOT EMPTY
             try {
@@ -354,8 +366,11 @@ public class ReservationController implements Initializable {
 
         if(exception.contains("01234")) { //displaying alls
             if(clickedBox == null) {
-                error_message.setText("Already displaying all stables");
-                error_message.setVisible(true);
+                success_message.setText("Displaying all stables");
+                success_message.setVisible(true);
+
+//                error_message.setText("Already displaying all stables");
+//                error_message.setVisible(true);
             } else {
                 error_message.setText("No filter criteria set");
                 error_message.setVisible(true);
@@ -455,11 +470,8 @@ public class ReservationController implements Initializable {
     @FXML
     public void mouseClick(MouseEvent arg0) {
         tabulka.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-
-        //TODO implement double selector
         clickedBox = new HashSet<Box>(tabulka.getSelectionModel().getSelectedItems());
-        //clickedBox = tabulka.getSelectionModel().getSelectedItem();
-
+//TODO do we need this?
         reserveButton.setDisable(false);
     }
 }

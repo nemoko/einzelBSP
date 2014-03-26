@@ -4,14 +4,14 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Box {
 
-    private Integer id;
-    private Integer dailyRate;
-    private SimpleStringProperty picURL;
-    private Integer size;
-    private SimpleStringProperty floor;
-    private Boolean window;
-    private Boolean outside;
-    private Boolean deleted;
+    protected Integer id;
+    protected Integer dailyRate;
+    protected SimpleStringProperty picURL;
+    protected Integer size;
+    protected SimpleStringProperty floor;
+    protected Boolean window;
+    protected Boolean outside;
+    protected Boolean deleted;
 
     public Box() {
         this.floor = new SimpleStringProperty("");
