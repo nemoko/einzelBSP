@@ -18,27 +18,27 @@ public class MainFrameController {
     private TextField tf_size;
     @FXML
     private TextField tf_strawFloor;
-//    @FXML
-//    private TextField tf_window;
-//    @FXML
-//    private TextField tf_outside;
+    @FXML
+    private TextField tf_window;
+    @FXML
+    private TextField tf_outside;
     @FXML
     private TextField tf_picURL;
 	
 	public void initialize(){
-        boxService = new BoxServiceImpl();
+        //boxService = new BoxServiceImpl();
 	}
 	
 	@FXML
-	private void onSpeichernClicked(){
+	private void onSaveClicked(){
 		logger.info("saveButtonClicked");
 
         Box b = new Box();
         b.setSize(Integer.parseInt(tf_size.getText()));
-        b.setStrawFloor(Boolean.parseBoolean(tf_strawFloor.getText()));
-//        b.isWindow(Boolean.parseBoolean(tf_window.getText()));
-//        b.isOutside(Boolean.parseBoolean(tf_outside.getText()));
+        b.setWindow(Boolean.parseBoolean(tf_window.getText()));
         b.setPicURL(tf_picURL.getText());
+        //b.setStrawFloor(Boolean.parseBoolean(tf_strawFloor.getText()));
+        //b.isOutside(Boolean.parseBoolean(tf_outside.getText()));
 
         boxService.create(b);
 	}

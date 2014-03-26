@@ -5,15 +5,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="437.0" prefWidth="495.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.MainFrameController">
-  <!-- TODO Add Nodes -->
-  <children>
-    <Label layoutX="36.0" layoutY="48.0" text="Size:" />
-    <Label layoutX="34.0" layoutY="70.0" text="Straw Floor:" />
-    <Label layoutX="31.0" layoutY="94.0" text="Picture URL:" />
-    <TextField fx:id="tf_size" layoutX="79.0" layoutY="48.0" prefWidth="200.0" />
-    <TextField fx:id="tf_strawFloor" layoutX="79.0" layoutY="70.0" prefWidth="200.0" />
-    <TextField fx:id="tf_picURL" layoutX="79.0" layoutY="94.0" prefWidth="200.0" />
-    <Button layoutX="225.0" layoutY="126.0" mnemonicParsing="false" onAction="#onSpeichernClicked" text="Save" />
-  </children>
+<AnchorPane prefHeight="253.0" prefWidth="337.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.MainFrameController">
+    <!-- TODO Add Nodes -->
+    <children>
+        <Label layoutX="36.0" layoutY="48.0" text="Size:" />
+        <Label layoutX="34.0" layoutY="70.0" text="Window:" />
+        <Label layoutX="31.0" layoutY="94.0" text="picURL:" />
+        <TextField fx:id="tf_size" layoutX="79.0" layoutY="48.0" prefWidth="200.0" />
+        <TextField fx:id="tf_window" layoutX="79.0" layoutY="70.0" prefWidth="200.0" />
+        <TextField fx:id="tf_picURL" layoutX="79.0" layoutY="94.0" prefWidth="200.0" />
+        <Button layoutX="217.0" layoutY="184.0" mnemonicParsing="false" onAction="#onSaveClicked" text="Save" />
+    </children>
 </AnchorPane>

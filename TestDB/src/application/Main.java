@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
+import service.impl.BoxServiceImpl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,6 +17,10 @@ import java.sql.SQLException;
 public class Main extends Application {
 	
 	private static final Logger logger = Logger.getLogger(Main.class);
+
+    private static final String db_URL = "jdbc:hsqldb:hsql://localhost:9001/xdb";
+    private static final String db_USR = "SA";
+    private static final String db_PWD = "";
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -31,17 +36,20 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args)  throws SQLException, ClassNotFoundException {
+//
+//        //starting DB
+//        try {
+//            Class.forName("org.hsqldb.jdbc.JDBCDriver");
+//        } catch (Exception e) {
+//            System.err.println("ERROR: failed to load HSQLDB JDBC driver.");
+//            e.printStackTrace();
+//            return;
+//        }
+//
+        BoxServiceImpl boximpl = new BoxServiceImpl(db_URL,db_USR,db_PWD);
 
-        //starting DB
-        try {
-            Class.forName("org.hsqldb.jdbc.JDBCDriver");
-        } catch (Exception e) {
-            System.err.println("ERROR: failed to load HSQLDB JDBC driver.");
-            e.printStackTrace();
-            return;
-        }
 
-        Connection c = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost:9001/xdb", "SA", "");
+        //Connection c = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost:9001/xdb", "SA", "");
 
         //javaFX
 		logger.info("Application starting...");
