@@ -7,11 +7,16 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBoxBuilder;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import service.BoxService;
@@ -373,20 +378,78 @@ public class ManageBoxController implements Initializable {
 
         Box b = clicked;
 
-        popUp();
+        popUp(b);
 
-        BoxService bs = BoxServiceImpl.initialize();
-        bs.delete(b);
         onActionDisplayAll();
-        f_box_deleted.setVisible(true);
-
-
     }
 
-    public void popUp()     {
+    public void popUp(Box b) {
+        final Box box = b;
+        final Stage popUp = new Stage();
 
+        Button delete = new Button("Delete");
+        delete.setLayoutX(30);
+        delete.setLayoutY(150);
+        delete.setCancelButton(true);
+        delete.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                final Stage dialogStage = new Stage();
+
+                Button ok = new Button("Ok");
+                ok.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        dialogStage.close();
+                    }
+                });
+
+                dialogStage.initModality(Modality.WINDOW_MODAL);
+                dialogStage.setScene(new Scene(VBoxBuilder.create().
+                        children(new Text("Box was deleted"), ok).
+                        alignment(Pos.CENTER).padding(new Insets(35)).build()));
+                dialogStage.showAndWait();
+
+                // delete box
+                BoxService bs = BoxServiceImpl.initialize();
+                bs.delete(box);
+//                f_box_deleted.setVisible(true);
+
+                popUp.close();
+            }
+        });
+
+        Button cancel = new Button("Cancel");
+        cancel.setLayoutX(300.0);
+        cancel.setLayoutY(150);
+        cancel.setDefaultButton(true);
+        cancel.setCancelButton(true);
+        cancel.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                popUp.close();
+            }
+        });
+
+        Label window = new Label("Do you really want to delete this box?");
+        window.setLayoutX(50.0);
+        window.setLayoutY(50.0);
+        window.setMaxHeight(200.0);
+        window.setMaxWidth(400.0);
+
+        AnchorPane popUpLayout = new AnchorPane();
+        popUpLayout.getChildren().add(window);
+
+        popUpLayout.getChildren().add(delete);
+        popUpLayout.getChildren().add(cancel);
+
+        Scene popUpScene = new Scene(popUpLayout, 400.0, 200);
+
+        popUp.setTitle("Alert");
+        popUp.setScene(popUpScene);
+
+        popUp.showAndWait();
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -414,9 +477,9 @@ public class ManageBoxController implements Initializable {
     }
 
     public void initializeTable() {
-//        TableColumn<Box, Integer> id = new TableColumn<Box,Integer>("ID");
-//        id.setMinWidth(60);
-//        id.setCellValueFactory(new PropertyValueFactory<Box, Integer>("id"));
+        TableColumn<Box, Integer> id = new TableColumn<Box,Integer>("#");
+        id.setMinWidth(7);
+        id.setCellValueFactory(new PropertyValueFactory<Box, Integer>("id"));
 
         TableColumn<Box, Integer> dailyrate = new TableColumn<Box,Integer>("Daily Rate");
         dailyrate.setMinWidth(90);
@@ -442,7 +505,7 @@ public class ManageBoxController implements Initializable {
         outside.setMinWidth(60);
         outside.setCellValueFactory(new PropertyValueFactory<Box, Integer>("outside"));
 
-        tabulka.getColumns().addAll(dailyrate,size,floor,window,outside);
+        tabulka.getColumns().addAll(id,dailyrate,size,floor,window,outside);
     }
 
     @FXML

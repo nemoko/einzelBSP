@@ -209,8 +209,8 @@
             </VBox>
             <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="338.0" prefWidth="676.0" spacing="5.0">
               <children>
-                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="353.0" />
-                <ImageView id="image_field" fitHeight="236.53604125976562" fitWidth="315.69739403862917" pickOnBounds="true" preserveRatio="true" visible="true">
+                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="373.0" />
+                <ImageView id="image_field" fitHeight="210.53602600097656" fitWidth="280.99597830247785" pickOnBounds="true" preserveRatio="true" visible="true">
                   <image>
                     <Image url="@../../img/1163412-1302181714577011-p.jpg" />
                   </image>
