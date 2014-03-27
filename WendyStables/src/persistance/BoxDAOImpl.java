@@ -114,7 +114,7 @@ public class BoxDAOImpl implements BoxDAO {
 
         ObservableList<BoxReservation> olist = FXCollections.observableArrayList();
 
-        String query = "( select b.id,b.dailyrate,b.size,b.floor,b.window,b.outside from box b "
+        String query = " select b.id,b.dailyrate,b.size,b.floor,b.window,b.outside from box b "
                       +"LEFT OUTER JOIN reservation r ON b.id = r.boxid ";
         String where = "WHERE ";
 
@@ -124,14 +124,14 @@ public class BoxDAOImpl implements BoxDAO {
         if(b.isWindow() != null && (b.isWindow() ^ b.isOutside())) where += "window = '" + b.isWindow() + "' AND ";
         if(b.isOutside() != null && (b.isWindow() ^ b.isOutside())) where += "outside = '" + b.isOutside() + "' AND ";
 
-        where += "b.DELETED = FALSE group by b.id) ";
+        where += "b.DELETED = FALSE ";
 //TODO GROUP BY ID AS LAST?
-        String timeConstraint = "AND ((r.from < " + b.getStart() + " AND r.end > "  + b.getStart() + ") " +
-                                "OR   (r.from > " + b.getStart() + " AND r.from < " + b.getEnd()   + "))";
+        String timeConstraint = "AND ((r.start < '" + b.getStart() + "' AND r.until > '"  + b.getStart() + "') " +
+                                "OR   (r.start > '" + b.getStart() + "' AND r.start < '" + b.getEnd()   + "'))";
 
         String temp;
         if(b.getStart() != null && b.getEnd() != null) {
-                temp = query + where + "MINUS " + query + timeConstraint;
+                temp = query + where + "MINUS " + query + where + timeConstraint;
         } else {
             temp = query + where;
         }

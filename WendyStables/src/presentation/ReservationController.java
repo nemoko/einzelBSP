@@ -1,5 +1,6 @@
 package presentation;
 
+import entity.EditingCell;
 import entity.Box;
 import entity.BoxReservation;
 import entity.Reservation;
@@ -15,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
 import org.apache.log4j.Logger;
 import javafx.scene.control.TextField;
 import service.BoxService;
@@ -173,7 +175,6 @@ public class ReservationController implements Initializable {
                     return;
                 }
 
-                //TODO check if customerName < 45
                 if(tf_customer.getText().equals("")) {
                     e_customer.setText("Enter a name");
                     e_customer.setVisible(true);
@@ -185,7 +186,6 @@ public class ReservationController implements Initializable {
                     }
                 }
 
-                //TODO check if horseName < 45
                 if(tf_horseName.getText().equals("")) {
                     e_horse.setText("Enter a name");
                     e_horse.setVisible(true);
@@ -197,133 +197,9 @@ public class ReservationController implements Initializable {
                     }
                 }
 
-
-                //FROM DATE
-                try {
-                    //CHECK IF INT
-                    start_day = Integer.parseInt(tf_start_day.getText());
-                    start_month = Integer.parseInt(tf_start_month.getText());
-                    start_year = Integer.parseInt(tf_start_year.getText());
-
-                    //CHECK IF VALUE >= 0
-                    if(Integer.signum(start_day) <= 0 || Integer.signum(start_month) <= 0 || Integer.signum(start_year) <= 0) {
-                        e_from_date.setVisible(true);
-                        e_from_date.setText("incorrect date format");
-                    }
-
-                    //CHECK IF DATE MATCHES MONTH
-                    if((start_day == 31 && (start_month == 1 || start_month == 3 || start_month == 5 || start_month == 7 || start_month == 8 || start_month == 10 || start_month == 12))
-                    || (start_day <= 30 && (start_month >= 1 && start_month <= 12))) {
-                        //WHEN FEB, CHECK if LEAP YEAR
-                        if(start_month == 2 && checkLeapYear(start_year)) {
-                            if(start_day <= 29);
-                            else {
-                                e_from_date.setVisible(true);
-                                e_from_date.setText("incorrect date, leap year");
-                            }
-                        }
-
-                        //WHEN FEB, CHECK if not LEAP YEAR
-                        if(start_month == 2 && !checkLeapYear(start_year)) {
-                            if(start_day <28);
-                            else {
-                                e_from_date.setVisible(true);
-                                e_from_date.setText("incorrect date, not a leap year");
-                            }
-                        }
-
-                    } else {
-                        e_from_date.setVisible(true);
-                        e_from_date.setText("incorrect date format");
-
-                    }
-
-                    if(!e_from_date.isVisible()) {
-                        from = start_year + "-" + start_month + "-" + start_day;
-                        logger.info(from);
-                    }
-
-                    } catch (NumberFormatException nfe) {
-                    if(tf_start_day.getText().equals("")  || tf_start_month.getText().equals("") || tf_start_year.getText().equals("") ) {
-                        e_from_date.setVisible(true);
-                        e_from_date.setText("incorrect date format");
-                    }if((tf_start_day.getText().equals("")  && tf_start_month.getText().equals("") && tf_start_year.getText().equals("") )) {
-                        e_from_date.setVisible(true);
-                        e_from_date.setText("enter date");
-                    } else {
-                        e_from_date.setVisible(true);
-                        e_from_date.setText("enter date");
-                    }
-                }
-
-                //UNTIL DATE
-                try {
-                    //CHECK IF INT
-                    end_day = Integer.parseInt(tf_end_day.getText());
-                    end_month = Integer.parseInt(tf_end_month.getText());
-                    end_year = Integer.parseInt(tf_end_year.getText());
-
-                    //CHECK IF VALUE >= 0
-                    if(Integer.signum(end_day) <= 0 || Integer.signum(end_month) <= 0 || Integer.signum(end_year) <= 0) {
-                        e_to_date.setVisible(true);
-                        e_to_date.setText("incorrect date format");
-                    }
-
-                    //CHECK IF DATE MATCHES MONTH
-                    if((start_day == 31 && (start_month == 1 || start_month == 3 || start_month == 5 || start_month == 7 || start_month == 8 || start_month == 10 || start_month == 12))
-                    || (start_day <= 30 && (start_month >= 1 && start_month <= 12))) {
-
-                        //WHEN FEB, CHECK if LEAP YEAR
-                        if(end_month == 2 && checkLeapYear(end_year)) {
-                            if(end_day <= 29);
-                            else {
-                                e_to_date.setVisible(true);
-                                e_to_date.setText("incorrect date, leap year");
-                            }
-                        }
-
-                        //WHEN FEB, CHECK if not LEAP YEAR
-                        if(end_month == 2 && !checkLeapYear(end_year)) {
-                            if(end_day <28);
-                            else {
-                                e_to_date.setVisible(true);
-                                e_to_date.setText("incorrect date, not a leap year");
-                            }
-                        }
-
-                    } else {
-                        e_to_date.setVisible(true);
-                        e_to_date.setText("incorrect date format");
-
-                    }
-
-                    if(!e_to_date.isVisible()) {
-                        end = end_year + "-" + end_month + "-" + end_day;
-                        logger.info(end);
-                    }
-
-                } catch (NumberFormatException nfe) {
-                    if(tf_end_day.getText().equals("")  || tf_end_month.getText().equals("") || tf_end_year.getText().equals("") ) {
-                        e_to_date.setVisible(true);
-                        e_to_date.setText("incorrect date format");
-                    }if((tf_end_day.getText().equals("")  && tf_end_month.getText().equals("") && tf_end_year.getText().equals("") )) {
-                        e_to_date.setVisible(true);
-                        e_to_date.setText("enter date");
-                    } else {
-                        e_to_date.setVisible(true);
-                        e_to_date.setText("enter date");
-                    }
-                }
-
-                if((start_year <= end_year) && (start_month <= end_month) && (start_day <= end_day)) {
+                if(validateDate()) {
                     r.setStart(Date.valueOf(from));
                     r.setEnd(Date.valueOf(end));
-                } else {
-                    e_from_date.setText("FROM");
-                    e_from_date.setVisible(true);
-                    e_to_date.setText("TO");
-                    e_to_date.setVisible(true);
-                    return;
                 }
 
                 r.setBoxID(b.getId());
@@ -337,6 +213,135 @@ public class ReservationController implements Initializable {
                 e_from_date.setVisible(true);
                 e_to_date.setVisible(true);
             }
+        }
+    }
+
+    public boolean validateDate() {
+        //FROM DATE
+        try {
+            //CHECK IF INT
+            start_day = Integer.parseInt(tf_start_day.getText());
+            start_month = Integer.parseInt(tf_start_month.getText());
+            start_year = Integer.parseInt(tf_start_year.getText());
+
+            //CHECK IF VALUE >= 0
+            if(Integer.signum(start_day) <= 0 || Integer.signum(start_month) <= 0 || Integer.signum(start_year) <= 0) {
+                e_from_date.setVisible(true);
+                e_from_date.setText("incorrect date format");
+            }
+
+            //CHECK IF DATE MATCHES MONTH
+            if((start_day == 31 && (start_month == 1 || start_month == 3 || start_month == 5 || start_month == 7 || start_month == 8 || start_month == 10 || start_month == 12))
+                    || (start_day <= 30 && (start_month >= 1 && start_month <= 12))) {
+                //WHEN FEB, CHECK if LEAP YEAR
+                if(start_month == 2 && checkLeapYear(start_year)) {
+                    if(start_day <= 29);
+                    else {
+                        e_from_date.setVisible(true);
+                        e_from_date.setText("incorrect date, leap year");
+                    }
+                }
+
+                //WHEN FEB, CHECK if not LEAP YEAR
+                if(start_month == 2 && !checkLeapYear(start_year)) {
+                    if(start_day <28);
+                    else {
+                        e_from_date.setVisible(true);
+                        e_from_date.setText("incorrect date, not a leap year");
+                    }
+                }
+
+            } else {
+                e_from_date.setVisible(true);
+                e_from_date.setText("incorrect date format");
+
+            }
+
+            if(!e_from_date.isVisible()) {
+                from = start_year + "-" + start_month + "-" + start_day;
+                logger.info(from);
+            }
+
+        } catch (NumberFormatException nfe) {
+            if(tf_start_day.getText().equals("")  || tf_start_month.getText().equals("") || tf_start_year.getText().equals("") ) {
+                e_from_date.setVisible(true);
+                e_from_date.setText("incorrect date format");
+            }if((tf_start_day.getText().equals("")  && tf_start_month.getText().equals("") && tf_start_year.getText().equals("") )) {
+                e_from_date.setVisible(true);
+                e_from_date.setText("enter date");
+            } else {
+                e_from_date.setVisible(true);
+                e_from_date.setText("enter date");
+            }
+        }
+
+        //UNTIL DATE
+        try {
+            //CHECK IF INT
+            end_day = Integer.parseInt(tf_end_day.getText());
+            end_month = Integer.parseInt(tf_end_month.getText());
+            end_year = Integer.parseInt(tf_end_year.getText());
+
+            //CHECK IF VALUE >= 0
+            if(Integer.signum(end_day) <= 0 || Integer.signum(end_month) <= 0 || Integer.signum(end_year) <= 0) {
+                e_to_date.setVisible(true);
+                e_to_date.setText("incorrect date format");
+            }
+
+            //CHECK IF DATE MATCHES MONTH
+            if((start_day == 31 && (start_month == 1 || start_month == 3 || start_month == 5 || start_month == 7 || start_month == 8 || start_month == 10 || start_month == 12))
+                    || (start_day <= 30 && (start_month >= 1 && start_month <= 12))) {
+
+                //WHEN FEB, CHECK if LEAP YEAR
+                if(end_month == 2 && checkLeapYear(end_year)) {
+                    if(end_day <= 29);
+                    else {
+                        e_to_date.setVisible(true);
+                        e_to_date.setText("incorrect date, leap year");
+                    }
+                }
+
+                //WHEN FEB, CHECK if not LEAP YEAR
+                if(end_month == 2 && !checkLeapYear(end_year)) {
+                    if(end_day <28);
+                    else {
+                        e_to_date.setVisible(true);
+                        e_to_date.setText("incorrect date, not a leap year");
+                    }
+                }
+
+            } else {
+                e_to_date.setVisible(true);
+                e_to_date.setText("incorrect date format");
+
+            }
+
+            if(!e_to_date.isVisible()) {
+                end = end_year + "-" + end_month + "-" + end_day;
+                logger.info(end);
+            }
+
+        } catch (NumberFormatException nfe) {
+            if(tf_end_day.getText().equals("")  || tf_end_month.getText().equals("") || tf_end_year.getText().equals("") ) {
+                e_to_date.setVisible(true);
+                e_to_date.setText("incorrect date format");
+            }if((tf_end_day.getText().equals("")  && tf_end_month.getText().equals("") && tf_end_year.getText().equals("") )) {
+                e_to_date.setVisible(true);
+                e_to_date.setText("enter date");
+            } else {
+                e_to_date.setVisible(true);
+                e_to_date.setText("enter date");
+            }
+        }
+
+        if((start_year <= end_year) && (start_month <= end_month) && (start_day <= end_day)) {
+            return true;
+        } else {
+            e_from_date.setText("FROM");
+            e_from_date.setVisible(true);
+            e_to_date.setText("TO");
+            e_to_date.setVisible(true);
+            return false;
         }
     }
 
@@ -371,6 +376,32 @@ public class ReservationController implements Initializable {
     }
 
     public void initializeBoxTable() {
+        tabulka.setEditable(true);
+
+        Callback<TableColumn, TableCell> cellFactory =
+                new Callback<TableColumn, TableCell>() {
+                    public TableCell call(TableColumn p) {
+                        return new EditingCell();
+                    }
+                };
+
+        TableColumn horseName = new TableColumn("<Horse Name>");
+        horseName.setMinWidth(100);
+        horseName.setCellValueFactory(
+                new PropertyValueFactory<BoxReservation, String>("horseName"));
+        horseName.setCellFactory(cellFactory);
+        horseName.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<BoxReservation, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<BoxReservation, String> t) {
+                        ((BoxReservation) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setHorseName(t.getNewValue());
+                    }
+                }
+        );
+
+
         TableColumn<BoxReservation, Integer> id = new TableColumn<BoxReservation,Integer>("#");
         id.setMinWidth(7);
         id.setCellValueFactory(new PropertyValueFactory<BoxReservation, Integer>("id"));
@@ -399,9 +430,9 @@ public class ReservationController implements Initializable {
         outside.setMinWidth(60);
         outside.setCellValueFactory(new PropertyValueFactory<BoxReservation, Integer>("outside"));
 
-        TableColumn<BoxReservation, String> horseName = new TableColumn<BoxReservation,String>("<enter horse>");
+//        TableColumn<BoxReservation, String> horseName = new TableColumn<BoxReservation,String>("<enter horse>");
         horseName.setMinWidth(148);
-        horseName.setCellValueFactory(new PropertyValueFactory<BoxReservation, String>("horseName"));
+//        horseName.setCellValueFactory(new PropertyValueFactory<BoxReservation, String>("horseName"));
 
         tabulka.getColumns().addAll(id,dailyrate,size,floor,window,outside,horseName);
     }
@@ -424,6 +455,12 @@ public class ReservationController implements Initializable {
 
         BoxReservation b = new BoxReservation();
         String exception = "";
+
+
+        if(validateDate()) {
+            b.setStart(Date.valueOf(from));
+            b.setEnd(Date.valueOf(end));
+        }
 
 //        ObservableList<Box> olist = null;
 
@@ -560,31 +597,6 @@ public class ReservationController implements Initializable {
 //            }
 //        });
     }
-
-//    public ObservableList<BoxReservation> boxItemsToBR(Box b) {
-//
-//        BoxService bx = BoxServiceImpl.initialize();
-//        ObservableList<Box> alist = bx.find(b);
-//        ObservableList<BoxReservation> blist = FXCollections.observableArrayList();
-//
-//        for (Box krabicka : alist) {
-//            BoxReservation br = new BoxReservation();
-//            b = krabicka;
-//
-//            br.setId(b.getId());
-//            br.setDailyRate(b.getDailyRate());
-//            br.setSize(b.getSize());
-//            br.setFloor(b.getFloor());
-//            br.setWindow(b.isWindow());
-//            br.setOutside(b.isOutside());
-//            br.setDeleted(b.isDeleted());
-//            br.setPicURL(b.getPicURL());
-//            br.setHorseName("");
-//
-//            blist.add(br);
-//        }
-//        return blist;
-//    }
 
     @FXML
     public void onActionClearBox() {

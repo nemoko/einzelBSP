@@ -1,8 +1,16 @@
 package presentation;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 
 import javafx.application.Application;
+import javafx.scene.layout.VBoxBuilder;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +25,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Main.fxml"));
-			Scene scene = new Scene(root,900,900);
+			Scene scene = new Scene(root,900,850);
 
             MainController.setWindow("Welcome.fxml");
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -30,10 +38,16 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 
-        DBconnection dbConnection = new DBconnection();
-        dbConnection.checkDriver();
-        dbConnection.createConnection();
+        try {
+            DBconnection dbConnection = new DBconnection();
+            dbConnection.checkDriver();
+            dbConnection.createConnection();
+            logger.info("DB started");
+        } catch (Exception e) {
+            logger.info("DB ERROR");
+            //TODO throw popup
 
+        }
         //javaFX
 		logger.info("Application starting...");
 		
