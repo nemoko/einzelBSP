@@ -12,7 +12,7 @@
 
 <StackPane id="StackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentation.PrintReceiptController">
   <children>
-    <BorderPane prefHeight="539.0" prefWidth="738.0">
+    <BorderPane prefHeight="639.0" prefWidth="838.0">
       <bottom>
         <GridPane prefHeight="75.0" prefWidth="600.0">
           <children>

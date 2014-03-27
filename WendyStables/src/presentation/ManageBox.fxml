@@ -9,9 +9,9 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane id="StackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentation.ManageBoxController">
+<StackPane id="StackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="830.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentation.ManageBoxController">
   <children>
-    <BorderPane prefHeight="539.0" prefWidth="738.0">
+    <BorderPane prefHeight="639.0" prefWidth="838.0">
       <bottom>
         <GridPane prefHeight="75.0" prefWidth="600.0">
           <children>
@@ -213,9 +213,9 @@
                 </Pane>
               </children>
             </VBox>
-            <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="338.0" prefWidth="676.0" spacing="5.0">
+            <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="392.0" prefWidth="776.0" spacing="5.0">
               <children>
-                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="373.0" />
+                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="392.0" prefWidth="504.0" />
                 <ImageView fx:id="image_field" fitHeight="210.53602600097656" fitWidth="280.99597830247785" pickOnBounds="true" preserveRatio="true" visible="true" />
               </children>
             </HBox>

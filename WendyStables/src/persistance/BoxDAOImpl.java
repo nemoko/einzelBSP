@@ -114,8 +114,8 @@ public class BoxDAOImpl implements BoxDAO {
 
         ObservableList<BoxReservation> olist = FXCollections.observableArrayList();
 
-        String query = "( select b.id,b.dailyrate,b.size,b.floor,b.window,b.outside,r.horsename from box b "
-                      +"INNER JOIN reservation r ON b.id = r.boxid ";
+        String query = "( select b.id,b.dailyrate,b.size,b.floor,b.window,b.outside from box b "
+                      +"LEFT OUTER JOIN reservation r ON b.id = r.boxid ";
         String where = "WHERE ";
 
         if(b.getDailyRate() != null) where += "dailyrate = '" + b.getDailyRate() + "' AND ";
@@ -124,8 +124,8 @@ public class BoxDAOImpl implements BoxDAO {
         if(b.isWindow() != null && (b.isWindow() ^ b.isOutside())) where += "window = '" + b.isWindow() + "' AND ";
         if(b.isOutside() != null && (b.isWindow() ^ b.isOutside())) where += "outside = '" + b.isOutside() + "' AND ";
 
-        where += "b.DELETED = FALSE and r.payed = FALSE ) ";
-
+        where += "b.DELETED = FALSE group by b.id) ";
+//TODO GROUP BY ID AS LAST?
         String timeConstraint = "AND ((r.from < " + b.getStart() + " AND r.end > "  + b.getStart() + ") " +
                                 "OR   (r.from > " + b.getStart() + " AND r.from < " + b.getEnd()   + "))";
 
@@ -149,7 +149,7 @@ public class BoxDAOImpl implements BoxDAO {
                 box.setFloor(rset.getString("floor"));
                 box.setWindow(rset.getBoolean("window"));
                 box.setOutside(rset.getBoolean("outside"));
-                box.setHorseName(rset.getString("horsename"));
+                box.setHorseName("");
 
                 olist.add(box);
             }

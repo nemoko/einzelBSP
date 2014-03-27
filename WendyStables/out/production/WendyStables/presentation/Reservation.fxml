@@ -11,9 +11,9 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane id="StackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentation.ReservationController">
+<StackPane id="StackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="830.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentation.ReservationController">
   <children>
-    <BorderPane prefHeight="539.0" prefWidth="738.0">
+    <BorderPane prefHeight="639.0" prefWidth="838.0">
       <bottom>
         <GridPane prefHeight="75.0" prefWidth="600.0">
           <children>
@@ -42,15 +42,10 @@
               <children>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                   <children>
-                    <TextField id="tf_size" fx:id="tf_horseName" prefWidth="200.0" />
+                    <TextField id="tf_size" fx:id="tf_horseName" prefWidth="200.0" visible="true" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="3">
-                  <children>
-                    <Label text="From" />
-                  </children>
-                </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                   <children>
                     <TextField id="tf_daily_rate" fx:id="tf_customer" prefWidth="200.0" />
@@ -58,45 +53,12 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
                   <children>
-                    <Label text="Horse" />
+                    <Label text="Horse" visible="true" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
                   <children>
                     <Label text="Customer" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4">
-                  <children>
-                    <Label text="To" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                  <children>
-                    <TextField id="tf_daily_rate" fx:id="tf_start_day" prefWidth="51.0" promptText="DD" />
-                    <TextField id="tf_daily_rate" fx:id="tf_start_month" prefWidth="52.0" promptText="MM" />
-                    <TextField id="tf_daily_rate" fx:id="tf_start_year" prefWidth="64.0" promptText="YYYY" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                  <children>
-                    <TextField id="tf_daily_rate" fx:id="tf_end_day" prefWidth="51.0" promptText="DD" />
-                    <TextField id="tf_daily_rate" fx:id="tf_end_month" prefWidth="52.0" promptText="MM" />
-                    <TextField id="tf_daily_rate" fx:id="tf_end_year" prefWidth="64.0" promptText="YYYY" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="45.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                  <children>
-                    <Button id="b_create" fx:id="reserveButton" mnemonicParsing="false" onAction="#onActionCreateReservation" text="Reserve" />
-                    <Button fx:id="b_filter" mnemonicParsing="false" text="Filter" />
-                  </children>
-                  <padding>
-                    <Insets />
-                  </padding>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
-                  <children>
-                    <Button id="b_delete" mnemonicParsing="false" onAction="#onActionClearAll" text="Clear all" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
@@ -159,16 +121,6 @@
                     <CheckBox fx:id="ch_outside" mnemonicParsing="false" onAction="#selectedOutside" text="" />
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
-                  <children>
-                    <Button id="b_filter" mnemonicParsing="false" onAction="#onActionFilterTable" text="Filter" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
-                  <children>
-                    <Button id="b_delete" mnemonicParsing="false" onAction="#onActionClearBox" text="Clear" />
-                  </children>
-                </HBox>
                 <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
                   <children>
                     <Label id="e_daily" fx:id="e_daily_positive" layoutX="6.0" layoutY="10.0" text="enter a positive int" visible="false">
@@ -214,15 +166,62 @@
                     <Label fx:id="e_horse" font="$x3" text="ERR" textFill="RED" visible="false" />
                   </children>
                 </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <children>
+                    <TextField id="tf_daily_rate" fx:id="tf_end_day" prefWidth="51.0" promptText="DD" />
+                    <TextField id="tf_daily_rate" fx:id="tf_end_month" prefWidth="52.0" promptText="MM" />
+                    <TextField id="tf_daily_rate" fx:id="tf_end_year" prefWidth="64.0" promptText="YYYY" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                  <children>
+                    <Label text="To" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                  <children>
+                    <Label text="From" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <children>
+                    <TextField id="tf_daily_rate" fx:id="tf_start_day" prefWidth="51.0" promptText="DD" />
+                    <TextField id="tf_daily_rate" fx:id="tf_start_month" prefWidth="52.0" promptText="MM" />
+                    <TextField id="tf_daily_rate" fx:id="tf_start_year" prefWidth="64.0" promptText="YYYY" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="45.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <children>
+                    <Button id="b_create" fx:id="reserveButton" mnemonicParsing="false" onAction="#onActionCreateReservation" text="Reserve" />
+                    <Button id="b_filter" mnemonicParsing="false" onAction="#onActionFilterTable" text="Search" />
+                  </children>
+                  <padding>
+                    <Insets />
+                  </padding>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                  <children>
+                    <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0">
+                      <children>
+                        <Button id="b_delete" mnemonicParsing="false" onAction="#onActionClearAll" text="Clear all" />
+                      </children>
+                    </HBox>
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                  <children>
+                    <Button id="b_delete" mnemonicParsing="false" onAction="#onActionClearBox" text="Clear" visible="false" />
+                  </children>
+                </HBox>
               </children>
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="72.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="182.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="161.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="1.0" prefWidth="8.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="0.0" prefWidth="87.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="90.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="90.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="87.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="197.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="105.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="1.0" prefWidth="92.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="0.0" prefWidth="101.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="104.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="104.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
@@ -230,6 +229,7 @@
                 <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="32.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="31.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
               </rowConstraints>
@@ -249,10 +249,10 @@
                 </Pane>
               </children>
             </VBox>
-            <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="338.0" prefWidth="676.0" spacing="5.0">
+            <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="398.0" prefWidth="790.0" spacing="5.0">
               <children>
-                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="334.0" prefWidth="437.0" />
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f9f9f" height="258.0" stroke="BLACK" strokeType="INSIDE" width="258.0" />
+                <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="398.0" prefWidth="495.0" />
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f9f9f" height="258.0" stroke="BLACK" strokeType="INSIDE" width="290.0" />
               </children>
             </HBox>
           </children>

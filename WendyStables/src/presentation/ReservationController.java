@@ -130,6 +130,8 @@ public class ReservationController implements Initializable {
     }
 
     public void removeErrors() {
+        e_to_date.setVisible(false);
+        e_from_date.setVisible(false);
         e_customer.setVisible(false);
         e_horse.setVisible(false);
         f_select_stable.setVisible(false);
@@ -397,8 +399,8 @@ public class ReservationController implements Initializable {
         outside.setMinWidth(60);
         outside.setCellValueFactory(new PropertyValueFactory<BoxReservation, Integer>("outside"));
 
-        TableColumn<BoxReservation, String> horseName = new TableColumn<BoxReservation,String>("Horse");
-        horseName.setMinWidth(79);
+        TableColumn<BoxReservation, String> horseName = new TableColumn<BoxReservation,String>("<enter horse>");
+        horseName.setMinWidth(148);
         horseName.setCellValueFactory(new PropertyValueFactory<BoxReservation, String>("horseName"));
 
         tabulka.getColumns().addAll(id,dailyrate,size,floor,window,outside,horseName);

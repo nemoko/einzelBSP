@@ -9,7 +9,7 @@
 
 <BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="1.0" prefHeight="802.0" prefWidth="1098.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="presentation.MainController">
   <center>
-    <StackPane fx:id="window" prefHeight="730.0" prefWidth="800.0" />
+    <StackPane fx:id="window" prefHeight="830.0" prefWidth="900.0" />
   </center>
   <top>
     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
