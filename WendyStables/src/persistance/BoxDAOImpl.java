@@ -117,6 +117,7 @@ public class BoxDAOImpl implements BoxDAO {
         String query = " select b.id,b.dailyrate,b.size,b.floor,b.window,b.outside from box b "
                       +"LEFT OUTER JOIN reservation r ON b.id = r.boxid ";
         String where = "WHERE ";
+        String groupby = " group by b.id;";
 
         if(b.getDailyRate() != null) where += "dailyrate = '" + b.getDailyRate() + "' AND ";
         if(b.getSize() != null) where += "size = '" + b.getSize() + "' AND ";
@@ -126,14 +127,14 @@ public class BoxDAOImpl implements BoxDAO {
 
         where += "b.DELETED = FALSE ";
 //TODO GROUP BY ID AS LAST?
-        String timeConstraint = "AND ((r.start < '" + b.getStart() + "' AND r.until > '"  + b.getStart() + "') " +
-                                "OR   (r.start > '" + b.getStart() + "' AND r.start < '" + b.getEnd()   + "'))";
+        String timeConstraint = "AND ((r.start <= '" + b.getStart() + "' AND r.until >= '"  + b.getStart() + "') " +
+                                  "OR (r.start >= '" + b.getStart() + "' AND r.start <= '" + b.getEnd()   + "'))";
 
         String temp;
         if(b.getStart() != null && b.getEnd() != null) {
-                temp = query + where + "MINUS " + query + where + timeConstraint;
+                temp = query + where + "MINUS " + query + where + timeConstraint + groupby;
         } else {
-            temp = query + where;
+            temp = query + where + groupby;
         }
 
         try {
@@ -150,7 +151,8 @@ public class BoxDAOImpl implements BoxDAO {
                 box.setWindow(rset.getBoolean("window"));
                 box.setOutside(rset.getBoolean("outside"));
                 box.setHorseName("");
-
+//                box.setHorseName(rset.getString("horseName"));
+//TODO decide if horsename
                 olist.add(box);
             }
         } catch (SQLException e) {

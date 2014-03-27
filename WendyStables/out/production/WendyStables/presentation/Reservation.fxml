@@ -43,10 +43,18 @@
               <children>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                   <children>
-                    <TextField id="tf_size" fx:id="tf_horseName" prefWidth="200.0" visible="true" />
+                    <TextField id="tf_size" fx:id="tf_horseName" prefWidth="200.0" visible="false" />
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                  <children>
+                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                      <children>
+                        <Label fx:id="e_to_date" text="incorrect date format" textFill="RED" visible="false" />
+                      </children>
+                    </HBox>
+                  </children>
+                </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                   <children>
                     <TextField id="tf_daily_rate" fx:id="tf_customer" prefWidth="200.0" />
@@ -54,22 +62,12 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
                   <children>
-                    <Label text="Horse" visible="true" />
+                    <Label text="Horse" visible="false" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
                   <children>
                     <Label text="Customer" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                  <children>
-                    <Label fx:id="e_to_date" text="incorrect date format" textFill="RED" visible="false" />
-                  </children>
-                </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                  <children>
-                    <Label fx:id="e_from_date" text="incorrect date format" textFill="RED" visible="false" />
                   </children>
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
@@ -162,11 +160,6 @@
                     </Label>
                   </children>
                 </HBox>
-                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                  <children>
-                    <Label fx:id="e_horse" font="$x3" text="ERR" textFill="RED" visible="false" />
-                  </children>
-                </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                   <children>
                     <TextField id="tf_daily_rate" fx:id="tf_start_day" prefWidth="51.0" promptText="DD" />
@@ -214,11 +207,21 @@
                     <Button id="b_delete" mnemonicParsing="false" onAction="#onActionClearBox" text="Clear" visible="false" />
                   </children>
                 </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <children>
+                    <Label fx:id="e_from_date" text="incorrect date format" textFill="RED" visible="false" />
+                  </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <children>
+                    <Label text="Search for available stables:" />
+                  </children>
+                </HBox>
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="87.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="197.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="105.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="200.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="102.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="1.0" prefWidth="92.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="0.0" prefWidth="101.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="104.0" />
@@ -245,7 +248,12 @@
                       </font>
                     </Label>
                     <Label fx:id="error_message" font="$x2" layoutX="203.0" layoutY="11.0" onMouseMoved="#removeFeedback" text="ERR" textFill="RED" visible="false" />
-                    <Label id="error_message" fx:id="success_message" font="$x2" layoutX="258.0" layoutY="11.0" onMouseMoved="#removeFeedback" text="SUCCESS" textFill="#319900" visible="false" />
+                    <Label id="error_message" fx:id="success_message" font="$x2" layoutX="258.0" layoutY="5.0" onMouseMoved="#removeFeedback" text="SUCCESS" textFill="#319900" visible="false" />
+                    <HBox alignment="CENTER" layoutX="350.0" layoutY="5.0" prefHeight="27.000099999997474" prefWidth="131.0">
+                      <children>
+                        <Label fx:id="e_horse" font="$x3" text="ERR" textFill="RED" visible="false" />
+                      </children>
+                    </HBox>
                   </children>
                 </Pane>
               </children>
