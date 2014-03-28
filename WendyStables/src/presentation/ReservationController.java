@@ -1,7 +1,6 @@
 package presentation;
 
 import entity.EditingCell;
-import entity.Box;
 import entity.BoxReservation;
 import entity.Reservation;
 import exception.ReservationException;
@@ -125,6 +124,7 @@ public class ReservationController implements Initializable {
     private Label e_customer;
     @FXML
     private Label e_horse;
+    private boolean tableLoaded = false;
 
     @FXML
     public void onActionHomePage() {
@@ -160,6 +160,17 @@ public class ReservationController implements Initializable {
             f_select_stable.setVisible(true);
             return;
         }
+
+//TODO remove the horseName check from the next FOR LOOP
+        for(BoxReservation b : clickedBox) {
+            if(b.getHorseName().equals("")) {
+                e_horse.setText("Enter a name");
+                if(e_horse.isVisible()) e_horse.setText("Enter a name\nfor all horses");
+                e_horse.setVisible(true);
+            }
+        }
+
+        if(e_horse.isVisible()) return;
 
         for(BoxReservation b : clickedBox) {
 
@@ -308,7 +319,6 @@ public class ReservationController implements Initializable {
         BoxReservation b = new BoxReservation();
         String exception = "";
 
-
         if(validateDate()) {
             b.setStart(Date.valueOf(from));
             b.setEnd(Date.valueOf(end));
@@ -396,6 +406,11 @@ public class ReservationController implements Initializable {
             e.printStackTrace();
             error_message.setText("EXCEPTION");
             error_message.setVisible(true);
+        }
+
+        if(!tableLoaded) {
+            initializeBoxTable();
+            tableLoaded = true;
         }
     }
 
@@ -569,11 +584,13 @@ public class ReservationController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 //TODO method
 
-        BoxReservation b = new BoxReservation();
-        BoxService bx = new BoxServiceImpl().initialize();
-        //tabulka.setItems(bx.find(b));
+//        BoxReservation b = new BoxReservation();
+//        BoxService bx = new BoxServiceImpl().initialize();
 
-        initializeBoxTable();
+        tabulka.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+//        tabulka.setItems(bx.find(b));
+
+        //initializeBoxTable();
 
         cb_floor.getItems().addAll("Sawdust","Straw","any");
         cb_floor.setOnAction(new EventHandler<ActionEvent>() {
@@ -598,8 +615,8 @@ public class ReservationController implements Initializable {
 
     @FXML
     public void mouseClick(MouseEvent arg0) {
-        tabulka.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         clickedBox = new HashSet<BoxReservation>(tabulka.getSelectionModel().getSelectedItems());
+
 //TODO do we need this?
         reserveButton.setDisable(false);
     }

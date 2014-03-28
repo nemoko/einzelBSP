@@ -33,7 +33,7 @@ public class DBconnection {
         }
     }
 
-    public void createConnection() {
+    public synchronized void createConnection() {
         try {
             c = DriverManager.getConnection(db_URL,db_USR,db_PWD);
         } catch (SQLException e) {

@@ -22,14 +22,20 @@ import service.ReservationServiceImpl;
 
 import java.net.URL;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class PrintReceiptController implements Initializable {
 
-    private static final Logger logger = Logger.getLogger(ReservationController.class);
+    private static final Logger logger = Logger.getLogger(PrintReceiptController.class);
 
     @FXML
-    private Reservation clickedRes;
+    private Label feedback;
+    @FXML
+    private Set<Reservation> clickedRes;
     @FXML
     private Button b_clearall;
     @FXML
@@ -86,14 +92,57 @@ public class PrintReceiptController implements Initializable {
     }
 
     @FXML
+    public void removeFeedback() {
+        feedback.setVisible(false);
+    }
+
+    @FXML
     public void onActionClearAll() {
         removeSuccessMessage();
+
         tf_start_day.setText("");
         tf_start_month.setText("");
         tf_start_year.setText("");
         tf_end_day.setText("");
         tf_end_month.setText("");
         tf_end_year.setText("");
+    }
+
+    @FXML
+    public void onActionPay() {
+
+        //returns if date format invalid
+        if(validateDate());
+
+        if(clickedRes == null) {
+            feedback.setText("Select reservations");
+            feedback.setVisible(true);
+            return;
+        } else {
+            for (Reservation r : clickedRes) {
+
+                //if payable [end < today]
+                if(checkIfPayable(r)) {
+//TODO proceed
+                } else {
+//TODO error reservation is still active, cannot be payed
+                }
+
+
+
+
+            }
+        }
+    }
+
+    //check if end < now
+    public boolean checkIfPayable(Reservation r) {
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+        logger.info(timeStamp);
+
+        if(r.getEnd().compareTo(Date.valueOf(timeStamp)) <= 0) return true;
+        else return false;
+
     }
 
     @FXML
@@ -228,7 +277,7 @@ public class PrintReceiptController implements Initializable {
             }
         }
 
-        if(e_from_date.isVisible() || e_to_date.isVisible()) return false;
+//        if(e_from_date.isVisible() || e_to_date.isVisible()) return false;
 
         if((start_year <= end_year) && (start_month <= end_month) && (start_day <= end_day)) {
             return true;
@@ -322,6 +371,8 @@ public class PrintReceiptController implements Initializable {
 
     @FXML
     public void mouseClick(MouseEvent arg0) {
-        clickedRes = resbulka.getSelectionModel().getSelectedItem();
+        resbulka.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        clickedRes = new HashSet<Reservation>(resbulka.getSelectionModel().getSelectedItems());
+
     }
 }

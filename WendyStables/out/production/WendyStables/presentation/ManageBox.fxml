@@ -168,7 +168,7 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
                   <children>
-                    <Button mnemonicParsing="false" onAction="#choosePicture" text="Choose.." />
+                    <Button mnemonicParsing="false" onAction="#imgPicker" text="Choose.." />
                   </children>
                 </HBox>
               </children>

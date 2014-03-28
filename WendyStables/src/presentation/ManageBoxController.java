@@ -11,6 +11,9 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -24,6 +27,12 @@ import org.apache.log4j.Logger;
 import service.BoxService;
 import service.BoxServiceImpl;
 
+import javax.imageio.ImageIO;
+import javax.imageio.stream.FileImageOutputStream;
+import javax.imageio.stream.ImageOutputStream;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -549,4 +558,75 @@ public class ManageBoxController implements Initializable {
         b_update.setDisable(false);
         b_delete.setDisable(false);
     }
+
+    public void imgPicker() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Resource File");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Images", "*.*"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png"));
+
+        File file = fileChooser.showOpenDialog(null);
+
+        if(file != null) {
+            String pathToImage = file.toString();
+
+            logger.info(pathToImage);
+        }
+
+    }
+
+    public void copyImg(String pathToImage) {
+
+        InputStream sourceFile = null;
+
+        File fileToCopy = new File(pathToImage);
+
+        try {
+            sourceFile = new FileInputStream(fileToCopy);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        int width=600, height=400; /* set the width and height here */
+        BufferedImage inputImage = null;
+
+        try {
+            inputImage = ImageIO.read(sourceFile);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+            return;
+        }
+
+        BufferedImage outputImage=new BufferedImage(width, height,
+                BufferedImage.TYPE_INT_RGB);
+
+        Graphics2D g=outputImage.createGraphics();
+        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+                RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+
+        g.clearRect(0, 0, width, height);
+
+        g.drawImage(inputImage, 0, 0, width, height, null);
+
+        g.dispose();
+
+        File output = new File("imgs\"+imageName");
+                ImageOutputStream ios;
+        try {
+            ios = new FileImageOutputStream(output);
+            ImageIO.write(outputImage, "jpg", ios);
+
+            ios.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }
