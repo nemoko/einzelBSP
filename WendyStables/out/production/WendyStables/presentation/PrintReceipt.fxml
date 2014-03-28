@@ -74,8 +74,7 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="45.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                   <children>
-                    <Button fx:id="b_filter" mnemonicParsing="false" onAction="#onActionFilter" text="Filter" />
-                    <Button id="b_delete" fx:id="b_clearall" mnemonicParsing="false" onAction="#onActionClearAll" text="Clear all" />
+                    <Button fx:id="b_filter" mnemonicParsing="false" onAction="#onActionFilter" text="Filter date" />
                   </children>
                   <padding>
                     <Insets />
@@ -100,6 +99,11 @@
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                   <children>
                     <Label fx:id="e_to_date" text="incorrect date format" textFill="RED" visible="false" />
+                  </children>
+                </HBox>
+                <HBox id="HBox" alignment="CENTER" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                  <children>
+                    <Button id="b_delete" fx:id="b_clearall" mnemonicParsing="false" onAction="#onActionClearAll" text="Clear all" />
                   </children>
                 </HBox>
               </children>

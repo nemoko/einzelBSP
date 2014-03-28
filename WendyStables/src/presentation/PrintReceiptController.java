@@ -78,28 +78,28 @@ public class PrintReceiptController implements Initializable {
         MainController.setWindow("Welcome.fxml");
     }
 
-    public void removeErrors() {
+    @FXML
+    public void removeSuccessMessage() {
+        f_select_stable.setVisible(false);
         e_from_date.setVisible(false);
         e_to_date.setVisible(false);
     }
 
     @FXML
-    public void removeSuccessMessage() {
-        f_select_stable.setVisible(false);
-    }
-
-    @FXML
     public void onActionClearAll() {
-        tf_start_day.setVisible(false);
-        tf_start_month.setVisible(false);
-        tf_start_year.setVisible(false);
-        tf_end_day.setVisible(false);
-        tf_end_month.setVisible(false);
-        tf_end_year.setVisible(false);
+        removeSuccessMessage();
+        tf_start_day.setText("");
+        tf_start_month.setText("");
+        tf_start_year.setText("");
+        tf_end_day.setText("");
+        tf_end_month.setText("");
+        tf_end_year.setText("");
     }
 
     @FXML
     public void onActionFilter() {
+        removeSuccessMessage();
+
         Reservation r = new Reservation();
 
         if(validateDate()) {

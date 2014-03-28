@@ -117,7 +117,9 @@ public class ReservationDAOImpl implements  ReservationDAO {
 
     public ObservableList<Reservation> findCustomer(Reservation r) {
         ObservableList<Reservation> olist = FXCollections.observableArrayList();
-        String query = "select * from reservation r";
+
+
+        String query = "select * from reservation r ";
         String where = "WHERE ";
         String customer = "customername LIKE '%" + r.getCustomerName() + "%'";
         String timeConstraint = "AND (r.start >= '" + r.getStart() + "' AND r.until <= '"  + r.getEnd() + "')";
