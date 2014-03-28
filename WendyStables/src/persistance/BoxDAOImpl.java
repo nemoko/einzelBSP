@@ -60,12 +60,12 @@ public class BoxDAOImpl implements BoxDAO {
             createStmt.setBoolean(6,b.isOutside());
 
             createStmt.executeUpdate();
+            logger.info("New box should be created in DB");
 
         } catch (SQLException e) {
             logger.info("exception during box DB creation");
             throw new BoxException("box is null");
         }
-        logger.info("New box should be created in DB");
     }
 
     @Override

@@ -561,7 +561,7 @@ public class ManageBoxController implements Initializable {
 
     public void imgPicker() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
+        fileChooser.setTitle("Load Image");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("All Images", "*.*"),
                 new FileChooser.ExtensionFilter("JPG", "*.jpg"),
@@ -572,11 +572,12 @@ public class ManageBoxController implements Initializable {
         if(file != null) {
             String pathToImage = file.toString();
 
-            logger.info(pathToImage);
+            logger.info("Image loaded : " + pathToImage);
+            copyImg(pathToImage);
         }
-
     }
 
+//  http://stackoverflow.com/questions/15336312/copy-an-image-to-another-location-with-different-size
     public void copyImg(String pathToImage) {
 
         InputStream sourceFile = null;
@@ -589,7 +590,7 @@ public class ManageBoxController implements Initializable {
             e.printStackTrace();
             return;
         }
-
+//TODO change width & height
         int width=600, height=400; /* set the width and height here */
         BufferedImage inputImage = null;
 
@@ -613,20 +614,21 @@ public class ManageBoxController implements Initializable {
 
         g.dispose();
 
-        File output = new File("imgs\"+imageName");
+        String filename = pathToImage.substring(pathToImage.lastIndexOf("/")+1,pathToImage.lastIndexOf("."));
+
+        File output = new File("img/" + filename);
                 ImageOutputStream ios;
         try {
             ios = new FileImageOutputStream(output);
             ImageIO.write(outputImage, "jpg", ios);
 
             ios.close();
+            logger.info("picture " + filename + " copied to /img/");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
 }

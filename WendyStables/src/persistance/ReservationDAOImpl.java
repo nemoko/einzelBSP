@@ -2,6 +2,7 @@ package persistance;
 
 import entity.Box;
 import entity.BoxReservation;
+import entity.Receipt;
 import entity.Reservation;
 import exception.ReservationException;
 import javafx.collections.FXCollections;
@@ -155,11 +156,31 @@ public class ReservationDAOImpl implements  ReservationDAO {
         return olist;
     }
 
-
-
-
+    //PAY for a reservation
     @Override
-    public void update(Reservation r) {
+    public void update(Reservation r, Receipt rt) {
+        logger.info("updating Reservation in DB");
+
+        //        UPDATE Customers
+        //        SET ContactName='Alfred Schmidt', City='Hamburg'
+        //        WHERE CustomerName='Alfreds Futterkiste';
+
+        String query = "UPDATE reservation ";
+        String set   = "SET payed =true, receiptid='" + rt.getId() + "'";
+        String where = " WHERE id='" + r.getId() + "';";
+
+        String temp = query + set + where;
+
+        try {
+            PreparedStatement ps = c.prepareStatement(temp);
+            ps.executeUpdate();
+
+            logger.info("Box successfully updated");
+            logger.info(ps.getGeneratedKeys());
+        } catch (SQLException e) {
+            logger.info("exception during box update statement");
+            e.printStackTrace();
+        }
 
     }
 

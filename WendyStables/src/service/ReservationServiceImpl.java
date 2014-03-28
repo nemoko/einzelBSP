@@ -1,5 +1,6 @@
 package service;
 
+import entity.Receipt;
 import entity.Reservation;
 import exception.ReservationException;
 import javafx.collections.ObservableList;
@@ -40,8 +41,12 @@ public class ReservationServiceImpl implements ReservationService {
 
 
     @Override
-    public void update(Reservation r) {
-
+    public void update(Reservation r, Receipt rt) {
+        if(r == null || rt == null) {
+            return;
+        } else {
+            ReservationDAOImpl.initialize().update(r,rt);
+        }
     }
 
     @Override

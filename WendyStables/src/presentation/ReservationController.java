@@ -588,6 +588,7 @@ public class ReservationController implements Initializable {
 //        BoxService bx = new BoxServiceImpl().initialize();
 
         tabulka.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
 //        tabulka.setItems(bx.find(b));
 
         //initializeBoxTable();

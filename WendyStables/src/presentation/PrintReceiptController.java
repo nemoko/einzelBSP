@@ -3,6 +3,7 @@ package presentation;
 import entity.Box;
 import entity.Reservation;
 import exception.ReservationException;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -78,6 +79,7 @@ public class PrintReceiptController implements Initializable {
     private Label error_filter_id;
     @FXML
     private Label f_select_stable;
+    private String filename;
 
     @FXML
     public void onActionHomePage() {
@@ -86,7 +88,6 @@ public class PrintReceiptController implements Initializable {
 
     @FXML
     public void removeSuccessMessage() {
-        f_select_stable.setVisible(false);
         e_from_date.setVisible(false);
         e_to_date.setVisible(false);
     }
@@ -110,28 +111,43 @@ public class PrintReceiptController implements Initializable {
 
     @FXML
     public void onActionPay() {
+        removeSuccessMessage();
+        removeFeedback();
 
-        //returns if date format invalid
-        if(validateDate());
+        String customer = "";
 
         if(clickedRes == null) {
             feedback.setText("Select reservations");
             feedback.setVisible(true);
             return;
         } else {
+            //looping through customer names
             for (Reservation r : clickedRes) {
 
-                //if payable [end < today]
-                if(checkIfPayable(r)) {
-//TODO proceed
-                } else {
-//TODO error reservation is still active, cannot be payed
+                if(customer.trim().isEmpty()) customer = r.getCustomerName();
+
+                if(!customer.equals(r.getCustomerName())) {
+                    feedback.setText("Invoices can be created for one customer at a time");
+                    feedback.setVisible(true);
+                    return;
                 }
-
-
-
-
             }
+
+            //if payable [end < today]
+            for (Reservation r : clickedRes) {
+                if(!checkIfPayable(r)) {
+                    feedback.setText("Reservation is still active and cannot be payed for");
+                    feedback.setVisible(true);
+                    return;
+                }
+            }
+
+            //proceeding to pay
+            logger.info("proceeding to pay");
+
+            //mark all reservations as payed
+
+            //create pop up with receipt info
         }
     }
 
@@ -142,13 +158,12 @@ public class PrintReceiptController implements Initializable {
 
         if(r.getEnd().compareTo(Date.valueOf(timeStamp)) <= 0) return true;
         else return false;
-
     }
 
     @FXML
     public void onActionFilter() {
         removeSuccessMessage();
-
+        ObservableList<Reservation> olist = FXCollections.observableArrayList();
         Reservation r = new Reservation();
 
         if(validateDate()) {
@@ -157,9 +172,9 @@ public class PrintReceiptController implements Initializable {
         }
 
         ReservationService rs = new ReservationServiceImpl().initialize();
-        rs.findCustomer(r);
+        olist = rs.findCustomer(r);
+        resbulka.setItems(olist);
     }
-
 
     public boolean validateDate() {
         //FROM DATE
@@ -328,7 +343,7 @@ public class PrintReceiptController implements Initializable {
     public void refreshTable() {
         Reservation r = new Reservation();
 
-        ObservableList<Reservation> olist = null;
+        ObservableList<Reservation> olist = FXCollections.observableArrayList();
 
         try {
             if(customerValue != null && !customerValue.trim().equals("")) {
@@ -347,6 +362,7 @@ public class PrintReceiptController implements Initializable {
             logger.info("exception refreshing table");
             e.printStackTrace();
         }
+
 
     }
 
