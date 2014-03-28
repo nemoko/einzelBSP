@@ -4,12 +4,14 @@ import entity.Box;
 import entity.Reservation;
 import exception.ReservationException;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import org.apache.log4j.Logger;
 import javafx.scene.control.TextField;
@@ -27,21 +29,38 @@ public class PrintReceiptController implements Initializable {
     private static final Logger logger = Logger.getLogger(ReservationController.class);
 
     @FXML
-    private Box clickedBox;
-    @FXML
     private Reservation clickedRes;
+    @FXML
+    private Button b_clearall;
     @FXML
     private TableView<Reservation> resbulka;
     @FXML
     private TextField tf_customer;
+    private String customerValue;
     @FXML
     private TextField tf_horseName;
     @FXML
-    private TextField tf_start;
+    private TextField tf_start_day;
     @FXML
-    private TextField tf_end;
+    private TextField tf_start_month;
     @FXML
-    private Button reserveButton;
+    private TextField tf_start_year;
+    @FXML
+    private TextField tf_end_day;
+    @FXML
+    private TextField tf_end_month;
+    @FXML
+    private TextField tf_end_year;
+    private int start_day;
+    private int start_month;
+    private int start_year;
+    private int end_day;
+    private int end_month;
+    private int end_year;
+    private String from;
+    private String end;
+    @FXML
+    private Button pay;
     @FXML
     private TextField tf_filter_id;
     private String filter_id_value;
@@ -70,65 +89,163 @@ public class PrintReceiptController implements Initializable {
     }
 
     @FXML
-    public void onActionCreateReservation() {
-        removeErrors();
-
-        logger.info("onReserveBoxClicked");
-
-        Reservation r = new Reservation();
-
-        try {
-            r.setBoxID(clickedBox.getId());
-        } catch (NullPointerException e) {
-            f_select_stable.setVisible(true);
-            return;
-        }
-
-        r.setCustomerName(tf_customer.getText());
-        r.setHorseName(tf_horseName.getText());
-        r.setStart(Date.valueOf(tf_start.getText()));
-        r.setEnd(Date.valueOf(tf_end.getText()));
-        r.setBoxID(clickedBox.getId());
-        r.setDailyCharge(clickedBox.getDailyRate());
-
-        try {
-            ReservationServiceImpl.initialize().create(r);
-        } catch (ReservationException re) {
-            re.getMessage();
-        } catch (IllegalArgumentException ie) {
-            e_from_date.setVisible(true);
-            e_to_date.setVisible(true);
-        }
+    public void onActionClearAll() {
+        tf_start_day.setVisible(false);
+        tf_start_month.setVisible(false);
+        tf_start_year.setVisible(false);
+        tf_end_day.setVisible(false);
+        tf_end_month.setVisible(false);
+        tf_end_year.setVisible(false);
     }
 
     @FXML
-    public void onActionCancelReservation() {
+    public void onActionFilter() {
+        Reservation r = new Reservation();
 
+        if(validateDate()) {
+            r.setStart(Date.valueOf(from));
+            r.setEnd(Date.valueOf(end));
+        }
+
+        ReservationService rs = new ReservationServiceImpl().initialize();
+        rs.findCustomer(r);
     }
-//
-//    public void refreshTable() {
-//        Reservation r = new Reservation();
-//
-//        ObservableList<Reservation> olist = null;
-//
-//        try {
-//
-//            if(filter_id_value != null && !filter_id_value.trim().equals("")) {
-//                try {
-//                    r.setId(Integer.parseInt(filter_id_value));
-//                    error_filter_id.setVisible(false);
-//                } catch (Exception e) {
-//                    error_filter_id.setVisible(true);
-//                }
-//            }
-//
-//            olist = ReservationServiceImpl.initialize().find(r);
-//            resbulka.setItems(olist);
-//        } catch (Exception e) {
-//            logger.info("Exception refreshing table");
-//            e.printStackTrace();
-//        }
-//    }
+
+
+    public boolean validateDate() {
+        //FROM DATE
+        try {
+            //CHECK IF INT
+            start_day = Integer.parseInt(tf_start_day.getText());
+            start_month = Integer.parseInt(tf_start_month.getText());
+            start_year = Integer.parseInt(tf_start_year.getText());
+
+            //CHECK IF VALUE >= 0
+            if(Integer.signum(start_day) <= 0 || Integer.signum(start_month) <= 0 || Integer.signum(start_year) <= 0) {
+                e_from_date.setVisible(true);
+                e_from_date.setText("incorrect date format");
+            }
+
+            //CHECK IF DATE MATCHES MONTH
+            if((start_day == 31 && (start_month == 1 || start_month == 3 || start_month == 5 || start_month == 7 || start_month == 8 || start_month == 10 || start_month == 12))
+                    || (start_day <= 30 && (start_month >= 1 && start_month <= 12))) {
+                //WHEN FEB, CHECK if LEAP YEAR
+                if(start_month == 2 && checkLeapYear(start_year)) {
+                    if(start_day <= 29);
+                    else {
+                        e_from_date.setVisible(true);
+                        e_from_date.setText("incorrect date, leap year");
+                    }
+                }
+
+                //WHEN FEB, CHECK if not LEAP YEAR
+                if(start_month == 2 && !checkLeapYear(start_year)) {
+                    if(start_day <28);
+                    else {
+                        e_from_date.setVisible(true);
+                        e_from_date.setText("incorrect date, not a leap year");
+                    }
+                }
+
+            } else {
+                e_from_date.setVisible(true);
+                e_from_date.setText("incorrect date format");
+            }
+
+            if(!e_from_date.isVisible()) {
+                from = start_year + "-" + start_month + "-" + start_day;
+                logger.info(from);
+            }
+
+        } catch (NumberFormatException nfe) {
+            if(tf_start_day.getText().equals("")  || tf_start_month.getText().equals("") || tf_start_year.getText().equals("") ) {
+                e_from_date.setVisible(true);
+                e_from_date.setText("incorrect date format");
+            }if((tf_start_day.getText().equals("")  && tf_start_month.getText().equals("") && tf_start_year.getText().equals("") )) {
+                e_from_date.setVisible(true);
+                e_from_date.setText("enter date");
+            } else {
+                e_from_date.setVisible(true);
+                e_from_date.setText("enter date");
+            }
+        }
+
+        //UNTIL DATE
+        try {
+            //CHECK IF INT
+            end_day = Integer.parseInt(tf_end_day.getText());
+            end_month = Integer.parseInt(tf_end_month.getText());
+            end_year = Integer.parseInt(tf_end_year.getText());
+
+            //CHECK IF VALUE >= 0
+            if(Integer.signum(end_day) <= 0 || Integer.signum(end_month) <= 0 || Integer.signum(end_year) <= 0) {
+                e_to_date.setVisible(true);
+                e_to_date.setText("incorrect date format");
+            }
+
+            //CHECK IF DATE MATCHES MONTH
+            if((end_day == 31 && (end_month == 1 || end_month == 3 || end_month == 5 || end_month == 7 || end_month == 8 || end_month == 10 || end_month == 12))
+                    || (end_day <= 30 && (end_month >= 1 && end_month <= 12))) {
+
+                //WHEN FEB, CHECK if LEAP YEAR
+                if(end_month == 2 && checkLeapYear(end_year)) {
+                    if(end_day <= 29);
+                    else {
+                        e_to_date.setVisible(true);
+                        e_to_date.setText("incorrect date, leap year");
+                    }
+                }
+
+                //WHEN FEB, CHECK if not LEAP YEAR
+                if(end_month == 2 && !checkLeapYear(end_year)) {
+                    if(end_day <28);
+                    else {
+                        e_to_date.setVisible(true);
+                        e_to_date.setText("incorrect date, not a leap year");
+                    }
+                }
+
+            } else {
+                e_to_date.setVisible(true);
+                e_to_date.setText("incorrect date format");
+            }
+
+            if(!e_to_date.isVisible()) {
+                end = end_year + "-" + end_month + "-" + end_day;
+                logger.info(end);
+            }
+
+        } catch (NumberFormatException nfe) {
+            if(tf_end_day.getText().equals("")  || tf_end_month.getText().equals("") || tf_end_year.getText().equals("") ) {
+                e_to_date.setVisible(true);
+                e_to_date.setText("incorrect date format");
+            }if((tf_end_day.getText().equals("")  && tf_end_month.getText().equals("") && tf_end_year.getText().equals("") )) {
+                e_to_date.setVisible(true);
+                e_to_date.setText("enter date");
+            } else {
+                e_to_date.setVisible(true);
+                e_to_date.setText("enter date");
+            }
+        }
+
+        if(e_from_date.isVisible() || e_to_date.isVisible()) return false;
+
+        if((start_year <= end_year) && (start_month <= end_month) && (start_day <= end_day)) {
+            return true;
+        } else {
+            e_from_date.setText("FROM");
+            e_from_date.setVisible(true);
+            e_to_date.setText("TO");
+            e_to_date.setVisible(true);
+            return false;
+        }
+    }
+
+    public boolean checkLeapYear(int year) {
+        if((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) {
+            return true;
+        } else return false;
+    }
 
     public void initializeResTable() {
         TableColumn<Reservation, String> customername = new TableColumn<Reservation, String>("Customer Name");
@@ -158,6 +275,32 @@ public class PrintReceiptController implements Initializable {
         resbulka.getColumns().addAll(customername,horsename, start, until, boxid, dailycharge);
     }
 
+//TODO refresh reservation table based on customer name primarily, and DATES if any entered
+    public void refreshTable() {
+        Reservation r = new Reservation();
+
+        ObservableList<Reservation> olist = null;
+
+        try {
+            if(customerValue != null && !customerValue.trim().equals("")) {
+                try {
+                    r.setCustomerName(customerValue);
+//TODO error_customerID.setVisible(false);
+                } catch (Exception e) {
+//TODO error_customerID.setVisible(true);
+                }
+            }
+
+//TODO find reservation method implemented??
+            olist = ReservationServiceImpl.initialize().findCustomer(r);
+            resbulka.setItems(olist);
+        } catch (Exception e) {
+            logger.info("exception refreshing table");
+            e.printStackTrace();
+        }
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Box b = new Box();
@@ -168,19 +311,17 @@ public class PrintReceiptController implements Initializable {
 
         initializeResTable();
 
-//        tf_filter_id.setOnKeyReleased(new EventHandler<KeyEvent>() {
-//            @Override
-//            public void handle(KeyEvent keyEvent) {
-//                filter_id_value = tf_filter_id.getText();
-//                refreshTable();
-//            }
-//        });
+        tf_customer.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                customerValue = tf_customer.getText();
+                refreshTable();
+            }
+        });
     }
 
     @FXML
     public void mouseClick(MouseEvent arg0) {
         clickedRes = resbulka.getSelectionModel().getSelectedItem();
-
-        reserveButton.setDisable(false);
     }
 }

@@ -228,30 +228,6 @@ public class ReservationController implements Initializable {
         }
     }
 
-    public void refreshTable() {
-        BoxReservation b = new BoxReservation();
-
-        ObservableList<Box> olist = null;
-
-        try {
-
-            if(filter_id_value != null && !filter_id_value.trim().equals("")) {
-                try {
-                    b.setId(Integer.parseInt(filter_id_value));
-                    error_filter_id.setVisible(false);
-                } catch (Exception e) {
-                    error_filter_id.setVisible(true);
-                }
-            }
-
-            BoxService bx = new BoxServiceImpl().initialize();
-            tabulka.setItems(bx.find(b));
-        } catch (Exception e) {
-            logger.info("Exception refreshing table");
-            e.printStackTrace();
-        }
-    }
-
     public void initializeBoxTable() {
         tabulka.setEditable(true);
 
@@ -607,13 +583,6 @@ public class ReservationController implements Initializable {
             }
         });
 
-//        tf_filter_id.setOnKeyReleased(new EventHandler<KeyEvent>() {
-//            @Override
-//            public void handle(KeyEvent keyEvent) {
-//                filter_id_value = tf_filter_id.getText();
-//                refreshTable();
-//            }
-//        });
     }
 
     @FXML

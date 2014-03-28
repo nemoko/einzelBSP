@@ -11,8 +11,8 @@
     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0">
       <children>
         <Button id="mainMenuButton" mnemonicParsing="false" onAction="#onActionReservation" text="Reservations" />
-        <Button id="mainMenuButton" mnemonicParsing="false" onAction="#onActionManageBox" text="Manage Stables" />
-        <Button id="mainMenuButton" mnemonicParsing="false" onAction="#onActionPrintReceipt" text="Print a receipt" />
+        <Button id="mainMenuButton" mnemonicParsing="false" onAction="#onActionManageBox" text="Manage stables" />
+        <Button id="mainMenuButton" mnemonicParsing="false" onAction="#onActionPrintReceipt" text="Create an invoice" />
       </children>
     </VBox>
   </children>

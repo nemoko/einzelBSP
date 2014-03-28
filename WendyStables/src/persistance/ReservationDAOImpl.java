@@ -115,28 +115,45 @@ public class ReservationDAOImpl implements  ReservationDAO {
         return olist;
     }
 
-//    public ObservableList<BoxReservation> findBR(Reservation r) {
-//        logger.info("BxoReservation finding in DB");
-//
-//        try {
-//            //findBRStmt.setDate(1, r.getStart());
-//
-//            ResultSet rset = findBRStmt.executeQuery();
-//
-//            while(rset.next()) {
-//
-//            }
-//
-//        } catch(SQLException e) {
-//            logger.info("exception during FINDBR in reservation");
-//            e.printStackTrace();
-//        }
-//
-//
-//
-//
-//        return null;
-//    }
+    public ObservableList<Reservation> findCustomer(Reservation r) {
+        ObservableList<Reservation> olist = FXCollections.observableArrayList();
+        String query = "select * from reservation r";
+        String where = "WHERE ";
+        String customer = "customername LIKE '%" + r.getCustomerName() + "%'";
+        String timeConstraint = "AND (r.start >= '" + r.getStart() + "' AND r.until <= '"  + r.getEnd() + "')";
+
+        String temp;
+
+        if(r.getEnd() != null && r.getStart() != null) temp = query + where + customer + timeConstraint;
+        else temp = query + where + customer;
+
+        try {
+            PreparedStatement ps = c.prepareStatement(temp);
+            ResultSet rset = ps.executeQuery();
+
+            while(rset.next()) {
+                Reservation rr = new Reservation();
+
+                rr.setId(rset.getInt("id"));
+                rr.setCustomerName(rset.getString("customername"));
+                rr.setHorseName(rset.getString("horsename"));
+                rr.setStart(rset.getDate("start"));
+                rr.setEnd(rset.getDate("until"));
+                rr.setBoxID(rset.getInt("boxid"));
+                rr.setDailyCharge(rset.getInt("dailycharge"));
+                rr.setPayed(rset.getBoolean("payed"));
+
+                olist.add(rr);
+            }
+        } catch (SQLException e) {
+            logger.info("exception during reservation find statement");
+            e.printStackTrace();
+        }
+
+        return olist;
+    }
+
+
 
 
     @Override

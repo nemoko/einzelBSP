@@ -30,6 +30,16 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
+    public ObservableList<Reservation> findCustomer(Reservation r) {
+        if(r == null) {
+            return null;
+        } else {
+            return ReservationDAOImpl.initialize().findCustomer(r);
+        }
+    }
+
+
+    @Override
     public void update(Reservation r) {
 
     }
