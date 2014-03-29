@@ -24,6 +24,7 @@ public class BoxServiceImpl implements BoxService {
         if(b == null) {
             throw new BoxException("box is null");
         } else {
+            if(b.getPicURL() == null || b.getPicURL().isEmpty()) b.setPicURL("");
             BoxDAOImpl.initialize().create(b);
         }
     }

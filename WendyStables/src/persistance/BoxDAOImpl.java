@@ -9,10 +9,7 @@ import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
 import persistance.DBconnection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class BoxDAOImpl implements BoxDAO {
 
@@ -34,7 +31,7 @@ public class BoxDAOImpl implements BoxDAO {
         c = dbcon.getConnection();
 
         try {
-            createStmt = c.prepareStatement("INSERT INTO box (dailyrate, picurl, size, floor, window, outside) " + "VALUES (?,?,?,?,?,?)");
+            createStmt = c.prepareStatement("INSERT INTO box (dailyrate, picurl, size, floor, window, outside) " + "VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 
         } catch (SQLException e) {
             logger.info("exception during BoxServicePrepareStatement");
@@ -61,6 +58,13 @@ public class BoxDAOImpl implements BoxDAO {
 
             createStmt.executeUpdate();
             logger.info("New box should be created in DB");
+
+            ResultSet rset = createStmt.getGeneratedKeys();
+
+            rset.next();
+            int i = rset.getInt("id");
+
+            logger.info("BOX ID " + i + " was created");
 
         } catch (SQLException e) {
             logger.info("exception during box DB creation");

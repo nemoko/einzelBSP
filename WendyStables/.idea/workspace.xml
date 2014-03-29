@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b582061b-a683-4313-b34e-c9f2156c4168" name="Default" comment="" />
+    <list default="true" id="b0613831-80a7-4c73-8366-16c5f064baad" name="Default" comment="" />
     <ignored path="WendyStables.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,6 +18,24 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/src/presentation/ManageBoxController.java" line="547" class="presentation.ManageBoxController" package="presentation">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
+    <method_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -55,258 +73,6 @@
       </breakpoint>
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/ReservationController.java" line="199" class="presentation.ReservationController" package="presentation">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/ReservationController.java" line="321" class="presentation.ReservationController" package="presentation">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java" line="343" class="presentation.PrintReceiptController" package="presentation">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/ReservationController.java" line="154" class="presentation.ReservationController" package="presentation">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java" line="112" class="presentation.PrintReceiptController" package="presentation">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java" line="100" class="presentation.PrintReceiptController" package="presentation">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java" line="95" class="presentation.PrintReceiptController" package="presentation">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java" line="89" class="presentation.PrintReceiptController" package="presentation">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java" line="84" class="presentation.PrintReceiptController" package="presentation">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java" line="163" class="presentation.PrintReceiptController" package="presentation">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java" line="369" class="presentation.PrintReceiptController" package="presentation">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java" line="388" class="presentation.PrintReceiptController" package="presentation">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
-    <method_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java" line="154" class="presentation.PrintReceiptController" package="presentation">
-        <option name="WATCH_ENTRY" value="true" />
-        <option name="WATCH_EXIT" value="true" />
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java" line="178" class="presentation.PrintReceiptController" package="presentation">
-        <option name="WATCH_ENTRY" value="true" />
-        <option name="WATCH_EXIT" value="true" />
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java" line="307" class="presentation.PrintReceiptController" package="presentation">
-        <option name="WATCH_ENTRY" value="true" />
-        <option name="WATCH_EXIT" value="true" />
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java" line="313" class="presentation.PrintReceiptController" package="presentation">
-        <option name="WATCH_ENTRY" value="true" />
-        <option name="WATCH_EXIT" value="true" />
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </method_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -315,69 +81,37 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file leaf-file-name="ManageBoxController.java" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/presentation/ManageBoxController.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="593" column="21" selection-start="18803" selection-end="18806" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10620">
-                    <folding>
-                      <element signature="e#15343#15356#0" expanded="true" />
-                      <element signature="e#15530#15543#0" expanded="true" />
-                      <element signature="e#15945#15958#0" expanded="true" />
-                      <element signature="e#16137#16149#0" expanded="true" />
-                      <element signature="e#16333#16346#0" expanded="true" />
-                      <element signature="e#16536#16549#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="ReservationDAOImpl.java" pinned="false" current="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/persistance/ReservationDAOImpl.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="178" column="47" selection-start="6715" selection-end="6715" vertical-scroll-proportion="0.0" vertical-offset="2444" max-vertical-offset="3348">
-                    <folding>
-                      <marker date="1396046840920" expanded="true" signature="1158:1271" placeholder="INSERT INTO ..." />
-                      <marker date="1396046840920" expanded="true" signature="2697:2722" placeholder="select * fro..reservation..." />
-                      <marker date="1396046840920" expanded="true" signature="3551:3564" placeholder="PAYED = FALS..." />
-                      <marker date="1396046840920" expanded="true" signature="4664:4691" placeholder="select * fro..reservation..." />
-                      <marker date="1396046840920" expanded="true" signature="4755:4804" placeholder="customername..." />
-                      <marker date="1396046840920" expanded="true" signature="6309:6327" placeholder="UPDATE reser..." />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="PrintReceiptController.java" pinned="false" current="true" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state line="170" column="40" selection-start="4676" selection-end="4676" vertical-scroll-proportion="0.35552764" vertical-offset="2291" max-vertical-offset="6642">
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
             <file leaf-file-name="BoxDAOImpl.java" pinned="false" current="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/persistance/BoxDAOImpl.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="64" column="0" selection-start="2007" selection-end="2007" vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="3690">
+                  <state line="13" column="13" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="3978">
                     <folding>
-                      <marker date="1396047836204" expanded="true" signature="1079:1170" placeholder="INSERT INTO ..." />
-                      <marker date="1396047836204" expanded="true" signature="2330:2347" placeholder="select * fro..box..." />
-                      <marker date="1396047836204" expanded="true" signature="2951:2966" placeholder="DELETED = FA..." />
-                      <marker date="1396047836204" expanded="true" signature="4047:4189" placeholder="select b.id,..box..." />
-                      <marker date="1396047836204" expanded="true" signature="4837:4854" placeholder="b.DELETED = ..." />
-                      <marker date="1396047836204" expanded="true" signature="5237:5243" placeholder="missingValue..." />
-                      <marker date="1396047836204" expanded="true" signature="7633:7692" placeholder="UPDATE BOX S..." />
+                      <marker date="1396108337148" expanded="true" signature="978:1069" placeholder="INSERT INTO ..." />
+                      <marker date="1396108337148" expanded="true" signature="2446:2463" placeholder="select * fro..box..." />
+                      <marker date="1396108337148" expanded="true" signature="3067:3082" placeholder="DELETED = FA..." />
+                      <marker date="1396108337148" expanded="true" signature="4163:4305" placeholder="select b.id,..box..." />
+                      <marker date="1396108337148" expanded="true" signature="4953:4970" placeholder="b.DELETED = ..." />
+                      <marker date="1396108337148" expanded="true" signature="5353:5359" placeholder="missingValue..." />
+                      <marker date="1396108337148" expanded="true" signature="7749:7808" placeholder="UPDATE BOX S..." />
                     </folding>
                   </state>
                 </provider>
               </entry>
             </file>
-            <file leaf-file-name="HSQLDB - xdb@localhost" pinned="false" current="false" current-in-tab="false">
-              <entry file="dbDummy://db-console:/3579fe72/34d29c5e-dda9-4a66-9177-90fdf6456d8b/">
+            <file leaf-file-name="ManageBoxController.java" pinned="false" current="true" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/presentation/ManageBoxController.java">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="792">
-                    <folding />
+                  <state line="46" column="19" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.33248082" vertical-offset="568" max-vertical-offset="11700">
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                      <element signature="e#15723#15736#0" expanded="true" />
+                      <element signature="e#15910#15923#0" expanded="true" />
+                      <element signature="e#16124#16136#0" expanded="true" />
+                      <element signature="e#16323#16336#0" expanded="true" />
+                      <element signature="e#16515#16527#0" expanded="true" />
+                      <element signature="e#16711#16724#0" expanded="true" />
+                      <element signature="e#16914#16927#0" expanded="true" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -393,13 +127,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ReservationServiceImpl.java" pinned="false" current="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/service/ReservationServiceImpl.java">
+      <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="4" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.8397436" vertical-offset="232" max-vertical-offset="1116">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="28" column="0" selection-start="816" selection-end="816" vertical-scroll-proportion="0.39527026" vertical-offset="0" max-vertical-offset="846">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -414,34 +146,7 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/entity/temp.java" />
-        <option value="$PROJECT_DIR$/src/presentation/WelcomeController.java" />
-        <option value="$PROJECT_DIR$/src/entity/Reservation.java" />
-        <option value="$PROJECT_DIR$/src/presentation/application.css" />
-        <option value="$PROJECT_DIR$/src/entity/Box.java" />
-        <option value="$PROJECT_DIR$/src/service/ReceiptServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/entity/BoxReservation.java" />
-        <option value="$PROJECT_DIR$/src/service/BoxService.java" />
-        <option value="$PROJECT_DIR$/src/persistance/BoxDAO.java" />
-        <option value="$PROJECT_DIR$/src/service/BoxServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/presentation/Main.fxml" />
-        <option value="$PROJECT_DIR$/src/entity/EditingCell.java" />
-        <option value="$PROJECT_DIR$/src/presentation/Reservation.fxml" />
-        <option value="$PROJECT_DIR$/src/service/Validator.java" />
-        <option value="$PROJECT_DIR$/src/presentation/Welcome.fxml" />
-        <option value="$PROJECT_DIR$/src/presentation/PrintReceipt.fxml" />
-        <option value="$PROJECT_DIR$/src/persistance/DBconnection.java" />
-        <option value="$PROJECT_DIR$/src/presentation/Main.java" />
-        <option value="$PROJECT_DIR$/src/presentation/ManageBox.fxml" />
         <option value="$PROJECT_DIR$/src/presentation/ManageBoxController.java" />
-        <option value="$PROJECT_DIR$/src/presentation/ReservationController.java" />
-        <option value="db-console:/3579fe72/34d29c5e-dda9-4a66-9177-90fdf6456d8b/" />
-        <option value="$PROJECT_DIR$/src/persistance/ReservationDAO.java" />
-        <option value="$PROJECT_DIR$/src/service/ReservationServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/service/ReservationService.java" />
-        <option value="$PROJECT_DIR$/src/persistance/ReservationDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/persistance/BoxDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/presentation/PrintReceiptController.java" />
       </list>
     </option>
   </component>
@@ -478,8 +183,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -604,6 +307,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -614,16 +319,9 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="OverrideImplement.combined" value="true" />
-    <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
-    <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -681,6 +379,19 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -707,19 +418,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -865,12 +563,6 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
-      <method />
-    </configuration>
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
     </list>
@@ -885,151 +577,50 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SliceManager">
-    <option name="analysisUIOptions">
-      <AnalysisUIOptions />
-    </option>
-  </component>
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
-    <option name="USER" value="" />
-    <option name="PASSWORD" value="" />
-    <option name="mySSHConnectionTimeout" value="30000" />
-    <option name="mySSHReadTimeout" value="30000" />
-    <option name="LAST_MERGED_REVISION" />
-    <option name="MERGE_DRY_RUN" value="false" />
-    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
-    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
-    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <option name="FORCE_UPDATE" value="false" />
-    <option name="IGNORE_EXTERNALS" value="false" />
-    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b582061b-a683-4313-b34e-c9f2156c4168" name="Default" comment="" />
-      <created>1395530593141</created>
-      <updated>1395530593141</updated>
-      <workItem from="1395530593320" duration="31000" />
-      <workItem from="1395530641643" duration="127000" />
-      <workItem from="1395530951675" duration="548000" />
-      <workItem from="1395531519713" duration="7820000" />
-      <workItem from="1395570074934" duration="18712000" />
-      <workItem from="1395593888833" duration="10323000" />
-      <workItem from="1395609727216" duration="6176000" />
-      <workItem from="1395645469660" duration="8428000" />
-      <workItem from="1395659269044" duration="7399000" />
-      <workItem from="1395671976717" duration="6120000" />
-      <workItem from="1395688139671" duration="4390000" />
-      <workItem from="1395699289438" duration="612000" />
-      <workItem from="1395701948792" duration="72000" />
-      <workItem from="1395741120135" duration="5228000" />
-      <workItem from="1395746499840" duration="12443000" />
-      <workItem from="1395775482104" duration="7988000" />
-      <workItem from="1395832521057" duration="7365000" />
-      <workItem from="1395840654606" duration="8490000" />
-      <workItem from="1395856048813" duration="8742000" />
-      <workItem from="1395868454191" duration="7493000" />
-      <workItem from="1395878910718" duration="3477000" />
-      <workItem from="1395915417091" duration="9200000" />
-      <workItem from="1395937133802" duration="8149000" />
-      <workItem from="1395958558343" duration="4891000" />
-      <workItem from="1395963953852" duration="4185000" />
-      <workItem from="1396000902314" duration="1664000" />
-      <workItem from="1396002598274" duration="10118000" />
-      <workItem from="1396018051647" duration="169000" />
-      <workItem from="1396018670219" duration="1032000" />
-      <workItem from="1396028269180" duration="3665000" />
-      <workItem from="1396033563416" duration="11580000" />
+      <changelist id="b0613831-80a7-4c73-8366-16c5f064baad" name="Default" comment="" />
+      <created>1396129923632</created>
+      <updated>1396129923632</updated>
+      <workItem from="1396129923494" duration="1202000" />
+      <workItem from="1396131149527" duration="474000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186637000" />
-  </component>
-  <component name="TodoView" selected-index="2">
-    <todo-panel id="selected-file">
-      <are-packages-shown value="true" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="default-changelist">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="1676000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1280" height="1000" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36030206" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23828125" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28047466" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.399137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30204964" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27578124" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="463" y="83" width="549" height="904" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32901832" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="1251" y="1110" width="330" height="766" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26953125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="774" y="1172" width="396" height="661" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28047466" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32901832" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.190625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2901619" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3611457" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34869242" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30635118" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1052,402 +643,48 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/presentation/ReservationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="36" selection-start="5642" selection-end="5642" vertical-scroll-proportion="0.0" vertical-offset="3618" max-vertical-offset="11016">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7145#7169#0" expanded="true" />
-            <element signature="e#7365#7389#0" expanded="true" />
-            <element signature="e#7813#7837#0" expanded="true" />
-            <element signature="e#8038#8061#0" expanded="true" />
-            <element signature="e#8267#8291#0" expanded="true" />
-            <element signature="e#8503#8527#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/persistance/ReceiptDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="13" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1260" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="16" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.0" vertical-offset="648" max-vertical-offset="738">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/persistance/ReceiptDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="13" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1260" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="423" selection-end="423" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="864">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/BoxServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="142" selection-end="173" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1008" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/persistance/ReceiptDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="13" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1260" />
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="500" selection-end="500" vertical-scroll-proportion="-0.8589212" vertical-offset="648" max-vertical-offset="9666" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/background.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar!/javafx/event/EventType.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="51" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="558" />
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar!/com/sun/javafx/event/BasicEventDispatcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="30" selection-start="469" selection-end="469" vertical-scroll-proportion="0.33239436" vertical-offset="80" max-vertical-offset="504" />
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar!/com/sun/javafx/event/CompositeEventDispatcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="36" selection-start="627" selection-end="627" vertical-scroll-proportion="0.6576087" vertical-offset="10" max-vertical-offset="378" />
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar!/com/sun/javafx/event/EventHandlerManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="36" selection-start="1765" selection-end="1765" vertical-scroll-proportion="0.33239436" vertical-offset="332" max-vertical-offset="864" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/application.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="29" selection-start="311" selection-end="311" vertical-scroll-proportion="0.4090909" vertical-offset="0" max-vertical-offset="720" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/Reservation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="326" selection-end="371" vertical-scroll-proportion="-0.2782305" vertical-offset="455" max-vertical-offset="1314">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/BoxService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="8" selection-start="258" selection-end="258" vertical-scroll-proportion="0.14046822" vertical-offset="0" max-vertical-offset="897" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/persistance/BoxDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="46" selection-start="269" selection-end="269" vertical-scroll-proportion="0.14046822" vertical-offset="0" max-vertical-offset="897">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/3579fe72/34d29c5e-dda9-4a66-9177-90fdf6456d8b/PUBLIC.PUBLIC.RECEIPT">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar!/javafx/scene/control/TableView.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="22" selection-start="3915" selection-end="3915" vertical-scroll-proportion="0.0" vertical-offset="758" max-vertical-offset="6030" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/BoxServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.6588629" vertical-offset="165" max-vertical-offset="1278" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/Box.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="15" selection-start="587" selection-end="589" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1548">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://DATABASE/34d29c5e-dda9-4a66-9177-90fdf6456d8b.schema:PUBLIC.PUBLIC">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>34d29c5e-dda9-4a66-9177-90fdf6456d8b.schema:PUBLIC.PUBLIC</OriginalElement>
-          <nodes>
-            <node x="71.0" y="274.0">34d29c5e-dda9-4a66-9177-90fdf6456d8b.table:PUBLIC.PUBLIC.RESERVATION</node>
-            <node x="0.0" y="48.0">34d29c5e-dda9-4a66-9177-90fdf6456d8b.table:PUBLIC.PUBLIC.RECEIPT</node>
-            <node x="202.0" y="0.0">34d29c5e-dda9-4a66-9177-90fdf6456d8b.table:PUBLIC.PUBLIC.BOX</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="34d29c5e-dda9-4a66-9177-90fdf6456d8b.table:PUBLIC.PUBLIC.RESERVATION" target="34d29c5e-dda9-4a66-9177-90fdf6456d8b.table:PUBLIC.PUBLIC.BOX">
-              <point x="70.5" y="-124.0" />
-              <point x="282.5" y="249.0" />
-              <point x="333.0" y="249.0" />
-              <point x="0.0" y="112.0" />
-            </edge>
-            <edge source="34d29c5e-dda9-4a66-9177-90fdf6456d8b.table:PUBLIC.PUBLIC.RESERVATION" target="34d29c5e-dda9-4a66-9177-90fdf6456d8b.table:PUBLIC.PUBLIC.RECEIPT">
-              <point x="-70.5" y="-124.0" />
-              <point x="141.5" y="249.0" />
-              <point x="91.0" y="249.0" />
-              <point x="0.0" y="64.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="36.0" y="141.0" />
-          <SelectedNodes>
-            <node>34d29c5e-dda9-4a66-9177-90fdf6456d8b.table:PUBLIC.PUBLIC.RECEIPT</node>
-          </SelectedNodes>
-          <Categories>
-            <Category>Columns</Category>
-            <Category>Key columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/EditingCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="61" selection-end="61" vertical-scroll-proportion="0.0232859" vertical-offset="0" max-vertical-offset="1386">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/entity/BoxReservation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="61" selection-start="410" selection-end="410" vertical-scroll-proportion="0.46689895" vertical-offset="2" max-vertical-offset="576">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/Welcome.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="12" selection-start="975" selection-end="975" vertical-scroll-proportion="0.56942004" vertical-offset="0" max-vertical-offset="569">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/Main.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="61" selection-start="573" selection-end="573" vertical-scroll-proportion="0.33333334" vertical-offset="0" max-vertical-offset="594">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/ReceiptServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="13" selection-start="616" selection-end="616" vertical-scroll-proportion="0.5427136" vertical-offset="0" max-vertical-offset="796" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/persistance/ReceiptDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="13" selection-start="227" selection-end="227" vertical-scroll-proportion="0.022613065" vertical-offset="54" max-vertical-offset="1152">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/3579fe72/34d29c5e-dda9-4a66-9177-90fdf6456d8b/PUBLIC.PUBLIC.BOX">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/3579fe72/34d29c5e-dda9-4a66-9177-90fdf6456d8b/PUBLIC.PUBLIC.RESERVATION">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/PrintReceipt.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="22" selection-start="4511" selection-end="4511" vertical-scroll-proportion="0.0" vertical-offset="1321" max-vertical-offset="3222">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/persistance/DBconnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="25" selection-start="158" selection-end="170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1098">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="33" selection-start="716" selection-end="716" vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="576">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/WelcomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="352" selection-end="352" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
+        <state line="28" column="0" selection-start="816" selection-end="816" vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="846">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/presentation/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="59" selection-start="1195" selection-end="1195" vertical-scroll-proportion="0.27586207" vertical-offset="594" max-vertical-offset="1116">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/ManageBox.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="52" selection-start="9762" selection-end="9783" vertical-scroll-proportion="0.6719057" vertical-offset="2718" max-vertical-offset="4500">
+        <state line="28" column="0" selection-start="816" selection-end="816" vertical-scroll-proportion="0.39527026" vertical-offset="0" max-vertical-offset="846">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/Reservation.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="243" column="23" selection-start="14589" selection-end="14589" vertical-scroll-proportion="0.0" vertical-offset="3657" max-vertical-offset="5310">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar!/javafx/scene/Node.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="979" column="22" selection-start="48758" selection-end="48758" vertical-scroll-proportion="0.0" vertical-offset="17485" max-vertical-offset="24138">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar!/javafx/scene/control/Button.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="16" selection-start="1436" selection-end="1436" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar!/javafx/scene/Scene.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="863" column="0" selection-start="48489" selection-end="48489" vertical-scroll-proportion="0.6862745" vertical-offset="15271" max-vertical-offset="17586">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar!/javafx/event/Event.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="23" selection-start="1283" selection-end="1283" vertical-scroll-proportion="0.6554622" vertical-offset="270" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-7-oracle/jre/lib/jfxrt.jar!/javafx/fxml/FXMLLoader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="241" column="20" selection-start="12787" selection-end="12787" vertical-scroll-proportion="0.33333334" vertical-offset="4201" max-vertical-offset="8964">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/ManageBoxController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="593" column="21" selection-start="18803" selection-end="18806" vertical-scroll-proportion="0.0" vertical-offset="4136" max-vertical-offset="10620">
-          <folding>
-            <element signature="e#15343#15356#0" expanded="true" />
-            <element signature="e#15530#15543#0" expanded="true" />
-            <element signature="e#15945#15958#0" expanded="true" />
-            <element signature="e#16137#16149#0" expanded="true" />
-            <element signature="e#16333#16346#0" expanded="true" />
-            <element signature="e#16536#16549#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/ReservationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="590" column="8" selection-start="20647" selection-end="20647" vertical-scroll-proportion="7.302764" vertical-offset="4681" max-vertical-offset="11142">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7145#7169#0" expanded="true" />
-            <element signature="e#7365#7389#0" expanded="true" />
-            <element signature="e#7813#7837#0" expanded="true" />
-            <element signature="e#8038#8061#0" expanded="true" />
-            <element signature="e#8267#8291#0" expanded="true" />
-            <element signature="e#8503#8527#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://db-console:/3579fe72/34d29c5e-dda9-4a66-9177-90fdf6456d8b/">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/persistance/ReservationDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="4" selection-start="418" selection-end="418" vertical-scroll-proportion="0.18060201" vertical-offset="0" max-vertical-offset="897">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/ReservationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="49" selection-start="433" selection-end="433" vertical-scroll-proportion="0.18060201" vertical-offset="0" max-vertical-offset="897">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/persistance/ReservationDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="178" column="47" selection-start="6715" selection-end="6715" vertical-scroll-proportion="0.0" vertical-offset="2444" max-vertical-offset="3348">
-          <folding>
-            <marker date="1396046840920" expanded="true" signature="1158:1271" placeholder="INSERT INTO ..." />
-            <marker date="1396046840920" expanded="true" signature="2697:2722" placeholder="select * fro..reservation..." />
-            <marker date="1396046840920" expanded="true" signature="3551:3564" placeholder="PAYED = FALS..." />
-            <marker date="1396046840920" expanded="true" signature="4664:4691" placeholder="select * fro..reservation..." />
-            <marker date="1396046840920" expanded="true" signature="4755:4804" placeholder="customername..." />
-            <marker date="1396046840920" expanded="true" signature="6309:6327" placeholder="UPDATE reser..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/ReservationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="4" selection-start="1175" selection-end="1175" vertical-scroll-proportion="0.8397436" vertical-offset="232" max-vertical-offset="1116">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/persistance/BoxDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="0" selection-start="2007" selection-end="2007" vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="3690">
+        <state line="13" column="13" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="3816">
           <folding>
-            <marker date="1396047836204" expanded="true" signature="1079:1170" placeholder="INSERT INTO ..." />
-            <marker date="1396047836204" expanded="true" signature="2330:2347" placeholder="select * fro..box..." />
-            <marker date="1396047836204" expanded="true" signature="2951:2966" placeholder="DELETED = FA..." />
-            <marker date="1396047836204" expanded="true" signature="4047:4189" placeholder="select b.id,..box..." />
-            <marker date="1396047836204" expanded="true" signature="4837:4854" placeholder="b.DELETED = ..." />
-            <marker date="1396047836204" expanded="true" signature="5237:5243" placeholder="missingValue..." />
-            <marker date="1396047836204" expanded="true" signature="7633:7692" placeholder="UPDATE BOX S..." />
+            <marker date="1396108337148" expanded="true" signature="978:1069" placeholder="INSERT INTO ..." />
+            <marker date="1396108337148" expanded="true" signature="2446:2463" placeholder="select * fro..box..." />
+            <marker date="1396108337148" expanded="true" signature="3067:3082" placeholder="DELETED = FA..." />
+            <marker date="1396108337148" expanded="true" signature="4163:4305" placeholder="select b.id,..box..." />
+            <marker date="1396108337148" expanded="true" signature="4953:4970" placeholder="b.DELETED = ..." />
+            <marker date="1396108337148" expanded="true" signature="5353:5359" placeholder="missingValue..." />
+            <marker date="1396108337148" expanded="true" signature="7749:7808" placeholder="UPDATE BOX S..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/presentation/PrintReceiptController.java">
+    <entry file="file://$PROJECT_DIR$/src/presentation/ManageBoxController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="170" column="40" selection-start="4676" selection-end="4676" vertical-scroll-proportion="0.35552764" vertical-offset="2291" max-vertical-offset="6642">
-          <folding />
+        <state line="46" column="19" selection-start="1413" selection-end="1413" vertical-scroll-proportion="0.33248082" vertical-offset="568" max-vertical-offset="11700">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#15723#15736#0" expanded="true" />
+            <element signature="e#15910#15923#0" expanded="true" />
+            <element signature="e#16124#16136#0" expanded="true" />
+            <element signature="e#16323#16336#0" expanded="true" />
+            <element signature="e#16515#16527#0" expanded="true" />
+            <element signature="e#16711#16724#0" expanded="true" />
+            <element signature="e#16914#16927#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -19,6 +19,8 @@ import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBoxBuilder;
+import javafx.scene.paint.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
@@ -40,6 +42,10 @@ public class ManageBoxController implements Initializable {
 
     private static final Logger logger = Logger.getLogger(ManageBoxController.class);
 
+    @FXML
+    private Label image_loaded;
+    private String filename = "";
+    private Image img;
     @FXML
     private javafx.scene.image.ImageView image_field;
     @FXML
@@ -109,6 +115,7 @@ public class ManageBoxController implements Initializable {
     }
 
     public void clearPrompts() {
+        image_loaded.setVisible(false);
         e_daily_int.setVisible(false);
         e_daily_positive.setVisible(false);
         e_size_int.setVisible(false);
@@ -164,7 +171,7 @@ public class ManageBoxController implements Initializable {
             }
         }
 
-        b.setPicURL("");
+        b.setPicURL(filename);
 
         if(exception.contains("0")) e_daily_int.setVisible(true);
         if(exception.contains("1")) e_size_int.setVisible(true);
@@ -203,6 +210,7 @@ public class ManageBoxController implements Initializable {
 
         b_update.setDisable(true);
         b_delete.setDisable(true);
+        filename = "";
     }
 
     @FXML
@@ -354,7 +362,8 @@ public class ManageBoxController implements Initializable {
             }
         }
 
-        b.setPicURL("");
+        if(!filename.trim().isEmpty() && filename != null) b.setPicURL(filename);
+        else b.setPicURL("");
 
         if(exception.contains("0")) e_daily_int.setVisible(true);
         if(exception.contains("1")) e_size_int.setVisible(true);
@@ -495,7 +504,11 @@ public class ManageBoxController implements Initializable {
 
         initializeTable();
 
-        Image img = new Image(getClass().getResourceAsStream("burning.jpg"));
+        setIMG("default.jpeg");
+    }
+
+    public void setIMG(String s) {
+        img = new Image(getClass().getResourceAsStream("img/"+s));
         image_field.setImage(img);
     }
 
@@ -508,9 +521,9 @@ public class ManageBoxController implements Initializable {
         dailyrate.setMinWidth(90);
         dailyrate.setCellValueFactory(new PropertyValueFactory<Box, Integer>("dailyRate"));
 
-//        TableColumn<Box, String> picURL = new TableColumn<Box,String>("pic");
-//        picURL.setMinWidth(60);
-//        picURL.setCellValueFactory(new PropertyValueFactory<Box, String>("picURL"));
+        TableColumn<Box, String> picURL = new TableColumn<Box,String>("Picture");
+        picURL.setMinWidth(90);
+        picURL.setCellValueFactory(new PropertyValueFactory<Box, String>("picURL"));
 
         TableColumn<Box, Integer> size = new TableColumn<Box,Integer>("size");
         size.setMinWidth(55);
@@ -528,7 +541,7 @@ public class ManageBoxController implements Initializable {
         outside.setMinWidth(60);
         outside.setCellValueFactory(new PropertyValueFactory<Box, Integer>("outside"));
 
-        tabulka.getColumns().addAll(id,dailyrate,size,floor,window,outside);
+        tabulka.getColumns().addAll(id,dailyrate,size,floor,window,outside,picURL);
     }
 
     @FXML
@@ -538,21 +551,30 @@ public class ManageBoxController implements Initializable {
         if(clicked != null) {
             tf_daily_rate.setText("" + clicked.getDailyRate());
             cb_floor.setValue(clicked.getFloor());
+
             if(clicked.isWindow()) {
                 ch_window.setSelected(true);
                 ch_window.setDisable(false);
                 ch_outside.setSelected(false);
                 ch_outside.setDisable(true);
             }
+
             if(clicked.isOutside()) {
                 ch_outside.setSelected(true);
                 ch_outside.setDisable(false);
                 ch_window.setSelected(false);
                 ch_window.setDisable(true);
             }
+
             tf_size.setText("" + clicked.getSize());
 
+            logger.info(clicked.getPicURL());
+
+            if(clicked.getPicURL() != null && !clicked.getPicURL().trim().isEmpty() && !clicked.getPicURL().equals("")) setIMG("" + clicked.getPicURL());
+            else setIMG("default.jpeg");
+
         }
+
         b_filter.setDisable(false);
         b_create.setDisable(false);
         b_update.setDisable(false);
@@ -563,8 +585,9 @@ public class ManageBoxController implements Initializable {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Load Image");
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("All Images", "*.*"),
+                //new FileChooser.ExtensionFilter("All Images", "*.*"),
                 new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("JPEG", "*.jpeg"),
                 new FileChooser.ExtensionFilter("PNG", "*.png"));
 
         File file = fileChooser.showOpenDialog(null);
@@ -573,6 +596,7 @@ public class ManageBoxController implements Initializable {
             String pathToImage = file.toString();
 
             logger.info("Image loaded : " + pathToImage);
+
             copyImg(pathToImage);
         }
     }
@@ -590,7 +614,7 @@ public class ManageBoxController implements Initializable {
             e.printStackTrace();
             return;
         }
-//TODO change width & height
+//TODO change width & height & check if IMAGE
         int width=600, height=400; /* set the width and height here */
         BufferedImage inputImage = null;
 
@@ -614,7 +638,7 @@ public class ManageBoxController implements Initializable {
 
         g.dispose();
 
-        String filename = pathToImage.substring(pathToImage.lastIndexOf("/")+1,pathToImage.lastIndexOf("."));
+        filename = pathToImage.substring(pathToImage.lastIndexOf("/")+1);
 
         File output = new File("img/" + filename);
                 ImageOutputStream ios;
@@ -623,7 +647,9 @@ public class ManageBoxController implements Initializable {
             ImageIO.write(outputImage, "jpg", ios);
 
             ios.close();
-            logger.info("picture " + filename + " copied to /img/");
+            logger.info(" copied to img/" +filename);
+            image_loaded.setText(filename);
+            image_loaded.setVisible(true);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
