@@ -13,6 +13,7 @@
         <Button fx:id="mainMenuButton1" mnemonicParsing="false" onAction="#onActionReservation" text="Reservations" />
         <Button fx:id="mainMenuButton2" mnemonicParsing="false" onAction="#onActionManageBox" text="Manage stables" />
         <Button fx:id="mainMenuButton3" mnemonicParsing="false" onAction="#onActionPrintReceipt" text="Create an invoice" />
+        <Button fx:id="refresh" mnemonicParsing="false" onAction="#onActionRefresh" text="Retry Connection" visible="false" />
       </children>
     </VBox>
   </children>

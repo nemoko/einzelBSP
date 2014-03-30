@@ -24,6 +24,8 @@ public class WelcomeController implements Initializable {
     private static final Logger logger = Logger.getLogger(WelcomeController.class);
 
     @FXML
+    public Button refresh;
+    @FXML
     public Button mainMenuButton1;
     @FXML
     public Button mainMenuButton2;
@@ -45,6 +47,11 @@ public class WelcomeController implements Initializable {
         MainController.setWindow("PrintReceipt.fxml");
     }
 
+    @FXML
+    public void onActionRefresh() {
+        MainController.setWindow("Welcome.fxml");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -58,6 +65,7 @@ public class WelcomeController implements Initializable {
             mainMenuButton1.setDisable(true);
             mainMenuButton2.setDisable(true);
             mainMenuButton3.setDisable(true);
+            refresh.setVisible(true);
 
 
             final Stage dialogStage = new Stage();
