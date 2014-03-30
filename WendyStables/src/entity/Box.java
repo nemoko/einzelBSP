@@ -95,4 +95,36 @@ public class Box {
                 ", deleted=" + deleted +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Box box = (Box) o;
+
+        if (!dailyRate.equals(box.dailyRate)) return false;
+        if (!deleted.equals(box.deleted)) return false;
+        if (!floor.equals(box.floor)) return false;
+        if (!id.equals(box.id)) return false;
+        if (!outside.equals(box.outside)) return false;
+        if (picURL != null ? !picURL.equals(box.picURL) : box.picURL != null) return false;
+        if (!size.equals(box.size)) return false;
+        if (!window.equals(box.window)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + dailyRate.hashCode();
+        result = 31 * result + (picURL != null ? picURL.hashCode() : 0);
+        result = 31 * result + size.hashCode();
+        result = 31 * result + floor.hashCode();
+        result = 31 * result + window.hashCode();
+        result = 31 * result + outside.hashCode();
+        result = 31 * result + deleted.hashCode();
+        return result;
+    }
 }

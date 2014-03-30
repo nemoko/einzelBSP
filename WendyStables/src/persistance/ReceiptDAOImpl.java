@@ -31,15 +31,6 @@ public class ReceiptDAOImpl implements  ReceiptDAO {
         } catch (SQLException e) {
             logger.info("DB connection failed");
         }
-
-        try {
-            createStmt = c.prepareStatement("INSERT INTO receipt (totalcharge) " + "VALUES (?)", Statement.RETURN_GENERATED_KEYS);
-
-        } catch (SQLException e) {
-            logger.info("exception during ReceiptDAOPrepareStatement");
-            e.printStackTrace();
-        }
-
     }
 
     public static ReceiptDAO initialize() {
@@ -52,6 +43,7 @@ public class ReceiptDAOImpl implements  ReceiptDAO {
         Receipt receipt = new Receipt();
 
         try {
+            createStmt = c.prepareStatement("INSERT INTO receipt (totalcharge) " + "VALUES (?)", Statement.RETURN_GENERATED_KEYS);
             createStmt.setInt(1, r.getTotalCharge());
 
             createStmt.executeUpdate();
@@ -63,8 +55,11 @@ public class ReceiptDAOImpl implements  ReceiptDAO {
             receipt.setId(rset.getInt("id"));
 
             logger.info("Receipt ID " + receipt.getId() + " was created");
-            return receipt;
 
+            createStmt.close();
+            rset.close();
+
+            return receipt;
         } catch (SQLException e) {
             logger.info("exception during ReceiptDAO creation");
             e.printStackTrace();

@@ -38,13 +38,6 @@ public class ReservationDAOImpl implements  ReservationDAO {
             logger.info("DB connection failed");
         }
 
-        try {
-            createStmt = c.prepareStatement("INSERT INTO reservation(customername, horsename, start, until, dailyCharge, boxid) " + "VALUES (?, ?, ?, ?, ?, ?)");
-
-        } catch (SQLException e) {
-            logger.info("exception during BoxServicePrepareStatement");
-            e.printStackTrace();
-        }
     }
 
     public static ReservationDAO initialize() {
@@ -57,6 +50,8 @@ public class ReservationDAOImpl implements  ReservationDAO {
         logger.info("Preparing create statement for a new reservation");
 
         try {
+            createStmt = c.prepareStatement("INSERT INTO reservation(customername, horsename, start, until, dailyCharge, boxid) " + "VALUES (?, ?, ?, ?, ?, ?)");
+
             createStmt.setString(1, r.getCustomerName());
             createStmt.setString(2, r.getHorseName());
             createStmt.setDate(3, r.getStart());
@@ -66,6 +61,8 @@ public class ReservationDAOImpl implements  ReservationDAO {
 
             createStmt.executeUpdate();
             logger.info("New reservation should be created in the DB");
+
+            createStmt.close();
         } catch (java.sql.SQLIntegrityConstraintViolationException e) {
             logger.info("DATE CONSTRAINT VIOLATED");
             throw new ReservationException("Date constraint");
@@ -113,6 +110,9 @@ public class ReservationDAOImpl implements  ReservationDAO {
 
                 olist.add(rr);
             }
+
+            rset.close();
+            ps.close();
         } catch (SQLException e) {
             logger.info("exception during reservation find statement");
             e.printStackTrace();
@@ -128,7 +128,7 @@ public class ReservationDAOImpl implements  ReservationDAO {
 
         if(r.getBoxID() != null) where += "boxid = '" + r.getBoxID() + "' AND ";
 
-        where += "r.until > CURDATE()) AND";
+        where += "r.until > CURDATE()) AND ";
         where += "PAYED = FALSE;";
 
         String temp = query + where;
@@ -144,6 +144,9 @@ public class ReservationDAOImpl implements  ReservationDAO {
 
                 olist.add(rr);
             }
+
+            rset.close();
+            ps.close();
         } catch (SQLException e) {
             logger.info("box has no active reservations");
         }
@@ -183,6 +186,9 @@ public class ReservationDAOImpl implements  ReservationDAO {
 
                 olist.add(rr);
             }
+
+            rset.close();
+            ps.close();
         } catch (SQLException e) {
             logger.info("exception during reservation find statement");
             e.printStackTrace();
@@ -212,6 +218,8 @@ public class ReservationDAOImpl implements  ReservationDAO {
 
             logger.info("Reservation successfully updated");
             logger.info(ps.getGeneratedKeys());
+
+            ps.close();
         } catch (SQLException e) {
             logger.info("exception during reservation update statement");
             e.printStackTrace();

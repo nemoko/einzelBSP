@@ -35,7 +35,7 @@ public class ReservationServiceImpl implements ReservationService {
             return false;
         } else {
             ObservableList<Reservation> olist = ReservationDAOImpl.initialize().findActiveBox(r);
-            return (olist.size() == 0);
+            return (olist.size() != 0);
         }
     }
 

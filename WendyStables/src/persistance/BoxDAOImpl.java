@@ -33,14 +33,6 @@ public class BoxDAOImpl implements BoxDAO {
         } catch (SQLException e) {
             logger.info("DB connection failed");
         }
-
-        try {
-            createStmt = c.prepareStatement("INSERT INTO box (dailyrate, picurl, size, floor, window, outside) " + "VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
-
-        } catch (SQLException e) {
-            logger.info("exception during BoxDAOPrepareStatement");
-            e.printStackTrace();
-        }
     }
 
     public static BoxDAO initialize() {
@@ -49,10 +41,12 @@ public class BoxDAOImpl implements BoxDAO {
     }
 
     @Override
-    public void create(Box b) throws BoxException {
+    public Box create(Box b) throws BoxException {
         logger.info("create received by persistance layer");
 
         try {
+            createStmt = c.prepareStatement("INSERT INTO box (dailyrate, picurl, size, floor, window, outside) " + "VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+
             createStmt.setInt(1, b.getDailyRate());
             createStmt.setString(2, b.getPicURL());
             createStmt.setInt(3,b.getSize());
@@ -66,10 +60,15 @@ public class BoxDAOImpl implements BoxDAO {
             ResultSet rset = createStmt.getGeneratedKeys();
 
             rset.next();
-            int i = rset.getInt("id");
+            b.setId(rset.getInt("id"));
 
-            logger.info("BOX ID " + i + " was created");
 
+            logger.info("BOX ID " + b.getId() + " was created");
+
+            rset.close();
+            createStmt.close();
+
+            return b;
         } catch (SQLException e) {
             logger.info("exception during box DB creation");
             throw new BoxException("box is null");
@@ -77,7 +76,7 @@ public class BoxDAOImpl implements BoxDAO {
     }
 
     @Override
-    public ObservableList<Box> findBox(Box b) {
+    public ObservableList<Box> findBox(Box b) throws BoxException {
         ObservableList<Box> olist = FXCollections.observableArrayList();
         String query = "select * from box ";
         String where = "WHERE ";
@@ -111,6 +110,8 @@ public class BoxDAOImpl implements BoxDAO {
                 olist.add(box);
 
             }
+            rset.close();
+            ps.close();
         } catch (SQLException e) {
             logger.info("exception during box find statement");
             e.printStackTrace();
@@ -118,7 +119,7 @@ public class BoxDAOImpl implements BoxDAO {
         return olist;
     }
 
-    public ObservableList<BoxReservation> find(BoxReservation b) {
+    public ObservableList<BoxReservation> find(BoxReservation b) throws BoxException {
 
         ObservableList<BoxReservation> olist = FXCollections.observableArrayList();
 
@@ -164,15 +165,18 @@ public class BoxDAOImpl implements BoxDAO {
 //TODO decide if horsename
                 olist.add(box);
             }
+
+            rset.close();
+            ps.close();
         } catch (SQLException e) {
             logger.info("exception during box find statement");
-            e.printStackTrace();
+            throw new BoxException("BoxDAO find exception");
         }
         return olist;
     }
 
     @Override
-    public void update(Box b) {
+    public void update(Box b) throws BoxException {
         logger.info("updating Box in DB");
 
         //        UPDATE Customers
@@ -197,9 +201,10 @@ public class BoxDAOImpl implements BoxDAO {
             ps.executeUpdate();
 
             logger.info("Box successfully updated");
+            ps.close();
         } catch (SQLException e) {
             logger.info("exception during box update statement");
-            e.printStackTrace();
+            throw new BoxException("BoxDAO UPDATE exception");
         }
     }
 
@@ -212,6 +217,7 @@ public class BoxDAOImpl implements BoxDAO {
             ps.executeUpdate();
 
             logger.info("box deleted");
+            ps.close();
         } catch (SQLException e) {
             logger.info("exception during box deletion");
             e.printStackTrace();

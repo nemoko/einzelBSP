@@ -46,7 +46,7 @@ public class DBconnection {
     public void closeConnection() {
         try {
             c.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

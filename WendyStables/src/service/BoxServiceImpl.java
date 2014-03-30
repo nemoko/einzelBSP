@@ -18,19 +18,19 @@ public class BoxServiceImpl implements BoxService {
     }
 
     @Override
-    public void create(Box b) throws BoxException {
+    public Box create(Box b) throws BoxException {
         logger.info("create received by service layer");
 
         if(b == null) {
             throw new BoxException("box is null");
         } else {
             if(b.getPicURL() == null || b.getPicURL().isEmpty()) b.setPicURL("");
-            BoxDAOImpl.initialize().create(b);
+            return BoxDAOImpl.initialize().create(b);
         }
     }
 
     @Override
-    public ObservableList<Box> findBox(Box b) {
+    public ObservableList<Box> findBox(Box b) throws BoxException {
         if(b == null) {
             //throw exception -> BOX not passed
             return null;
@@ -40,7 +40,7 @@ public class BoxServiceImpl implements BoxService {
     }
 
     @Override
-    public ObservableList<BoxReservation> find(BoxReservation b) {
+    public ObservableList<BoxReservation> find(BoxReservation b) throws BoxException {
 
         if(b == null) {
             //throw exception -> BOX not passed
@@ -51,7 +51,7 @@ public class BoxServiceImpl implements BoxService {
     }
 
     @Override
-    public void update(Box b) {
+    public void update(Box b) throws BoxException {
         if(b == null) {
 
         } else {

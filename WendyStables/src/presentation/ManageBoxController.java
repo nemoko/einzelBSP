@@ -161,7 +161,6 @@ public class ManageBoxController implements Initializable {
         if(floor_type == null || floor_type.isEmpty() || floor_type.contains("any")) exception += "2";
         else b.setFloor(floor_type);
 
-
         if(!ch_window.isSelected() && !ch_outside.isSelected()) {
             exception += "34";
         } else {
@@ -191,8 +190,9 @@ public class ManageBoxController implements Initializable {
 
         try {
             BoxService bs = BoxServiceImpl.initialize();
-            bs.create(b);
+            Box x = bs.create(b);
             onActionDisplayAll();
+            f_box_created.setText("Stable " + x.getId() + " was created");
             f_box_created.setVisible(true);
         } catch (BoxException be) {
             f_box_failed.setVisible(true);
@@ -301,7 +301,7 @@ public class ManageBoxController implements Initializable {
             olist = BoxServiceImpl.initialize().findBox(b);
             tabulka.setItems(olist);
             if(!f_filter_criteria.isVisible() && !f_filter_failed.isVisible()) f_filter_applied.setVisible(true);
-        } catch (Exception e) {
+        } catch (BoxException e) {
             logger.info("Exception refreshing table");
             e.printStackTrace();
             f_filter_failed.setVisible(true);
@@ -319,8 +319,8 @@ public class ManageBoxController implements Initializable {
             olist = BoxServiceImpl.initialize().findBox(b);
             tabulka.setItems(olist);
             //f_filter_applied.setVisible(true);
-        } catch (Exception e) {
-            logger.info("Exception refreshing table");
+        } catch (BoxException e) {
+            logger.info("BoxException refreshing table");
             e.printStackTrace();
             //f_filter_failed.setVisible(true);
         }
@@ -381,14 +381,14 @@ public class ManageBoxController implements Initializable {
 
         if(!exception.isEmpty() || e_daily_positive.isVisible() || e_size_positive.isVisible()) return;
 
-//        try {
+        try {
             BoxService bs = BoxServiceImpl.initialize();
             bs.update(b);
             onActionDisplayAll();
             f_box_updated.setVisible(true);
-//        } catch (BoxException be) {
-//            f_box_failed.setVisible(true);
-//        }
+        } catch (BoxException be) {
+            f_box_failed.setVisible(true);
+        }
 
     }
 
@@ -524,9 +524,13 @@ public class ManageBoxController implements Initializable {
 
         BoxService bx = BoxServiceImpl.initialize();
 
-        ObservableList<Box> ob = bx.findBox(b);
-        tabulka.setItems(ob);
-
+        try {
+            ObservableList<Box> ob = bx.findBox(b);
+            tabulka.setItems(ob);
+        } catch (BoxException be) {
+            logger.info("BoxDAO find exception caught");
+            be.printStackTrace();
+        }
         initializeTable();
 
         setIMG("default.jpeg");
@@ -661,14 +665,15 @@ public class ManageBoxController implements Initializable {
 
         filename = pathToImage.substring(pathToImage.lastIndexOf("/")+1);
 
-        File output = new File(directory + filename);
+        //File output = new File(directory + filename);
+        File output = new File("src/presentation/img/" + filename);
                 ImageOutputStream ios;
         try {
             ios = new FileImageOutputStream(output);
             ImageIO.write(outputImage, "jpg", ios);
 
             ios.close();
-            logger.info(" copied to images/" +filename);
+            logger.info(" copied to img/" +filename);
             image_loaded.setText(filename);
             image_loaded.setVisible(true);
 
