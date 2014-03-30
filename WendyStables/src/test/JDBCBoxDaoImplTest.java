@@ -17,17 +17,13 @@ public class JDBCBoxDaoImplTest extends BoxDAOImplTest {
     private DBconnection db = null;
 
     @Before
-    public void setUp()
+    public void setUp() throws Exception
     {
         //open DB connection
-        try {
-            db = DBconnection.instance();
-            db.checkDriver();
-            db.createConnection();
-            c = db.getConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        db = DBconnection.instance();
+        db.checkDriver();
+        db.createConnection();
+        c = db.getConnection();
 
         //initialise new DAO service object
         BoxDAO bxDAO = new BoxDAOImpl().initialize();

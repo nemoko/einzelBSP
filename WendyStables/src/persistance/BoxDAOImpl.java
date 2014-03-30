@@ -209,7 +209,7 @@ public class BoxDAOImpl implements BoxDAO {
     }
 
     @Override
-    public void delete(Box b) {
+    public void delete(Box b) throws BoxException {
         String delete = "UPDATE BOX Set deleted = true where id ='" + b.getId() + "';";
 
         try {
@@ -220,7 +220,7 @@ public class BoxDAOImpl implements BoxDAO {
             ps.close();
         } catch (SQLException e) {
             logger.info("exception during box deletion");
-            e.printStackTrace();
+            throw new BoxException("BoxDAO exception during deletion");
         }
     }
 }

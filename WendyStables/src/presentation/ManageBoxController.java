@@ -466,7 +466,13 @@ public class ManageBoxController implements Initializable {
 
                 // delete box
                 BoxService bs = BoxServiceImpl.initialize();
-                bs.delete(box);
+
+                try {
+                    bs.delete(box);
+                } catch (BoxException be) {
+                    logger.info("boxDAO exception caught");
+                    be.printStackTrace();
+                }
 //              f_box_deleted.setVisible(true);
 
                 popUp.close();

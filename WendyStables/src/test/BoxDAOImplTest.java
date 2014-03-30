@@ -12,7 +12,6 @@ import java.util.List;
 
 
 public class BoxDAOImplTest {
-    private Box b;
     private BoxDAO bxDAO;
 
     protected void initBoxDAO(BoxDAO bxDAO) {
@@ -29,7 +28,7 @@ public class BoxDAOImplTest {
     public void testCreateBox()
     {
         //new Box, fill in NULL CONSTRAINTS
-        b = new Box();
+        Box b = new Box();
         b.setDailyRate(1342534);
         b.setSize(123456789);
         b.setFloor("Wood");
@@ -47,10 +46,10 @@ public class BoxDAOImplTest {
             Box x = bxDAO.create(b);
 
             //find the box
-            boxes = bxDAO.findBox(b);
+            boxes = bxDAO.findBox(x);
 
             //box should be in DB
-            assertTrue(boxes.contains(b));
+            assertTrue(boxes.contains(x));
 
         } catch (BoxException be) {
             be.printStackTrace();
@@ -68,11 +67,11 @@ public class BoxDAOImplTest {
     public void testCreateBoxException()
     {
         //new Box
-        b = new Box();
+        Box b = new Box();
 
         //save the Box in DB
         try {
-            bxDAO.create(b);
+            b = bxDAO.create(b);
         } catch (BoxException be) {
             be.printStackTrace();
         }
@@ -89,7 +88,7 @@ public class BoxDAOImplTest {
     public void testUpdateBox()
     {
         //new Box, fill in NULL CONSTRAINTS
-        b = new Box();
+        Box b = new Box();
         b.setDailyRate(1342534);
         b.setPicURL("");
         b.setSize(123456789);
@@ -107,7 +106,7 @@ public class BoxDAOImplTest {
             //updating the price
             b.setDailyRate(10);
 
-                bxDAO.update(b);
+            bxDAO.update(b);
 
             //the new price should be 10
             List<Box> lbox = bxDAO.findBox(b);
@@ -191,5 +190,65 @@ public class BoxDAOImplTest {
         }
     }
 
+    /**
+     * Test method is for  sepm.ss14.e1228153.dao.BoxDAOImpl
+     *                     sepm.ss14.e1228153.entity.Box
+     *
+     * This test will try to delete a box in DB
+     * It should succeed.
+     */
+    @Test
+    public void deleteBox() {
+        //new Box
+        Box b = new Box();
+        b.setDailyRate(1342534);
+        b.setPicURL("");
+        b.setSize(123456789);
+        b.setFloor("Straw");
+        b.setWindow(true);
+        b.setOutside(false);
+
+        try {
+            //put new Box into DB
+            Box x = bxDAO.create(b);
+
+            //create a list with all non deleted boxes
+            List<Box> blist = bxDAO.findBox(new Box());
+
+            //check if our box is in the list
+            assertTrue(blist.contains(x));
+
+            //delete box
+            bxDAO.delete(x);
+
+            //create a list with all non deleted boxes
+            blist = bxDAO.findBox(new Box());
+
+            //check if our box is in the list
+            assertFalse(blist.contains(x));
+
+        } catch (BoxException be) {
+            be.printStackTrace();
+        }
+    }
+
+    /**
+     * Test method is for  sepm.ss14.e1228153.dao.BoxDAOImpl
+     *                     sepm.ss14.e1228153.entity.Box
+     *
+     * This test will try to delete a box in DB
+     * It should succeed.
+     */
+    @Test(expected = NullPointerException.class)
+    public void deleteBoxException() {
+        try {
+            Box b = new Box();
+
+            bxDAO.delete(b);
+
+        } catch (BoxException be) {
+            be.printStackTrace();
+        }
+    }
 
 }

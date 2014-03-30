@@ -60,7 +60,7 @@ public class BoxServiceImpl implements BoxService {
     }
 
     @Override
-    public void delete(Box b) {
+    public void delete(Box b) throws BoxException  {
         if(b == null) {
 
         } else {

@@ -12,5 +12,5 @@ public interface BoxService {
     public ObservableList<Box> findBox(Box b) throws BoxException; //find by example
     public ObservableList<BoxReservation> find(BoxReservation b) throws BoxException; //find by example
     public void update(Box b) throws BoxException;
-    public void delete(Box b);
+    public void delete(Box b) throws BoxException ;
 }
