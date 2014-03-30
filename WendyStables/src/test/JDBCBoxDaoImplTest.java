@@ -1,7 +1,5 @@
 package test;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import persistance.BoxDAO;
@@ -9,7 +7,6 @@ import persistance.BoxDAOImpl;
 import persistance.DBconnection;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 
 public class JDBCBoxDaoImplTest extends BoxDAOImplTest {
 
@@ -24,6 +21,7 @@ public class JDBCBoxDaoImplTest extends BoxDAOImplTest {
         db.checkDriver();
         db.createConnection();
         c = db.getConnection();
+        c.setAutoCommit(false);
 
         //initialise new DAO service object
         BoxDAO bxDAO = new BoxDAOImpl().initialize();
@@ -34,7 +32,9 @@ public class JDBCBoxDaoImplTest extends BoxDAOImplTest {
     public void tearDown() throws Exception
     {
         //close DB connection
-        db.closeConnection();
+        c.rollback();
+        c.setAutoCommit(true);
+//        db.closeConnection();
     }
 
 }
