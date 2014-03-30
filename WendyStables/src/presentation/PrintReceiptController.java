@@ -1,19 +1,28 @@
 package presentation;
 
 import entity.Box;
+import entity.Receipt;
 import entity.Reservation;
 import exception.ReservationException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBoxBuilder;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import javafx.scene.control.TextField;
 import service.*;
@@ -143,7 +152,9 @@ public class PrintReceiptController implements Initializable {
         logger.info("proceeding to pay");
 
         ReceiptService rc = new ReceiptServiceImpl();
-        rc.create(clickedRes);
+
+        Receipt receipt = new Receipt();
+        receipt = rc.create(clickedRes);
 
 
         Reservation r = new Reservation();
@@ -151,9 +162,61 @@ public class PrintReceiptController implements Initializable {
 
         resbulka.setItems(rs.find(r));
 
-            //mark all reservations as payed
+        //create pop up with receipt info
+        popUP(invoiceText(clickedRes, receipt));
 
-            //create pop up with receipt info
+
+    }
+
+    public String invoiceText(Set<Reservation> rs, Receipt rec) {
+        boolean customer = false;
+
+        String invoice = "Invoice #" + rec.getId() + "\n\n";
+        int receiptCharge = 0;
+
+        for(Reservation r : rs) {
+
+            int totalCharge;
+            totalCharge = r.getDailyCharge();
+
+            int miliToDays = 1000*3600*24;
+            long days = (r.getEnd().getTime() - r.getStart().getTime()) / miliToDays;
+
+            totalCharge *= days;
+            receiptCharge += totalCharge;
+
+            if(!customer) {
+                    invoice += "Customer name: " + r.getCustomerName() + "\n\n";
+                    customer = true;
+            };
+
+            invoice += "Reservation #" + r.getId() + "\t\t" + "Horse name = " + r.getHorseName() + "\n";
+            invoice += "FROM: " + r.getStart() + "\t\t UNTIL: " + r.getEnd() + "\n";
+            invoice += "Daily charge: " + r.getDailyCharge() + "\t\t TOTAL: " + totalCharge + "\n";
+            invoice += "---------------------------------------------------------------------------\n\n";
+        }
+
+        invoice += "\t\tTOTAL: " + receiptCharge;
+
+        return invoice;
+    }
+
+    public void popUP(String s) {
+        final Stage dialogStage = new Stage();
+
+        Button ok = new Button("Ok");
+        ok.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                dialogStage.close();
+            }
+        });
+
+        dialogStage.initModality(Modality.WINDOW_MODAL);
+        dialogStage.setScene(new Scene(VBoxBuilder.create().
+                children(new Text(s), ok).
+                alignment(Pos.CENTER).padding(new Insets(25)).build()));
+        dialogStage.showAndWait();
 
     }
 

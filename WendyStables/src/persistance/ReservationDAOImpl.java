@@ -116,6 +116,37 @@ public class ReservationDAOImpl implements  ReservationDAO {
         return olist;
     }
 
+    @Override
+    public ObservableList<Reservation> findActiveBox(Reservation r) {
+        ObservableList<Reservation> olist = FXCollections.observableArrayList();
+        String query = "select * from reservation ";
+        String where = "WHERE ";
+
+        if(r.getBoxID() != null) where += "boxid = '" + r.getBoxID() + "' AND ";
+
+        where += "r.until > CURDATE()) AND";
+        where += "PAYED = FALSE;";
+
+        String temp = query + where;
+
+        try {
+            PreparedStatement ps = c.prepareStatement(temp);
+            ResultSet rset = ps.executeQuery();
+
+            while(rset.next()) {
+                Reservation rr = new Reservation();
+
+                rr.setId(rset.getInt("id"));
+
+                olist.add(rr);
+            }
+        } catch (SQLException e) {
+            logger.info("box has no active reservations");
+        }
+
+        return olist;
+    }
+
     public ObservableList<Reservation> findCustomer(Reservation r) {
         ObservableList<Reservation> olist = FXCollections.observableArrayList();
 

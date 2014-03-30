@@ -44,7 +44,8 @@ public class ReceiptDAOImpl implements  ReceiptDAO {
     }
 
     @Override
-    public int create(Receipt r) {
+    public Receipt create(Receipt r) {
+        Receipt receipt = new Receipt();
 
         try {
             createStmt.setInt(1, r.getTotalCharge());
@@ -55,15 +56,15 @@ public class ReceiptDAOImpl implements  ReceiptDAO {
             ResultSet rset = createStmt.getGeneratedKeys();
 
             rset.next();
-            int i = rset.getInt("id");
+            receipt.setId(rset.getInt("id"));
 
-            logger.info("Receipt ID " + i + " was created");
-            return i;
+            logger.info("Receipt ID " + receipt.getId() + " was created");
+            return receipt;
 
         } catch (SQLException e) {
             logger.info("exception during ReceiptDAO creation");
             e.printStackTrace();
-            return -1;
+            return null;
         }
     }
 

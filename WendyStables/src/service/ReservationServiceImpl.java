@@ -30,6 +30,15 @@ public class ReservationServiceImpl implements ReservationService {
         }
     }
 
+    public boolean findActiveBox(Reservation r) {
+        if(r == null) {
+            return false;
+        } else {
+            ObservableList<Reservation> olist = ReservationDAOImpl.initialize().findActiveBox(r);
+            return (olist.size() == 0);
+        }
+    }
+
     @Override
     public ObservableList<Reservation> findCustomer(Reservation r) {
         if(r == null) {

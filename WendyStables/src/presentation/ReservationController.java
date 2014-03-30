@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import org.apache.log4j.Logger;
@@ -32,6 +33,13 @@ public class ReservationController implements Initializable {
 
     private static final Logger logger = Logger.getLogger(ReservationController.class);
 
+    @FXML
+    private javafx.scene.image.ImageView image_field;
+    @FXML
+    private Label image_loaded;
+    private String filename = "";
+    private String directory = "img/";
+    private Image img;
     @FXML
     private Label success_message;
     @FXML
@@ -618,7 +626,18 @@ public class ReservationController implements Initializable {
     public void mouseClick(MouseEvent arg0) {
         clickedBox = new HashSet<BoxReservation>(tabulka.getSelectionModel().getSelectedItems());
 
+        if(clickedBox.size() == 1) {
+            for(BoxReservation clicked : clickedBox) {
+                if(clicked.getPicURL() != null && !clicked.getPicURL().trim().isEmpty() && !clicked.getPicURL().equals("")) setIMG("" + clicked.getPicURL());
+                else setIMG("default.jpeg");
+            }
+        } else setIMG("default.jpeg");
 //TODO do we need this?
         reserveButton.setDisable(false);
+    }
+
+    public void setIMG(String s) {
+        img = new Image(getClass().getResourceAsStream(directory+s));
+        image_field.setImage(img);
     }
 }

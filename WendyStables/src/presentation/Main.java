@@ -46,8 +46,8 @@ public class Main extends Application {
         } catch (Exception e) {
             logger.info("DB ERROR");
             //TODO throw popup
-
         }
+
         //javaFX
 		logger.info("Application starting...");
 		

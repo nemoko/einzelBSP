@@ -19,8 +19,10 @@ public class ReceiptServiceImpl implements ReceiptService {
     }
 
     @Override
-    public void create(Set<Reservation> sr) {
-        if(sr == null) return;
+    public Receipt create(Set<Reservation> sr) {
+        Receipt receipt = new Receipt();
+
+        if(sr == null) return null;
         else {
             int totalCharge = 0;
 
@@ -31,19 +33,21 @@ public class ReceiptServiceImpl implements ReceiptService {
                 int miliToDays = 1000*3600*24;
                 long days = (r.getEnd().getTime() - r.getStart().getTime()) / miliToDays;
 
+                reservationCharge *= days;
+
                 totalCharge += reservationCharge;
             }
 
-            Receipt rc = new Receipt();
-            rc.setTotalCharge(totalCharge);
+            receipt.setTotalCharge(totalCharge);
 
-            int receiptID = ReceiptDAOImpl.initialize().create(rc);
-            rc.setId(receiptID);
+            receipt = ReceiptDAOImpl.initialize().create(receipt);
 
             for(Reservation r : sr) {
                 ReservationService res = new ReservationServiceImpl().initialize();
-                res.update(r, rc);
+                res.update(r, receipt);
             }
+
+            return receipt;
         }
     }
 

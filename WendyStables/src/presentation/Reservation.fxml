@@ -261,7 +261,7 @@
             <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="428.0" prefWidth="790.0" spacing="5.0">
               <children>
                 <TableView fx:id="tabulka" onMouseClicked="#mouseClick" prefHeight="439.0" prefWidth="495.0" />
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9f9f9f" height="258.0" stroke="BLACK" strokeType="INSIDE" width="290.0" />
+                <ImageView id="clickedBox" fx:id="image_field" fitHeight="288.7110595703125" fitWidth="268.3638176542753" pickOnBounds="true" preserveRatio="true" />
               </children>
             </HBox>
           </children>

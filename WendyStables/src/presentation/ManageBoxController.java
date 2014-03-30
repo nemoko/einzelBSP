@@ -1,6 +1,7 @@
 package presentation;
 
 import entity.Box;
+import entity.Reservation;
 import exception.BoxException;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +29,8 @@ import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import service.BoxService;
 import service.BoxServiceImpl;
+import service.ReservationService;
+import service.ReservationServiceImpl;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.FileImageOutputStream;
@@ -387,8 +390,15 @@ public class ManageBoxController implements Initializable {
 //            f_box_failed.setVisible(true);
 //        }
 
+    }
 
+    public boolean boxReserved(Box box) {
 
+        Reservation r = new Reservation();
+        r.setBoxID(box.getId());
+        ReservationService res = new ReservationServiceImpl().initialize();
+
+        return res.findActiveBox(r);
     }
 
     @FXML
@@ -399,9 +409,30 @@ public class ManageBoxController implements Initializable {
 
         Box b = clicked;
 
-        popUp(b);
+        if(!boxReserved(b)) {
+            popUp(b);
 
-        onActionDisplayAll();
+            onActionDisplayAll();
+        } else {
+            final Stage dialogStage = new Stage();
+
+            Button ok = new Button("Ok");
+            ok.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    dialogStage.close();
+                }
+            });
+
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.setScene(new Scene(VBoxBuilder.create().
+                    children(new Text("Box is reserved and cannot be deleted\n\n"), ok).
+                    alignment(Pos.CENTER).padding(new Insets(25)).build()));
+            dialogStage.showAndWait();
+
+        }
+
+
 //        onActionFilterTable();
 //        f_filter_applied.setVisible(false);
     }

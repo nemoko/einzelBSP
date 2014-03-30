@@ -118,7 +118,7 @@ public class BoxDAOImpl implements BoxDAO {
 
         ObservableList<BoxReservation> olist = FXCollections.observableArrayList();
 
-        String query = " select b.id,b.dailyrate,b.size,b.floor,b.window,b.outside from box b "
+        String query = " select b.id,b.dailyrate,b.size,b.floor,b.window,b.outside,b.picurl from box b "
                       +"LEFT OUTER JOIN reservation r ON b.id = r.boxid ";
         String where = "WHERE ";
         String groupby = " group by b.id;";
@@ -150,6 +150,7 @@ public class BoxDAOImpl implements BoxDAO {
 
                 box.setId(rset.getInt("id"));
                 box.setDailyRate(rset.getInt("dailyrate"));
+                box.setPicURL(rset.getString("picurl"));
                 box.setSize(rset.getInt("size"));
                 box.setFloor(rset.getString("floor"));
                 box.setWindow(rset.getBoolean("window"));
