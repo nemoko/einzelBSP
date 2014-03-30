@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 
 public interface ReservationService {
 
-    public void create(Reservation r) throws ReservationException;
+    public Reservation create(Reservation r) throws ReservationException;
     public ObservableList<Reservation> find(Reservation r);
     public boolean findActiveBox(Reservation r);
     public ObservableList<Reservation> findCustomer(Reservation r);

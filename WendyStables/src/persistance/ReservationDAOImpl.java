@@ -9,10 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class ReservationDAOImpl implements  ReservationDAO {
 
@@ -46,11 +43,11 @@ public class ReservationDAOImpl implements  ReservationDAO {
     }
 
     @Override
-    public void create(Reservation r) throws ReservationException {
+    public Reservation create(Reservation r) throws ReservationException {
         logger.info("Preparing create statement for a new reservation");
 
         try {
-            createStmt = c.prepareStatement("INSERT INTO reservation(customername, horsename, start, until, dailyCharge, boxid) " + "VALUES (?, ?, ?, ?, ?, ?)");
+            createStmt = c.prepareStatement("INSERT INTO reservation(customername, horsename, start, until, dailyCharge, boxid) " + "VALUES (?, ?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 
             createStmt.setString(1, r.getCustomerName());
             createStmt.setString(2, r.getHorseName());
@@ -62,7 +59,15 @@ public class ReservationDAOImpl implements  ReservationDAO {
             createStmt.executeUpdate();
             logger.info("New reservation should be created in the DB");
 
+            ResultSet rset = createStmt.getGeneratedKeys();
+
+            rset.next();
+
+            r.setId(rset.getInt("id"));
+
             createStmt.close();
+
+            return r;
         } catch (java.sql.SQLIntegrityConstraintViolationException e) {
             logger.info("DATE CONSTRAINT VIOLATED");
             throw new ReservationException("Date constraint");
@@ -70,6 +75,7 @@ public class ReservationDAOImpl implements  ReservationDAO {
         } catch(SQLException e) {
             logger.info("SQL exception during Reservation DB creation");
             e.printStackTrace();
+            return null;
         }
     }
 

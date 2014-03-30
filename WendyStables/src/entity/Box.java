@@ -104,7 +104,7 @@ public class Box {
         Box box = (Box) o;
 
         if (!dailyRate.equals(box.dailyRate)) return false;
-        if (!deleted.equals(box.deleted)) return false;
+        if (deleted != box.deleted) return false;
         if (!floor.equals(box.floor)) return false;
         if (!id.equals(box.id)) return false;
         if (!outside.equals(box.outside)) return false;
@@ -113,18 +113,5 @@ public class Box {
         if (!window.equals(box.window)) return false;
 
         return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + dailyRate.hashCode();
-        result = 31 * result + (picURL != null ? picURL.hashCode() : 0);
-        result = 31 * result + size.hashCode();
-        result = 31 * result + floor.hashCode();
-        result = 31 * result + window.hashCode();
-        result = 31 * result + outside.hashCode();
-        result = 31 * result + deleted.hashCode();
-        return result;
     }
 }

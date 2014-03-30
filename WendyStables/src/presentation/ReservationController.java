@@ -23,6 +23,7 @@ import service.BoxService;
 import service.BoxServiceImpl;
 import service.ReservationServiceImpl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.sql.Date;
 import java.util.HashSet;
@@ -231,10 +232,10 @@ public class ReservationController implements Initializable {
                     return;
                 }
 
-                ReservationServiceImpl.initialize().create(r);
+                Reservation x = ReservationServiceImpl.initialize().create(r);
 //TODO refresh table view
                 onActionFilterTable();
-                success_message.setText("Reservation created");
+                success_message.setText("Reservation " + r.getId() + " created");
                 success_message.setVisible(true);
 
             } catch (ReservationException re) {
@@ -461,7 +462,8 @@ public class ReservationController implements Initializable {
             start_year = Integer.parseInt(tf_start_year.getText());
 
             //CHECK IF VALUE >= 0
-            if(Integer.signum(start_day) <= 0 || Integer.signum(start_month) <= 0 || Integer.signum(start_year) <= 0) {
+            if(Integer.signum(start_day) <= 0 || Integer.signum(start_month) <= 0 || Integer.signum(start_year) <= 0
+                || start_day > 31 || start_month > 12 || start_year > 9999) {
                 e_from_date.setVisible(true);
                 e_from_date.setText("incorrect date format");
             }
@@ -518,7 +520,8 @@ public class ReservationController implements Initializable {
             end_year = Integer.parseInt(tf_end_year.getText());
 
             //CHECK IF VALUE >= 0
-            if(Integer.signum(end_day) <= 0 || Integer.signum(end_month) <= 0 || Integer.signum(end_year) <= 0) {
+            if(Integer.signum(end_day) <= 0 || Integer.signum(end_month) <= 0 || Integer.signum(end_year) <= 0
+                    || end_day > 31 || end_month > 12 || end_year > 9999) {
                 e_to_date.setVisible(true);
                 e_to_date.setText("incorrect date format");
             }

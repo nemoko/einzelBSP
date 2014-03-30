@@ -17,8 +17,12 @@ public class ReservationServiceImpl implements ReservationService {
         return service;
     }
     @Override
-    public void create(Reservation r) throws ReservationException {
-        ReservationDAOImpl.initialize().create(r);
+    public Reservation create(Reservation r) throws ReservationException {
+        if(r == null) {
+            return null;
+        } else {
+            return ReservationDAOImpl.initialize().create(r);
+        }
     }
 
     @Override
