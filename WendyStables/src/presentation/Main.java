@@ -38,19 +38,8 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 
-        try {
-            DBconnection dbConnection = new DBconnection();
-            dbConnection.checkDriver();
-            dbConnection.createConnection();
-            logger.info("DB started");
-        } catch (Exception e) {
-            logger.info("DB ERROR");
-            //TODO throw popup
-        }
-
         //javaFX
 		logger.info("Application starting...");
-		
 		launch(args);
 	}
 }

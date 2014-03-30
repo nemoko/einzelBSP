@@ -26,7 +26,11 @@ public class ReceiptDAOImpl implements  ReceiptDAO {
 
     public ReceiptDAOImpl() {
         dbcon = DBconnection.instance();
-        c = dbcon.getConnection();
+        try {
+            c = dbcon.getConnection();
+        } catch (SQLException e) {
+            logger.info("DB connection failed");
+        }
 
         try {
             createStmt = c.prepareStatement("INSERT INTO receipt (totalcharge) " + "VALUES (?)", Statement.RETURN_GENERATED_KEYS);

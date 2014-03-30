@@ -32,7 +32,11 @@ public class ReservationDAOImpl implements  ReservationDAO {
 
     public ReservationDAOImpl() {
         dbcon = DBconnection.instance();
+        try {
         c = dbcon.getConnection();
+        } catch (SQLException e) {
+            logger.info("DB connection failed");
+        }
 
         try {
             createStmt = c.prepareStatement("INSERT INTO reservation(customername, horsename, start, until, dailyCharge, boxid) " + "VALUES (?, ?, ?, ?, ?, ?)");

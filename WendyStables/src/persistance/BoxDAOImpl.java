@@ -28,7 +28,11 @@ public class BoxDAOImpl implements BoxDAO {
 
     public BoxDAOImpl() {
         dbcon = DBconnection.instance();
-        c = dbcon.getConnection();
+        try {
+            c = dbcon.getConnection();
+        } catch (SQLException e) {
+            logger.info("DB connection failed");
+        }
 
         try {
             createStmt = c.prepareStatement("INSERT INTO box (dailyrate, picurl, size, floor, window, outside) " + "VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);

@@ -29,20 +29,14 @@ public class DBconnection {
             Class.forName("org.hsqldb.jdbc.JDBCDriver");
         } catch (Exception e) {
             System.err.println("ERROR: failed to load HSQLDB JDBC driver.");
-            e.printStackTrace();
         }
     }
 
-    public synchronized void createConnection() {
-        try {
-            c = DriverManager.getConnection(db_URL,db_USR,db_PWD);
-        } catch (SQLException e) {
-            logger.info("Exception during DB connection creation");
-            e.printStackTrace();
-        }
+    public synchronized void createConnection() throws SQLException {
+        c = DriverManager.getConnection(db_URL,db_USR,db_PWD);
     }
 
-    public Connection getConnection() {
+    public Connection getConnection() throws SQLException {
         if (c == null) {
             createConnection();
         }
