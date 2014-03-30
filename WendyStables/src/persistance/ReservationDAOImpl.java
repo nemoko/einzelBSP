@@ -175,10 +175,10 @@ public class ReservationDAOImpl implements  ReservationDAO {
             PreparedStatement ps = c.prepareStatement(temp);
             ps.executeUpdate();
 
-            logger.info("Box successfully updated");
+            logger.info("Reservation successfully updated");
             logger.info(ps.getGeneratedKeys());
         } catch (SQLException e) {
-            logger.info("exception during box update statement");
+            logger.info("exception during reservation update statement");
             e.printStackTrace();
         }
 

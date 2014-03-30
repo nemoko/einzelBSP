@@ -16,10 +16,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import org.apache.log4j.Logger;
 import javafx.scene.control.TextField;
-import service.BoxService;
-import service.BoxServiceImpl;
-import service.ReservationService;
-import service.ReservationServiceImpl;
+import service.*;
 
 import java.net.URL;
 import java.sql.Date;
@@ -141,14 +138,23 @@ public class PrintReceiptController implements Initializable {
                     return;
                 }
             }
+        }
+        //proceeding to pay
+        logger.info("proceeding to pay");
 
-            //proceeding to pay
-            logger.info("proceeding to pay");
+        ReceiptService rc = new ReceiptServiceImpl();
+        rc.create(clickedRes);
+
+
+        Reservation r = new Reservation();
+        ReservationService rs = ReservationServiceImpl.initialize();
+
+        resbulka.setItems(rs.find(r));
 
             //mark all reservations as payed
 
             //create pop up with receipt info
-        }
+
     }
 
     //check if end < now
@@ -166,9 +172,14 @@ public class PrintReceiptController implements Initializable {
         ObservableList<Reservation> olist = FXCollections.observableArrayList();
         Reservation r = new Reservation();
 
-        if(validateDate()) {
-            r.setStart(Date.valueOf(from));
-            r.setEnd(Date.valueOf(end));
+        try {
+            if(validateDate()) {
+                r.setStart(Date.valueOf(from));
+                r.setEnd(Date.valueOf(end));
+            }
+        } catch (Exception ie) {
+            logger.info("date validation failed");
+            return;
         }
 
         ReservationService rs = new ReservationServiceImpl().initialize();
@@ -330,13 +341,13 @@ public class PrintReceiptController implements Initializable {
 
         TableColumn<Reservation, Date> boxid = new TableColumn<Reservation, Date>("Stable");
         boxid.setMinWidth(50);
-        boxid.setCellValueFactory(new PropertyValueFactory<Reservation, Date>("boxid"));
+        boxid.setCellValueFactory(new PropertyValueFactory<Reservation, Date>("boxID"));
 
         TableColumn<Reservation, Date> dailycharge = new TableColumn<Reservation, Date>("Daily Charge");
         dailycharge.setMinWidth(120);
-        dailycharge.setCellValueFactory(new PropertyValueFactory<Reservation, Date>("dailycharge"));
+        dailycharge.setCellValueFactory(new PropertyValueFactory<Reservation, Date>("dailyCharge"));
 
-        resbulka.getColumns().addAll(customername,horsename, start, until, boxid, dailycharge);
+        resbulka.getColumns().addAll(boxid, customername,horsename, start, until, dailycharge);
     }
 
 //TODO refresh reservation table based on customer name primarily, and DATES if any entered
@@ -368,8 +379,6 @@ public class PrintReceiptController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Box b = new Box();
-
         Reservation r = new Reservation();
         ReservationService rs = ReservationServiceImpl.initialize();
         resbulka.setItems(rs.find(r));

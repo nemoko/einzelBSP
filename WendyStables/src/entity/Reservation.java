@@ -6,15 +6,15 @@ import java.sql.Date;
 
 public class Reservation {
 
-    private Integer id;
-    private Integer boxID;
-    private Integer dailyCharge;
-    private Integer receiptID;
-    private SimpleStringProperty customerName;
-    private SimpleStringProperty horseName;
-    private Date start;
-    private Date end;
-    private Boolean payed;
+    protected Integer id;
+    protected Integer boxID;
+    protected Integer dailyCharge;
+    protected Integer receiptID;
+    protected SimpleStringProperty customerName;
+    protected SimpleStringProperty horseName;
+    protected Date start;
+    protected Date end;
+    protected Boolean payed;
 
     public Reservation() {
         this.customerName = new SimpleStringProperty("");

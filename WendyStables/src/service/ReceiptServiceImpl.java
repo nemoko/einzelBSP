@@ -1,8 +1,12 @@
 package service;
 
 import entity.Receipt;
+import entity.Reservation;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
+import persistance.ReceiptDAOImpl;
+
+import java.util.Set;
 
 public class ReceiptServiceImpl implements ReceiptService {
 
@@ -15,8 +19,32 @@ public class ReceiptServiceImpl implements ReceiptService {
     }
 
     @Override
-    public void create(Receipt r) {
+    public void create(Set<Reservation> sr) {
+        if(sr == null) return;
+        else {
+            int totalCharge = 0;
 
+            for(Reservation r : sr) {
+                int reservationCharge;
+                reservationCharge = r.getDailyCharge();
+
+                int miliToDays = 1000*3600*24;
+                long days = (r.getEnd().getTime() - r.getStart().getTime()) / miliToDays;
+
+                totalCharge += reservationCharge;
+            }
+
+            Receipt rc = new Receipt();
+            rc.setTotalCharge(totalCharge);
+
+            int receiptID = ReceiptDAOImpl.initialize().create(rc);
+            rc.setId(receiptID);
+
+            for(Reservation r : sr) {
+                ReservationService res = new ReservationServiceImpl().initialize();
+                res.update(r, rc);
+            }
+        }
     }
 
     @Override

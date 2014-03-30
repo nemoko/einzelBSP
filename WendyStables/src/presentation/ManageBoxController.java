@@ -45,6 +45,7 @@ public class ManageBoxController implements Initializable {
     @FXML
     private Label image_loaded;
     private String filename = "";
+    private String directory = "img/";
     private Image img;
     @FXML
     private javafx.scene.image.ImageView image_field;
@@ -391,13 +392,6 @@ public class ManageBoxController implements Initializable {
     }
 
     @FXML
-    public void choosePicture() {
-//        FileChooser fileChooser = new FileChooser();
-//        fileChooser.setTitle("Open Resource File");
-//        fileChooser.showOpenDialog(stage);
-    }
-
-    @FXML
     public void onActionDeleteBox() {
         logger.info("onActionDeleteBox clicked");
         removeSuccessMessage();
@@ -507,11 +501,6 @@ public class ManageBoxController implements Initializable {
         setIMG("default.jpeg");
     }
 
-    public void setIMG(String s) {
-        img = new Image(getClass().getResourceAsStream("img/"+s));
-        image_field.setImage(img);
-    }
-
     public void initializeTable() {
         TableColumn<Box, Integer> id = new TableColumn<Box,Integer>("#");
         id.setMinWidth(7);
@@ -568,7 +557,7 @@ public class ManageBoxController implements Initializable {
 
             tf_size.setText("" + clicked.getSize());
 
-            logger.info(clicked.getPicURL());
+            //logger.info(clicked.getPicURL());
 
             if(clicked.getPicURL() != null && !clicked.getPicURL().trim().isEmpty() && !clicked.getPicURL().equals("")) setIMG("" + clicked.getPicURL());
             else setIMG("default.jpeg");
@@ -601,7 +590,8 @@ public class ManageBoxController implements Initializable {
         }
     }
 
-//  http://stackoverflow.com/questions/15336312/copy-an-image-to-another-location-with-different-size
+
+    //  http://stackoverflow.com/questions/15336312/copy-an-image-to-another-location-with-different-size
     public void copyImg(String pathToImage) {
 
         InputStream sourceFile = null;
@@ -640,14 +630,14 @@ public class ManageBoxController implements Initializable {
 
         filename = pathToImage.substring(pathToImage.lastIndexOf("/")+1);
 
-        File output = new File("img/" + filename);
+        File output = new File(directory + filename);
                 ImageOutputStream ios;
         try {
             ios = new FileImageOutputStream(output);
             ImageIO.write(outputImage, "jpg", ios);
 
             ios.close();
-            logger.info(" copied to img/" +filename);
+            logger.info(" copied to images/" +filename);
             image_loaded.setText(filename);
             image_loaded.setVisible(true);
 
@@ -656,5 +646,10 @@ public class ManageBoxController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setIMG(String s) {
+        img = new Image(getClass().getResourceAsStream(directory+s));
+        image_field.setImage(img);
     }
 }

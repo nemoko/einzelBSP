@@ -34,7 +34,7 @@ public class BoxDAOImpl implements BoxDAO {
             createStmt = c.prepareStatement("INSERT INTO box (dailyrate, picurl, size, floor, window, outside) " + "VALUES (?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
 
         } catch (SQLException e) {
-            logger.info("exception during BoxServicePrepareStatement");
+            logger.info("exception during BoxDAOPrepareStatement");
             e.printStackTrace();
         }
     }
@@ -183,7 +183,7 @@ public class BoxDAOImpl implements BoxDAO {
         if(b.getFloor() != null && !b.getFloor().isEmpty() && !b.getFloor().contains("any")) set += "floor = '" + b.getFloor() + "', ";
         if(b.isWindow() != null && (b.isWindow() ^ b.isOutside())) set += "window = '" + b.isWindow() + "', ";
         if(b.isOutside() != null && (b.isWindow() ^ b.isOutside())) set += "outside = '" + b.isOutside() + "', ";
-        //PICTURE??
+        if(b.getPicURL() != null &&!b.getPicURL().equals("")) set += "picurl = '" + b.getPicURL() + "', ";
 
         String temp = query + set.substring(0, set.length()-2) + where;
 

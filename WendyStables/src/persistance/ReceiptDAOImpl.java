@@ -1,12 +1,12 @@
 package persistance;
 
 import entity.Receipt;
+import entity.Reservation;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.Set;
 
 public class ReceiptDAOImpl implements  ReceiptDAO {
 
@@ -29,12 +29,13 @@ public class ReceiptDAOImpl implements  ReceiptDAO {
         c = dbcon.getConnection();
 
         try {
-            findStmt = c.prepareStatement("SELECT * FROM box");
+            createStmt = c.prepareStatement("INSERT INTO receipt (totalcharge) " + "VALUES (?)", Statement.RETURN_GENERATED_KEYS);
 
         } catch (SQLException e) {
-            logger.info("exception during BoxServicePrepareStatement");
+            logger.info("exception during ReceiptDAOPrepareStatement");
             e.printStackTrace();
         }
+
     }
 
     public static ReceiptDAO initialize() {
@@ -43,8 +44,27 @@ public class ReceiptDAOImpl implements  ReceiptDAO {
     }
 
     @Override
-    public void create(Receipt r) {
+    public int create(Receipt r) {
 
+        try {
+            createStmt.setInt(1, r.getTotalCharge());
+
+            createStmt.executeUpdate();
+            logger.info("New receipt should be created in DB");
+
+            ResultSet rset = createStmt.getGeneratedKeys();
+
+            rset.next();
+            int i = rset.getInt("id");
+
+            logger.info("Receipt ID " + i + " was created");
+            return i;
+
+        } catch (SQLException e) {
+            logger.info("exception during ReceiptDAO creation");
+            e.printStackTrace();
+            return -1;
+        }
     }
 
     @Override
