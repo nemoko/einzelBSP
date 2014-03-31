@@ -4,8 +4,6 @@ import entity.EditingCell;
 import entity.BoxReservation;
 import entity.Reservation;
 import exception.ReservationException;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -23,7 +21,6 @@ import service.BoxService;
 import service.BoxServiceImpl;
 import service.ReservationServiceImpl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.sql.Date;
 import java.util.HashSet;
@@ -170,6 +167,12 @@ public class ReservationController implements Initializable {
             return;
         }
 
+        if(tf_customer.getText().trim().isEmpty()) {
+            e_customer.setText("enter name");
+            e_customer.setVisible(true);
+
+        }
+
 //TODO remove the horseName check from the next FOR LOOP
         for(BoxReservation b : clickedBox) {
             if(b.getHorseName().equals("")) {
@@ -228,7 +231,7 @@ public class ReservationController implements Initializable {
                 r.setDailyCharge(b.getDailyRate());
 
 //TODO add other error messages here
-                if(e_horse.isVisible() || e_from_date.isVisible() || e_to_date.isVisible()) {
+                if(e_horse.isVisible() || e_from_date.isVisible() || e_to_date.isVisible() || e_customer.isVisible()) {
                     return;
                 }
 
@@ -573,7 +576,7 @@ public class ReservationController implements Initializable {
 
         if(e_from_date.isVisible() || e_to_date.isVisible()) return false;
 
-        if((start_year <= end_year) && (start_month <= end_month) && (start_day <= end_day)) {
+        if((start_year <= end_year) && (start_month <= end_month) || (start_month == end_month) && (start_day <= end_day)) {
             return true;
         } else {
             e_from_date.setText("FROM");

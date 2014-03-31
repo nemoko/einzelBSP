@@ -96,6 +96,59 @@ public class Box {
                 '}';
     }
 
+//    @Override
+//    public boolean equals(Object obj) {
+//
+//        if (obj == null)
+//            return false;
+//        if (getClass() != obj.getClass())
+//            return false;
+//
+//        Box other = (Box) obj;
+//        if (dailyRate == null) {
+//            if (other.dailyRate != null)
+//                return false;
+//        } else if (!dailyRate.equals(other.dailyRate))
+//            return false;
+//        if (deleted == null) {
+//            if (other.deleted != null)
+//                return false;
+//        } else if (!deleted.equals(other.deleted))
+//            return false;
+//        if (floor == null) {
+//            if (other.floor != null)
+//                return false;
+//        } else if (!floor.equals(other.floor))
+//            return false;
+//        if (id == null) {
+//            if (other.id != null)
+//                return false;
+//        } else if (!id.equals(other.id))
+//            return false;
+//        if (outside == null) {
+//            if (other.outside != null)
+//                return false;
+//        } else if (!outside.equals(other.outside))
+//            return false;
+//        if (picURL == null) {
+//            if (other.picURL != null)
+//                return false;
+//        } else if (!picURL.equals(other.picURL))
+//            return false;
+//        if (size == null) {
+//            if (other.size != null)
+//                return false;
+//        } else if (!size.equals(other.size))
+//            return false;
+//        if (window == null) {
+//            if (other.window != null)
+//                return false;
+//        } else if (!window.equals(other.window))
+//            return false;
+//        return true;
+//    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -103,14 +156,14 @@ public class Box {
 
         Box box = (Box) o;
 
-        if (!dailyRate.equals(box.dailyRate)) return false;
-        if (deleted != box.deleted) return false;
-        if (!floor.equals(box.floor)) return false;
-        if (!id.equals(box.id)) return false;
-        if (!outside.equals(box.outside)) return false;
+        if (dailyRate != null ? !dailyRate.equals(box.dailyRate) : box.dailyRate != null) return false;
+        if (deleted != null ? !deleted.equals(box.deleted) : box.deleted != null) return false;
+        if (floor != null ? !floor.equals(box.floor) : box.floor != null) return false;
+        if (id != null ? !id.equals(box.id) : box.id != null) return false;
+        if (outside != null ? !outside.equals(box.outside) : box.outside != null) return false;
         if (picURL != null ? !picURL.equals(box.picURL) : box.picURL != null) return false;
-        if (!size.equals(box.size)) return false;
-        if (!window.equals(box.window)) return false;
+        if (size != null ? !size.equals(box.size) : box.size != null) return false;
+        if (window != null ? !window.equals(box.window) : box.window != null) return false;
 
         return true;
     }

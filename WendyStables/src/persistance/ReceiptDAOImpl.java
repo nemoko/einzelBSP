@@ -1,12 +1,10 @@
 package persistance;
 
 import entity.Receipt;
-import entity.Reservation;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
-import java.util.Set;
 
 public class ReceiptDAOImpl implements  ReceiptDAO {
 

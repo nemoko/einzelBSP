@@ -17,12 +17,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBoxBuilder;
-import javafx.scene.paint.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
@@ -106,7 +103,6 @@ public class ManageBoxController implements Initializable {
     private Label f_filter_applied;
     @FXML
     private Label f_filter_criteria;
-
 
     @FXML
     public void removeSuccessMessage() {
@@ -683,6 +679,8 @@ public class ManageBoxController implements Initializable {
             logger.info(" copied to img/" +filename);
             image_loaded.setText(filename);
             image_loaded.setVisible(true);
+            setIMG(filename);
+
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

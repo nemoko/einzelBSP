@@ -1,10 +1,7 @@
 package persistance;
 
 import entity.Receipt;
-import entity.Reservation;
 import javafx.collections.ObservableList;
-
-import java.util.Set;
 
 public interface ReceiptDAO {
 

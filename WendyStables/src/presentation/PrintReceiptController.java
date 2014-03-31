@@ -1,9 +1,7 @@
 package presentation;
 
-import entity.Box;
 import entity.Receipt;
 import entity.Reservation;
-import exception.ReservationException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

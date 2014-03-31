@@ -2,12 +2,10 @@ package persistance;
 
 import entity.Box;
 import entity.BoxReservation;
-import entity.Reservation;
 import exception.BoxException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.log4j.Logger;
-import persistance.DBconnection;
 
 import java.sql.*;
 
@@ -77,6 +75,8 @@ public class BoxDAOImpl implements BoxDAO {
 
     @Override
     public ObservableList<Box> findBox(Box b) throws BoxException {
+        logger.info("find boxDAO");
+
         ObservableList<Box> olist = FXCollections.observableArrayList();
         String query = "select * from box ";
         String where = "WHERE ";
@@ -116,6 +116,7 @@ public class BoxDAOImpl implements BoxDAO {
             logger.info("exception during box find statement");
             e.printStackTrace();
         }
+        logger.info("returning " + olist.size() + " boxes");
         return olist;
     }
 

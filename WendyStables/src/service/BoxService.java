@@ -2,7 +2,6 @@ package service;
 
 import entity.Box;
 import entity.BoxReservation;
-import entity.Reservation;
 import exception.BoxException;
 import javafx.collections.ObservableList;
 

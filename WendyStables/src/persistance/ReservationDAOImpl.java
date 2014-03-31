@@ -1,7 +1,5 @@
 package persistance;
 
-import entity.Box;
-import entity.BoxReservation;
 import entity.Receipt;
 import entity.Reservation;
 import exception.ReservationException;

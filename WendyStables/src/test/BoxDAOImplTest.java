@@ -1,18 +1,21 @@
 package test;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
 
 import entity.Box;
 import exception.BoxException;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import persistance.BoxDAO;
 
 import java.util.List;
 
 
-public class BoxDAOImplTest {
+public abstract class BoxDAOImplTest {
     private BoxDAO bxDAO;
+
+    private static final Logger logger = Logger.getLogger(BoxDAOImplTest.class);
+
 
     protected void initBoxDAO(BoxDAO bxDAO) {
         this.bxDAO = bxDAO;
